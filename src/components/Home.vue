@@ -1,16 +1,32 @@
 <template>
-  <div class="hello">
-    
-  </div>
+  <v-container>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <h1>{{content.hero}}</h1>
+        <p>{{content.subHero}}</p>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Home',
   data () {
     return {
-      msg: 'W'
+      content: ''
     }
+  },
+  methods: {
+    getContent: function () {
+      axios.get("static/json/main.json").then(x=>{
+        this.content = x.data.content;
+      });
+    }
+  },
+  beforeMount: function(){
+    this.getContent();
   }
 }
 </script>
