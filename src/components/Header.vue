@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     getContent: function () {
-      axios.get("static/json/main.json").then(x=>{
+      axios.get("static/json/header.json").then(x=>{
         this.content = x.data.content;
       });
     }
