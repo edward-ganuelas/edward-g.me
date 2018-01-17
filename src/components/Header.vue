@@ -6,13 +6,14 @@
         <p>{{content.subHero}}</p>
       </v-flex>
       <v-flex xs12>
-        <nav>
-          <ul class="hidden-sm-and-down">
+        <nav class="hidden-sm-and-down">
+          <ul>
             <li v-for="nav in navigation" v-bind:key="nav.label">
               <router-link :to="nav.to">{{nav.label}}</router-link>
             </li>
           </ul>
-          <v-card-text style="height: 100px; position: relative" class="hidden-md-and-up">
+        </nav>
+          <v-card-text class="hidden-md-and-up fab-wrapper">
             <v-btn
               absolute
               dark
@@ -41,6 +42,7 @@
               </v-list>
             </v-toolbar>
             <v-divider></v-divider>
+            <nav>
             <v-list dense class="pt-0" >
               <v-list-tile v-for="nav in navigation" v-bind:key="nav.label">
                 <v-list-tile-content>
@@ -48,8 +50,8 @@
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
+            </nav>
         </v-navigation-drawer>
-        </nav>
       </v-flex>
     </v-layout>
   </v-container>
@@ -67,18 +69,18 @@ export default {
           label: "Home",
           to: "/"
         },
-        about: {
-          label: "About Me",
-          to: ""
-        },
-        skills: {
-          label: "Skills/Experience",
-          to: ""
-        },
-        blog: {
-          label: "Blog",
-          to: ""
-        },
+        // about: {
+        //   label: "About Me",
+        //   to: ""
+        // },
+        // skills: {
+        //   label: "Skills/Experience",
+        //   to: ""
+        // },
+        // blog: {
+        //   label: "Blog",
+        //   to: ""
+        // },
         linkedin: {
           label: "Linkedin",
           to: "/linkedin"
@@ -127,6 +129,15 @@ nav {
       flex: 1 0;
       text-align: center;
     }
+  }
+}
+.fab-wrapper{
+  padding: 0;
+  position: relative;
+  @media(min-width: 1024px)
+  {
+    height: 100px; 
+    padding: auto;
   }
 }
 </style>
