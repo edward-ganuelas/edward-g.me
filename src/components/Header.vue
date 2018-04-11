@@ -9,7 +9,7 @@
         <nav class="hidden-sm-and-down">
           <ul>
             <li v-for="nav in navigation" v-bind:key="nav.label">
-              <router-link :to="nav.to">{{nav.label}}</router-link>
+              <router-link :to="nav.to" v-html="nav.label"></router-link>
             </li>
           </ul>
         </nav>
@@ -46,7 +46,7 @@
             <v-list dense class="pt-0" >
               <v-list-tile v-for="nav in navigation" v-bind:key="nav.label">
                 <v-list-tile-content>
-                  <v-list-tile-title><router-link :to="nav.to">{{nav.label}}</router-link></v-list-tile-title>
+                  <v-list-tile-title><router-link :to="nav.to" v-html="nav.label"></router-link></v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
             </v-list>
@@ -66,7 +66,7 @@ export default {
       content: "",
       navigation: {
         home: {
-          label: "Home",
+          label: "<span class='ico'><i class='fas fa-home'></i></span>Home",
           to: "/"
         },
         // about: {
@@ -82,11 +82,11 @@ export default {
         //   to: ""
         // },
         linkedin: {
-          label: "Linkedin",
+          label: "<span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin",
           to: "/linkedin"
         },
         github: {
-          label: "Github",
+          label: "<span class='ico'><i class='fab fa-github'></i></span>Github",
           to: "/github"
         },
         eightray: {
@@ -140,4 +140,5 @@ nav {
     padding: auto;
   }
 }
+
 </style>

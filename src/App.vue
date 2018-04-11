@@ -29,4 +29,7 @@ export default {
 .dissapear{
   display: none;
 }
+span.ico{
+  margin-right: 8px;
+}
 </style>
