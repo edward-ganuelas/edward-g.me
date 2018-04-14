@@ -69,10 +69,10 @@ export default {
           label: "<span class='ico'><i class='fas fa-home'></i></span>Home",
           to: "/"
         },
-        // about: {
-        //   label: "About Me",
-        //   to: ""
-        // },
+        about: {
+          label: "<span class='ico'><i class='fas fa-user'></i></span>About Me",
+          to: "/about-me"
+        },
         // skills: {
         //   label: "Skills/Experience",
         //   to: ""
