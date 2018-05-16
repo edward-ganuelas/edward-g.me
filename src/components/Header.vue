@@ -6,14 +6,14 @@
         <p>{{content.subHero}}</p>
       </v-flex>
       <v-flex xs12>
-        <nav class="hidden-sm-and-down">
+        <nav class="">
           <ul>
             <li v-for="nav in navigation" v-bind:key="nav.label">
               <router-link :to="nav.to" v-html="nav.label"></router-link>
             </li>
           </ul>
         </nav>
-          <v-card-text class="hidden-md-and-up fab-wrapper">
+          <!-- <v-card-text class="hidden-md-and-up fab-wrapper">
             <v-btn
               absolute
               dark
@@ -26,8 +26,8 @@
             >
               <v-icon>list</v-icon>
             </v-btn>
-          </v-card-text>
-          <v-navigation-drawer temporary
+          </v-card-text> -->
+          <!-- <v-navigation-drawer temporary
             v-model="drawer"
             light
             absolute class="hidden-md-and-up"
@@ -51,7 +51,7 @@
               </v-list-tile>
             </v-list>
             </nav>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
       </v-flex>
     </v-layout>
   </v-container>
@@ -116,10 +116,12 @@ h1 {
   font-family: "Raleway", sans-serif;
 }
 nav {
+  white-space: nowrap;
+  overflow-x: auto;
   ul {
     list-style-type: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     @media (min-width: 1024px) {
       width: 61.8%;
       float: right;
@@ -128,6 +130,10 @@ nav {
     li {
       flex: 1 0;
       text-align: center;
+      margin: 0 1rem;
+      a{
+        text-decoration: none;
+      }
     }
   }
 }
