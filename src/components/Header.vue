@@ -1,36 +1,36 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
-      <v-flex xs12>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
         <h1>{{content.hero}}</h1>
         <p>{{content.subHero}}</p>
-      </v-flex>
-      <v-flex xs12>
-        <nav class="">
-          <ul>
-            <li>
-              <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
-            </li>
-            <li>
-              <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
-            </li>
-            <li>
-              <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
-            </li>
-            <li>
-              <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
-            </li>
-            <li>
-              <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a>
-            </li>
-          </ul>
-        </nav>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+        <div class="col-12">
+          <nav class="">
+            <ul>
+              <li>
+                <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
+              </li>
+              <li>
+                <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
+              </li>
+              <li>
+                <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
+              </li>
+              <li>
+                <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
+              </li>
+              <li>
+                <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  </div>
 </template>
 
 <script>
