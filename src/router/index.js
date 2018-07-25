@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/pages/About'
+import Photography from '@/components/pages/Photography'
 
 Vue.use(Router)
 
@@ -17,5 +18,10 @@ export default new Router({
       name: 'About',
       component: About
     },
+    {
+      path: '/photography',
+      name: 'Photography',
+      component: Photography
+    }
   ]
 })
