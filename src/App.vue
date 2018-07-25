@@ -1,13 +1,9 @@
 <template>
   <div id="app">
-    <v-app>
-      <v-content>
-        <header-nav />
-          <transition name="slideLeft" leave-active-class="dissapear">
-            <router-view></router-view>
-          </transition>
-      </v-content>
-    </v-app>
+    <header-nav />
+      <transition name="slideLeft" leave-active-class="dissapear">
+        <router-view></router-view>
+      </transition>
   </div>
 </template>
 
@@ -23,15 +19,15 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Questrial|Raleway");
-@import './node_modules/bootstrap/scss/bootstrap-reboot.scss';
-@import './node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import "./node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
 .application {
   font-family: "Questrial", sans-serif;
 }
-.dissapear{
+.dissapear {
   display: none;
 }
-span.ico{
+span.ico {
   margin-right: 8px;
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
-      <v-flex xs12 sm8 offset-sm2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
         <h2>Photography</h2>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs12 sm8 offset-sm2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
         <h3>A section about a hobby</h3>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

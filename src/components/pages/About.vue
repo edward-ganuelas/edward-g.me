@@ -1,13 +1,13 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
-      <v-flex xs12 sm8 offset-sm2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-8">
         <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" />
         <h2>About Me</h2>
-      </v-flex>
-    </v-layout>
-    <v-layout row wrap>
-      <v-flex xs12 sm8 offset-sm2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-8">
         <h3>Just some random facts about me</h3>
         <ul>
           <li>My full name is Edward Paulo Nilmar Ganuelas</li>
@@ -30,9 +30,9 @@
           <li>Shoots film photography</li>
           <li>Doesn't get Snapchat</li>
         </ul>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
