@@ -17,26 +17,5 @@ export default new Router({
       name: 'About',
       component: About
     },
-    {
-      path: '/linkedin',
-      name: 'Linkedin',
-      beforeEnter: () =>{
-        window.location.href="https://www.linkedin.com/in/epganuelas/";
-      }
-    },
-    {
-      path: '/github',
-      name: 'GitHub',
-      beforeEnter: () =>{
-        window.location.href="https://github.com/edward-ganuelas";
-      }
-    },
-    {
-      path: '/eightray',
-      name: 'EightRay',
-      beforeEnter: () =>{
-        window.location.href="https://eightrayedsun.com/";
-      }
-    }
   ]
 })
