@@ -23,6 +23,8 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Questrial|Raleway");
+@import './node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import './node_modules/bootstrap/scss/bootstrap-grid.scss';
 .application {
   font-family: "Questrial", sans-serif;
 }
