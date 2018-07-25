@@ -1,60 +1,36 @@
 <template>
-  <v-container>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <h1>{{content.hero}}</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1><router-link to="/">{{content.hero}}</router-link></h1>
         <p>{{content.subHero}}</p>
-      </v-flex>
-      <v-flex xs12>
-        <nav class="">
-          <ul>
-            <li v-for="nav in navigation" v-bind:key="nav.label">
-              <router-link :to="nav.to" v-html="nav.label"></router-link>
-            </li>
-          </ul>
-        </nav>
-          <!-- <v-card-text class="hidden-md-and-up fab-wrapper">
-            <v-btn
-              absolute
-              dark
-              fab
-              small
-              top
-              right
-              color="blue accent-3"
-              @click.stop="drawer = !drawer"
-            >
-              <v-icon>list</v-icon>
-            </v-btn>
-          </v-card-text> -->
-          <!-- <v-navigation-drawer temporary
-            v-model="drawer"
-            light
-            absolute class="hidden-md-and-up"
-            >
-            <v-toolbar flat>
-              <v-list>
-                <v-list-tile>
-                  <v-list-tile-title class="title">
-                    Navigation
-                  </v-list-tile-title>
-                </v-list-tile>
-              </v-list>
-            </v-toolbar>
-            <v-divider></v-divider>
-            <nav>
-            <v-list dense class="pt-0" >
-              <v-list-tile v-for="nav in navigation" v-bind:key="nav.label">
-                <v-list-tile-content>
-                  <v-list-tile-title><router-link :to="nav.to" v-html="nav.label"></router-link></v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list>
-            </nav>
-        </v-navigation-drawer> -->
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+        <div class="col-12">
+          <nav class="">
+            <ul>
+              <li>
+                <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
+              </li>
+              <li>
+                <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
+              </li>
+              <li>
+                <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
+              </li>
+              <li>
+                <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
+              </li>
+              <li>
+                <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -65,24 +41,8 @@ export default {
     return {
       content: "",
       navigation: {
-        home: {
-          label: "<span class='ico'><i class='fas fa-home'></i></span>Home",
-          to: "/"
-        },
-        about: {
-          label: "<span class='ico'><i class='fas fa-user'></i></span>About Me",
-          to: "/about-me"
-        },
-        // skills: {
-        //   label: "Skills/Experience",
-        //   to: ""
-        // },
-        // blog: {
-        //   label: "Blog",
-        //   to: ""
-        // },
         linkedin: {
-          label: "<span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin",
+          label: "",
           to: "/linkedin"
         },
         github: {
@@ -114,6 +74,10 @@ export default {
 <style scoped lang="scss">
 h1 {
   font-family: "Raleway", sans-serif;
+  a{
+    text-decoration: none;
+    color: #212529;
+  }
 }
 nav {
   white-space: nowrap;
