@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <h1>{{content.hero}}</h1>
+        <h1><router-link to="/">{{content.hero}}</router-link></h1>
         <p>{{content.subHero}}</p>
       </div>
         <div class="col-12">
@@ -74,6 +74,10 @@ export default {
 <style scoped lang="scss">
 h1 {
   font-family: "Raleway", sans-serif;
+  a{
+    text-decoration: none;
+    color: #212529;
+  }
 }
 nav {
   white-space: nowrap;
