@@ -68,15 +68,6 @@ export default {
   beforeMount: function() {
     this.getContent();
   },
-  mounted(){
-    
-    setTimeout(()=>{
-      document.querySelector('nav').scrollLeft = 50;
-    }, 300)
-    setTimeout(()=>{
-       document.querySelector('nav').scrollLeft = 0;
-    }, 500);
-  }
 };
 </script>
 
