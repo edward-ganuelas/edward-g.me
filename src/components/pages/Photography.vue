@@ -11,6 +11,34 @@
       </div>
     </div>
 
+    <div class="row photos">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h3>Photos</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>Here's a sample of my photos. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer">instagram</a>.</p>
+  
+          </div>
+          <div class="col-12">
+            <h4>Black and White</h4>
+            <masonry>
+              <div v-for="image of bnw" v-bind:key="image['index']"><img v-img :src="image['url']" v-bind:class="image['orientation']" /></div>
+            </masonry>
+          </div>
+          <div class="col-12">
+            <h4>Colour</h4>
+            <masonry>
+              <div v-for="image of colour" v-bind:key="image['index']"><img v-img :src="image['url']" v-bind:class="image['orientation']" /></div>
+            </masonry>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row gear">
       <div class="container">
         <div class="row">
@@ -50,27 +78,6 @@
               <li>Nikon SB-24</li>
             
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row photos">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h3>Photos</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <p>Still working on this section. Come back soon! In the meanwhile, check out my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer">instagram</a>.</p>
-  
-          </div>
-          <div class="col-12">
-            <masonry>
-              <div v-for="image of bnw" v-bind:key="image['index']"><img v-img :src="image['url']" v-bind:class="image['orientation']" /></div>
-            </masonry>
           </div>
         </div>
       </div>
@@ -119,6 +126,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+h4{
+  margin: 20px 0;
+}
 .gear, .photos {
   margin-top: 50px;
 }
