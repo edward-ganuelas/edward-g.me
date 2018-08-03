@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header-nav />
-      <transition name="slideLeft" leave-active-class="dissapear">
+      <transition :name="transition" leave-active-class="dissapear">
         <router-view></router-view>
       </transition>
   </div>
@@ -9,10 +9,34 @@
 
 <script>
 import HeaderNav from "./components/Header";
+import _ from "lodash";
 export default {
   name: "app",
   components: {
     HeaderNav
+  },
+  data() {
+    return {
+      transitions: ["slideLeft", "fadeRight", "bounceDown", "zoom", "fadeUp"],
+      transition: ''
+    };
+  },
+  computed:{
+
+  },
+  methods: {
+    changeTransition(){
+      this.transition = this.transitions[this.getRandomNumber()];
+    },
+    getRandomNumber(){
+      return _.random(0,4);
+    }
+  },
+  mounted(){
+    this.changeTransition();
+    this.$router.afterEach((to, from) =>{
+      this.changeTransition()
+    })
   }
 };
 </script>
