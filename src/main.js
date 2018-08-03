@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import VueHead from 'vue-head'
 require('vue2-animate/dist/vue2-animate.min.css')
+import VueMasonry from 'vue-masonry-css';
 
 Vue.use(VueHead);
+Vue.use(VueMasonry);
 
 
 Vue.config.productionTip = false

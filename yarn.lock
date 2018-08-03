@@ -5822,6 +5822,10 @@ vue-loader@^13.3.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
+vue-masonry-css@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-masonry-css/-/vue-masonry-css-1.0.2.tgz#ca887a2308bf3817de61c40691fe40482bc6a92c"
+
 vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"

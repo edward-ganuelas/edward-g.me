@@ -65,9 +65,12 @@
         <div class="row">
           <div class="col-12">
             <p>Still working on this section. Come back soon! In the meanwhile, check out my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer">instagram</a>.</p>
-            <ul>
-              <li v-for="image of bnw" v-bind:key="image['index']"><img :src="image['url']" v-bind:class="image['orientation']" /></li>
-            </ul>
+  
+          </div>
+          <div class="col-12">
+            <masonry>
+              <div v-for="image of bnw" v-bind:key="image['index']"><img :src="image['url']" v-bind:class="image['orientation']" /></div>
+            </masonry>
           </div>
         </div>
       </div>
