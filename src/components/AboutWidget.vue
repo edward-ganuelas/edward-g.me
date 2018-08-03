@@ -4,10 +4,10 @@
       <h2>A Random Fact About Me</h2>
       
     </div>
-    <div class="col-6">
+    <div class="col-10 col-sm-6">
       <p>{{content}}</p>
     </div>
-    <div class="col-6">
+    <div class="col-2  col-sm-6">
       <button @click="setContent" class="btn btn-light"><i class="fas fa-sync-alt"></i></button>
     </div>
   </div>
