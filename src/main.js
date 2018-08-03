@@ -6,9 +6,11 @@ import router from './router'
 import VueHead from 'vue-head'
 require('vue2-animate/dist/vue2-animate.min.css')
 import VueMasonry from 'vue-masonry-css';
+import VueImg from 'v-img';
 
 Vue.use(VueHead);
 Vue.use(VueMasonry);
+Vue.use(VueImg);
 
 
 Vue.config.productionTip = false

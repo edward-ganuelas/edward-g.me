@@ -69,7 +69,7 @@
           </div>
           <div class="col-12">
             <masonry>
-              <div v-for="image of bnw" v-bind:key="image['index']"><img :src="image['url']" v-bind:class="image['orientation']" /></div>
+              <div v-for="image of bnw" v-bind:key="image['index']"><img v-img :src="image['url']" v-bind:class="image['orientation']" /></div>
             </masonry>
           </div>
         </div>
