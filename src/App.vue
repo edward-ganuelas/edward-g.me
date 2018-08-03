@@ -45,6 +45,15 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Questrial|Raleway");
 @import "./node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
+html, body{
+  font-size: 85%;
+  @media (min-width: 768px){
+    font-size: 90%;
+  }
+  @media(min-width: 1024px){
+    font-size: 100%;
+  }
+}
 .application {
   font-family: "Questrial", sans-serif;
 }

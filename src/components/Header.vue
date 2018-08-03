@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 header">
         <h1><router-link to="/">{{content.hero}}</router-link></h1>
         <p>{{content.subHero}}</p>
       </div>
@@ -54,7 +54,7 @@ export default {
           to: "/eightray"
         }
       },
-      drawer: null,
+      drawer: null
     };
   },
   methods: {
@@ -74,9 +74,15 @@ export default {
 <style scoped lang="scss">
 h1 {
   font-family: "Raleway", sans-serif;
-  a{
+  margin-top: 24px;
+  a {
     text-decoration: none;
     color: #212529;
+  }
+}
+.header {
+  @media (min-width: 768px) {
+    padding-left: 15px;
   }
 }
 nav {
@@ -95,20 +101,18 @@ nav {
       flex: 1 0;
       text-align: center;
       margin: 0 1rem;
-      a{
+      a {
         text-decoration: none;
       }
     }
   }
 }
-.fab-wrapper{
+.fab-wrapper {
   padding: 0;
   position: relative;
-  @media(min-width: 1024px)
-  {
-    height: 100px; 
+  @media (min-width: 1024px) {
+    height: 100px;
     padding: auto;
   }
 }
-
 </style>

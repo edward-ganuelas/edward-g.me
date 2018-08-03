@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <p>Here's a sample of my photos. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>Instagram</a>.</p>
+            <p>Here's a sample of my photos. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>.</p>
   
           </div>
           <div class="col-12">
