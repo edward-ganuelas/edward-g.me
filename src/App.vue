@@ -47,12 +47,16 @@ export default {
 @import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
 html, body{
   font-size: 85%;
+  color: #212529;
   @media (min-width: 768px){
     font-size: 90%;
   }
   @media(min-width: 1024px){
     font-size: 100%;
   }
+}
+h1, h2, h3, h4{
+  font-family: "Raleway", sans-serif;
 }
 .application {
   font-family: "Questrial", sans-serif;

@@ -72,8 +72,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 h1 {
-  font-family: "Raleway", sans-serif;
+  
   margin-top: 24px;
   a {
     text-decoration: none;
