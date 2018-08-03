@@ -90,6 +90,8 @@ h1 {
 nav {
   white-space: nowrap;
   overflow-x: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
   ul {
     list-style-type: none;
     display: flex;

@@ -117,8 +117,8 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description },
-        { name: "keywords", content: this.meta.keywords }
+        { name: "description", content: this.meta.description, id:'description' },
+        { name: "keywords", content: this.meta.keywords, id:'keywords' }
       ];
     }
   }
