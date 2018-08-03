@@ -132,15 +132,6 @@ h4{
 .gear, .photos {
   margin-top: 50px;
 }
-.photos{
-  ul{
-    padding-left: 0;
-  }
-  li{
-    list-style-type: none;
-    margin-bottom: 20px;
-  }
-}
 img{
   max-width: 100%;
 }
