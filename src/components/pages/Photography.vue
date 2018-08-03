@@ -76,6 +76,7 @@
             <h4>Misc</h4>
             <ul>
               <li>Nikon SB-24</li>
+              <li>Scanner: Epson V550</li>
             
             </ul>
           </div>
