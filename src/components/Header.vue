@@ -8,6 +8,7 @@
         <div class="col-12">
           <nav class="">
             <ul>
+              <li class="leftArrow"><i class="fas fa-chevron-left"></i></li>
               <li>
                 <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
               </li>
@@ -66,6 +67,15 @@ export default {
   },
   beforeMount: function() {
     this.getContent();
+  },
+  mounted(){
+    
+    setTimeout(()=>{
+      document.querySelector('nav').scrollLeft = 50;
+    }, 300)
+    setTimeout(()=>{
+       document.querySelector('nav').scrollLeft = 0;
+    }, 500);
   }
 };
 </script>
@@ -93,7 +103,7 @@ nav {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    @media (min-width: 1024px) {
+    @media (min-width: 1440px) {
       width: 61.8%;
       float: right;
       flex-direction: row;
@@ -114,6 +124,12 @@ nav {
   @media (min-width: 1024px) {
     height: 100px;
     padding: auto;
+  }
+}
+.leftArrow{
+  color: #0066ff;
+  @media(min-width: 768px){
+    display: none;
   }
 }
 </style>
