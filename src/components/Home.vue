@@ -11,16 +11,19 @@
       </div>
     </div>
     <about-widget />
+    <quotes-widget />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import AboutWidget from './AboutWidget';
+import QuotesWidget from './QuotesWidget';
 export default {
   name: "Home",
   components: {
-    AboutWidget
+    AboutWidget,
+    QuotesWidget
   },
   data() {
     return {

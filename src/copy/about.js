@@ -10,7 +10,7 @@ const about = [
     'Loves Pro Wrestling',
     'Loves Anime/Manga',
     'Loves bacon',
-    'Started programming as kid because of video games',
+    'Started programming as a kid because of video games',
     'Lifts Weights',
     'Swears that Keto is the best cutting diet',
     'Favorite Colour is Blue',
@@ -18,6 +18,7 @@ const about = [
     'Thinks phones should always have a headphone jack',
     'Shoots film photography',
     'Doesn\'t get Snapchat',
+    'Had dengue fever once'
 ];
 
 export default about;

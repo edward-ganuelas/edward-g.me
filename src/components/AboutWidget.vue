@@ -14,33 +14,34 @@
 </template>
 
 <script>
-import _ from 'lodash';
-import About from '../copy/about';
+import _ from "lodash";
+import About from "../copy/about";
 export default {
-  name: 'AboutWidget',
-  data () {
+  name: "AboutWidget",
+  data() {
     return {
-      content: ''
-    }
+      content: ""
+    };
   },
-  methods:{
-    getRandomContent(){
-      const randomNumer = _.random(0, About.length);
+  methods: {
+    getRandomContent() {
+      const randomNumer = _.random(0, About.length -1);
       return About[randomNumer];
     },
-    setContent(){
+    setContent() {
       this.content = this.getRandomContent();
     }
   },
-  mounted(){
-    this.setContent()
+  mounted() {
+    this.setContent();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .aboutWidget{
-    margin-top: 24px;
-  }
+.aboutWidget {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 </style>
