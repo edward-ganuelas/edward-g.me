@@ -46,7 +46,7 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description },
+        { name: "description", content: this.meta.description, id: "description" },
         { name: "keywords", content: this.meta.keywords }
       ];
     }
