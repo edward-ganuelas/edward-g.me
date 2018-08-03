@@ -84,6 +84,7 @@ img{
     height: 120px;
     border: 1px solid #FFF;
     border-radius: 8px;
+    margin-bottom: 16px;
   }
 }
 h2, h3{
