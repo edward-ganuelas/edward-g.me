@@ -10,13 +10,18 @@
         <p>Thank you, and check back soon!</p>
       </div>
     </div>
+    <about-widget />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import AboutWidget from './AboutWidget';
 export default {
   name: "Home",
+  components: {
+    AboutWidget
+  },
   data() {
     return {
       content: "",
@@ -46,8 +51,8 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description, id: "description" },
-        { name: "keywords", content: this.meta.keywords }
+        { name: "description", content: this.meta.description, id: 'description' },
+        { name: "keywords", content: this.meta.keywords, id: 'keywords' }
       ];
     }
   }

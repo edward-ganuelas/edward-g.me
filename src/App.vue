@@ -45,6 +45,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Questrial|Raleway");
 @import "./node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
+@import "./node_modules/bootstrap/scss/_buttons.scss";
 html, body{
   font-size: 85%;
   color: #212529;
