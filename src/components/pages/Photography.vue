@@ -58,13 +58,16 @@
     <div class="row photos">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-8">
+          <div class="col-12">
             <h3>Photos</h3>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-sm">
+          <div class="col-12">
             <p>Still working on this section. Come back soon! In the meanwhile, check out my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer">instagram</a>.</p>
+            <ul>
+              <li v-for="image of bnw" v-bind:key="image['index']"><img :src="image['url']" v-bind:class="image['orientation']" /></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -74,6 +77,7 @@
 
 <script>
 import axios from "axios";
+import images from '../../images/images'
 export default {
   name: "Photography",
   data() {
@@ -84,7 +88,9 @@ export default {
         description: "Personal Site of Edward Ganuelas",
         keywords:
           "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
-      }
+      },
+      bnw: images['bnw'],
+      colour: images['colour']
     };
   },
 
@@ -112,5 +118,17 @@ export default {
 <style scoped lang="scss">
 .gear, .photos {
   margin-top: 50px;
+}
+.photos{
+  ul{
+    padding-left: 0;
+  }
+  li{
+    list-style-type: none;
+    margin-bottom: 20px;
+  }
+}
+img{
+  max-width: 100%;
 }
 </style>
