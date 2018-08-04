@@ -24,17 +24,31 @@
   
           </div>
           <div class="col-12">
-            <h4>Black and White</h4>
-            <masonry>
-              <div v-for="image of bnw" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-            </masonry>
+            <div class="btn-group btn-group-toggle">
+              <label class="btn bnw btn-secondary" v-bind:class="{active: toggle === 'bnw'}">
+                <input type="radio" name="options" id="bnw" autocomplete="off" v-model="toggle" value="bnw"> Black and White
+              </label>
+              <label class="btn colour btn-secondary" v-bind:class="{active: toggle === 'colour'}">
+                <input type="radio" name="options" id="colour" autocomplete="off" v-model="toggle" value="colour"> Colour
+              </label>
+            </div>
           </div>
-          <div class="col-12">
-            <h4>Colour</h4>
-            <masonry>
-              <div v-for="image of colour" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-            </masonry>
-          </div>
+          <transition name="fade" leave-active-class="dissapear">
+            <div class="col-12" v-show="toggle === 'bnw'">  
+              <h4>Black and White</h4>
+              <masonry>
+                <div v-for="image of bnw" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
+              </masonry>
+            </div>
+          </transition>
+          <transition name="fade" leave-active-class="dissapear">
+            <div class="col-12" v-show="toggle === 'colour'">
+              <h4>Colour</h4>
+              <masonry>
+                <div v-for="image of colour" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
+              </masonry>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -88,7 +102,7 @@
 
 <script>
 import axios from "axios";
-import images from '../../images/images'
+import images from "../../images/images";
 export default {
   name: "Photography",
   data() {
@@ -100,8 +114,9 @@ export default {
         keywords:
           "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
       },
-      bnw: images['bnw'],
-      colour: images['colour']
+      bnw: images["bnw"],
+      colour: images["colour"],
+      toggle: "bnw"
     };
   },
 
@@ -117,8 +132,12 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description, id:'description' },
-        { name: "keywords", content: this.meta.keywords, id:'keywords' }
+        {
+          name: "description",
+          content: this.meta.description,
+          id: "description"
+        },
+        { name: "keywords", content: this.meta.keywords, id: "keywords" }
       ];
     }
   }
@@ -127,13 +146,26 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h4{
+h4 {
   margin: 20px 0;
 }
-.gear, .photos {
+.gear,
+.photos {
   margin-top: 50px;
 }
-img{
+img {
   max-width: 100%;
+}
+.btn.bnw {
+  &.active {
+    background-color: #000;
+    color: #fff;
+  }
+}
+.btn.colour {
+  &.active {
+    background-color: #0066ff;
+    color: #ff9900;
+  }
 }
 </style>
