@@ -119,6 +119,18 @@ const images =
                 'orientation': 'landscape',
                 'title': 'Light Speed, Toronto',
             },
+            {
+                'id': 8,
+                'url': 'https://images.edward-g.me/colour/img08.jpg',
+                'orientation': 'landscape',
+                'title': 'Flatiron in Toronto',
+            },
+            {
+                'id': 9,
+                'url': 'https://images.edward-g.me/colour/img09.jpg',
+                'orientation': 'portrait',
+                'title': 'Bay Street During Rush Hour. Medium Format Film',
+            },
         ]
 
 
