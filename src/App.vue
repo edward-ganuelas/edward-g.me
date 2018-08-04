@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       transitions: ["slideLeft", "fadeRight", "bounceDown", "zoom", "fadeUp"],
-      transition: ''
+      transition: '',
     };
   },
   computed:{
@@ -46,6 +46,7 @@ export default {
 @import "./node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
 @import "./node_modules/bootstrap/scss/_buttons.scss";
+@import "./node_modules/bootstrap/scss/_button-group.scss";
 html, body{
   font-size: 85%;
   color: #212529;
@@ -67,5 +68,8 @@ h1, h2, h3, h4{
 }
 span.ico {
   margin-right: 8px;
+}
+.btn{
+  border-radius: 15px;
 }
 </style>
