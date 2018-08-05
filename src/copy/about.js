@@ -16,7 +16,8 @@ const about = [
     'Thinks phones should always have a headphone jack',
     'Shoots film photography',
     'Doesn\'t get Snapchat',
-    'Had dengue fever once'
+    'Had dengue fever once',
+    'Currently Single...'
 ];
 
 export default about;
