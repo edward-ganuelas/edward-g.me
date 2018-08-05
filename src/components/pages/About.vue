@@ -4,20 +4,24 @@
       <div class="col-12 col-sm-8">
         <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
         <h2>About Me</h2>
+        <p>Just a little something about me</p>
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-sm-8">
-        <nav>
-          <ul>
-            <li>
+        <nav class="container">
+          <ul class="row">
+            <li class="col">
+              <router-link to="/about-me/">Bio</router-link>
+            </li>
+            <li class="col">
                <router-link to="/about-me/facts">Facts</router-link>
             </li>
           </ul>
         </nav>
       </div>
-      <router-view></router-view>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -81,6 +85,11 @@ padding-left: 16px;
 nav ul{
   li{
     list-style-type: none;
+    border-right: 1px solid #0066FF;
+    text-align: center;
+    &:last-of-type{
+      border-right: none;
+    }
   }
 }
 </style>

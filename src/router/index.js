@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import About from '@/components/pages/About'
 import Photography from '@/components/pages/Photography'
 import Facts from '@/components/pages/About/Facts'
+import Bio from '@/components/pages/About/Bio'
 
 Vue.use(Router)
 
@@ -20,10 +21,15 @@ export default new Router({
       component: About,
       children:[
         {
+          path: '',
+          name: 'Bio',
+          component: Bio
+        },
+        {
           path: 'facts',
           name: 'Facts',
           component: Facts
-        }
+        },
       ]
     },
     {
