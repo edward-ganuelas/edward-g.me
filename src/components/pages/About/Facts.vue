@@ -1,30 +1,15 @@
 <template>
-  <div class="container">
-    <div class="row">
       <div class="col-12 col-sm-8">
-        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-        <h2>About Me</h2>
+        <ul>
+          <li v-for="(copy, index) in content" v-bind:key="index">{{copy}}</li>
+        </ul>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-8">
-        <nav>
-          <ul>
-            <li>
-               <router-link to="/about-me/facts">Facts</router-link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <router-view></router-view>
-    </div>
-  </div>
 </template>
 
 <script>
-import about from '../../copy/about';
+import about from '../../../copy/about';
 export default {
-  name: "About",
+  name: "Facts",
   data() {
     return {
       content: about,
@@ -76,11 +61,6 @@ ul{
 padding-left: 16px;
   li{
     margin-bottom: 8px;    
-  }
-}
-nav ul{
-  li{
-    list-style-type: none;
   }
 }
 </style>

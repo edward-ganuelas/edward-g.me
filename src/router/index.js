@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/pages/About'
 import Photography from '@/components/pages/Photography'
+import Facts from '@/components/pages/About/Facts'
 
 Vue.use(Router)
 
@@ -16,7 +17,14 @@ export default new Router({
     {
       path: '/about-me',
       name: 'About',
-      component: About
+      component: About,
+      children:[
+        {
+          path: 'facts',
+          name: 'Facts',
+          component: Facts
+        }
+      ]
     },
     {
       path: '/photography',
