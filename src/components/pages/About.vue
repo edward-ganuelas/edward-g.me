@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-8">
-        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" />
+        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
         <h2>About Me</h2>
       </div>
     </div>

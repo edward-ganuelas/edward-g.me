@@ -18,7 +18,9 @@ const quotes = [
     'My favorite MJ stat of all time: From November 1990 through June 1998, the Bulls never lost three games in a row with Jordan.My second - favorite MJ stat of all time: In his final three Chicago seasons, in a 31 - month stretch that started November \'95 and ended June \'98, he played in 310 of a possible 310 games.My third - favorite MJ stat of all time: He averaged 30.1 points in the regular season and 33.4 points in the playoffs.That\'s really all you needed to know about the guy. Warrior. Impossibly competitive. Got better when it mattered. ~ Bill Simmons',
 
     'Fear is the path to the dark side.Fear leads to anger.Anger leads to hate.Hate leads to suffering.',
-    'Memento Mori'
+    'Memento Mori',
+    'Hakuna Matata',
+    'Can anybody, find me, somebody to love? ~ Freddie Mercury'
 
 ];
 
