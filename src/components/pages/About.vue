@@ -28,23 +28,22 @@
 </template>
 
 <script>
-import about from '../../copy/about';
+import about from "../../copy/about";
 export default {
   name: "About",
   data() {
     return {
       content: about,
       meta: {
-          title: "About Me",
-          description: "Personal Site of Edward Ganuelas",
-          keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
+        title: "About Me",
+        description: "Personal Site of Edward Ganuelas",
+        keywords:
+          "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
       }
     };
   },
 
-  methods: {
-
-  },
+  methods: {},
   beforeMount: function() {
     // this.getContent();
   },
@@ -56,8 +55,12 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description, id: 'description' },
-        { name: "keywords", content: this.meta.keywords, id: 'keywords' }
+        {
+          name: "description",
+          content: this.meta.description,
+          id: "description"
+        },
+        { name: "keywords", content: this.meta.keywords, id: "keywords" }
       ];
     }
   }
@@ -66,31 +69,38 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-img{
-  &.profile{
+img {
+  &.profile {
     width: 120px;
     height: 120px;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
     border-radius: 8px;
     margin-bottom: 16px;
   }
 }
-h2, h3{
+h2,
+h3 {
   margin-bottom: 20px;
 }
-ul{
-padding-left: 16px;
-  li{
-    margin-bottom: 8px;    
+ul {
+  padding-left: 16px;
+  li {
+    margin-bottom: 8px;
   }
 }
-nav ul{
-  li{
+nav ul {
+  li {
     list-style-type: none;
-    border-right: 1px solid #0066FF;
+    border-right: 1px solid #0066ff;
     text-align: center;
-    &:last-of-type{
+    &:last-of-type {
       border-right: none;
+    }
+    a {
+      &.router-link-exact-active {
+        text-decoration: underline;
+        color: #212529;
+      }
     }
   }
 }
