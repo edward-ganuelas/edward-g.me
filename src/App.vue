@@ -60,6 +60,9 @@ html, body{
 h1, h2, h3, h4{
   font-family: "Raleway", sans-serif;
 }
+a{
+  color: #0066ff;
+}
 .application {
   font-family: "Questrial", sans-serif;
 }

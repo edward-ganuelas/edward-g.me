@@ -17,7 +17,8 @@ const about = [
     'Shoots film photography',
     'Doesn\'t get Snapchat',
     'Had dengue fever once',
-    'Currently Single...'
+    'Currently Single...', 
+    'Has a replica wrestling title belt'
 ];
 
 export default about;
