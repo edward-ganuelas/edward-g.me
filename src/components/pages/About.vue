@@ -2,13 +2,6 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-8">
-        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-        <h2>About Me</h2>
-        <p>Just a little something about me</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-8">
         <nav class="container">
           <ul class="row">
             <li class="col">
@@ -21,7 +14,16 @@
         </nav>
       </div>
     </div>
-    <router-view></router-view>
+    <div class="row">
+      <div class="col-12 col-sm-8">
+        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
+        <h2>About Me</h2>
+        <p>Just a little something about me</p>
+      </div>
+    </div>
+    <transition name="slideUp" leave-active-class="dissapear">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
