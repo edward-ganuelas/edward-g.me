@@ -53,7 +53,7 @@ export default {
         eightray: {
           label: "EightRayedSun",
           to: "/eightray"
-        }
+        } 
       },
       drawer: null
     };

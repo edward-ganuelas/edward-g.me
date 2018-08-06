@@ -2,39 +2,51 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-8">
-        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-        <h2>About Me</h2>
+        <nav class="container">
+          <ul class="row">
+            <li class="col">
+              <router-link to="/about-me/">Bio</router-link>
+            </li>
+            <li class="col">
+               <router-link to="/about-me/facts">Facts</router-link>
+            </li>
+            <!-- <li class="col">
+              Music
+            </li> -->
+          </ul>
+        </nav>
       </div>
     </div>
     <div class="row">
       <div class="col-12 col-sm-8">
-        <h3>Just some random facts about me</h3>
-        <ul>
-          <li v-for="(copy, index) in content" v-bind:key="index">{{copy}}</li>
-        </ul>
+        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
+        <h2>About Me</h2>
+        <p>Just a little something about me</p>
       </div>
     </div>
+    <transition name="slideUp" leave-active-class="dissapear">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import about from '../../copy/about';
+import about from "../../copy/about";
 export default {
   name: "About",
   data() {
     return {
       content: about,
       meta: {
-          title: "About Me",
-          description: "Personal Site of Edward Ganuelas",
-          keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
+        title: "About Me",
+        description: "Personal Site of Edward Ganuelas",
+        keywords:
+          "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
       }
     };
   },
 
-  methods: {
-
-  },
+  methods: {},
   beforeMount: function() {
     // this.getContent();
   },
@@ -46,8 +58,12 @@ export default {
     },
     meta: function() {
       return [
-        { name: "description", content: this.meta.description, id: 'description' },
-        { name: "keywords", content: this.meta.keywords, id: 'keywords' }
+        {
+          name: "description",
+          content: this.meta.description,
+          id: "description"
+        },
+        { name: "keywords", content: this.meta.keywords, id: "keywords" }
       ];
     }
   }
@@ -56,22 +72,39 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-img{
-  &.profile{
+img {
+  &.profile {
     width: 120px;
     height: 120px;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
     border-radius: 8px;
     margin-bottom: 16px;
   }
 }
-h2, h3{
+h2,
+h3 {
   margin-bottom: 20px;
 }
-ul{
-padding-left: 16px;
-  li{
-    margin-bottom: 8px;    
+ul {
+  padding-left: 16px;
+  li {
+    margin-bottom: 8px;
+  }
+}
+nav ul {
+  li {
+    list-style-type: none;
+    border-right: 1px solid #0066ff;
+    text-align: center;
+    &:last-of-type {
+      border-right: none;
+    }
+    a {
+      &.router-link-exact-active {
+        text-decoration: underline;
+        color: #212529;
+      }
+    }
   }
 }
 </style>

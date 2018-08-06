@@ -1,6 +1,4 @@
 const about = [
-    'My full name is Edward Paulo Nilmar Ganuelas',
-    'Born in Manila, Philippines. Raised in Quezon City, Philippines',
     'Came to Canada in the year 2005',
     'First job was at McDonalds. Worked in the kitchen and eventually got promoted to Crew Trainer and Team Leader',
     'Went to George Brown College for the Computer Programmer Analyst program',
@@ -18,7 +16,9 @@ const about = [
     'Thinks phones should always have a headphone jack',
     'Shoots film photography',
     'Doesn\'t get Snapchat',
-    'Had dengue fever once'
+    'Had dengue fever once',
+    'Currently Single...', 
+    'Has a replica wrestling title belt'
 ];
 
 export default about;
