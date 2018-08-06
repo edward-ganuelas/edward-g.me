@@ -10,6 +10,9 @@
             <li class="col">
                <router-link to="/about-me/facts">Facts</router-link>
             </li>
+            <!-- <li class="col">
+              Music
+            </li> -->
           </ul>
         </nav>
       </div>
