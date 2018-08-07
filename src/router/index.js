@@ -5,6 +5,7 @@ import About from '@/components/pages/About'
 import Photography from '@/components/pages/Photography'
 import Facts from '@/components/pages/About/Facts'
 import Bio from '@/components/pages/About/Bio'
+import Music from '@/components/pages/About/Music'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
           path: 'facts',
           name: 'Facts',
           component: Facts
+        },
+        {
+          path: 'music',
+          name: 'Music',
+          component: Music
         },
       ]
     },

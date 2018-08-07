@@ -10,9 +10,9 @@
             <li class="col">
                <router-link to="/about-me/facts">Facts</router-link>
             </li>
-            <!-- <li class="col">
-              Music
-            </li> -->
+            <li class="col">
+              <router-link to="/about-me/music">Music</router-link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -103,6 +103,7 @@ nav ul {
       &.router-link-exact-active {
         text-decoration: underline;
         color: #212529;
+        cursor: default;
       }
     }
   }
