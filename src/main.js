@@ -7,10 +7,15 @@ import VueHead from 'vue-head'
 require('vue2-animate/dist/vue2-animate.min.css')
 import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
+import VueAnalytics from 'vue-analytics';
 
 Vue.use(VueHead);
 Vue.use(VueMasonry);
 Vue.use(VueImg);
+Vue.use(VueAnalytics, {
+  id: 'UA-112626956-1',
+  router
+})
 
 
 Vue.config.productionTip = false

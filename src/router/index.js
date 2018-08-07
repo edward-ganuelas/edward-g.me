@@ -18,7 +18,6 @@ export default new Router({
     },
     {
       path: '/about-me',
-      name: 'About',
       component: About,
       children:[
         {
