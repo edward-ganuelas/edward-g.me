@@ -5,7 +5,7 @@
       
     </div>
     <div class="col-10 col-sm-6">
-      <p><blockquote><em>{{content}}</em></blockquote></p>
+      <blockquote><em>{{content}}</em></blockquote>
     </div>
     <div class="col-2 col-sm-6">
       <button @click="setContent" class="btn btn-light"><i class="fas fa-sync-alt"></i></button>
@@ -14,34 +14,34 @@
 </template>
 
 <script>
-import _ from 'lodash';
-import Quotes from '../copy/quotes';
+import _ from "lodash";
+import Quotes from "../copy/quotes";
 export default {
-  name: 'QuotesWidget',
-  data () {
+  name: "QuotesWidget",
+  data() {
     return {
-      content: ''
-    }
+      content: ""
+    };
   },
-  methods:{
-    getRandomContent(){
-      const randomNumer = _.random(0, Quotes.length -1);
+  methods: {
+    getRandomContent() {
+      const randomNumer = _.random(0, Quotes.length - 1);
       return Quotes[randomNumer];
     },
-    setContent(){
+    setContent() {
       this.content = this.getRandomContent();
     }
   },
-  mounted(){
-    this.setContent()
+  mounted() {
+    this.setContent();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .quotesWidget{
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
+.quotesWidget {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
 </style>
