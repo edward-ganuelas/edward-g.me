@@ -18,7 +18,8 @@ const about = [
     'Doesn\'t get Snapchat',
     'Had dengue fever once',
     'Currently Single...', 
-    'Has a replica wrestling title belt'
+    'Has a replica wrestling title belt',
+    'Had double jaw surgery (Ask me in person!)',
 ];
 
 export default about;
