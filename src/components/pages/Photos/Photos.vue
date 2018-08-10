@@ -21,22 +21,10 @@
               </label>
             </div>
           </div>
-          <transition name="fade" leave-active-class="dissapear">
-            <div class="col-12" v-show="toggle === 'bnw'">  
-              <h4>Black and White</h4>
-              <masonry>
-                <div v-for="image of bnw" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-              </masonry>
-            </div>
-          </transition>
-          <transition name="fade" leave-active-class="dissapear">
-            <div class="col-12" v-show="toggle === 'colour'">
-              <h4>Colour</h4>
-              <masonry>
-                <div v-for="image of colour" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-              </masonry>
-            </div>
-          </transition>
+
+          <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
+          <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
+          
         </div>
       </div>
     </div>
@@ -44,8 +32,12 @@
 
 <script>
 import images from "../../../images/images";
+import ImageGrid from '@/components/ImageGrid';
 export default {
   name: "Photos",
+  components: {
+    ImageGrid
+  },
   data() {
     return {
       bnw: images["bnw"],
@@ -63,12 +55,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h4 {
-  margin: 20px 0;
-}
-img {
-  max-width: 100%;
-}
+
 .btn.bnw {
   &.active {
     background-color: #000;
