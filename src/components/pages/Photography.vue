@@ -2,6 +2,23 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-sm-8">
+        <nav class="container">
+          <ul class="row">
+            <li class="col">
+              <router-link to="/photography">Photos</router-link>
+            </li>
+            <li class="col">
+               <router-link to="/photography/gear">Gear</router-link>
+            </li>
+            <li class="col" v-if="false">
+              <router-link to="/photography/projects">Photo Projects</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-8">
         <h2>Photography</h2>
       </div>
     </div>
@@ -11,98 +28,12 @@
       </div>
     </div>
 
-    <div class="row photos">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h3><i class="fas fa-images"></i> Photos</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <p>Here's a sample of my photos. These were primarily shot in film. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>.</p>
-  
-          </div>
-          <div class="col-12">
-            <div class="btn-group btn-group-toggle">
-              <label class="btn bnw btn-secondary" v-bind:class="{active: toggle === 'bnw'}">
-                <input type="radio" name="options" id="bnw" autocomplete="off" v-model="toggle" value="bnw"> Black and White
-              </label>
-              <label class="btn colour btn-secondary" v-bind:class="{active: toggle === 'colour'}">
-                <input type="radio" name="options" id="colour" autocomplete="off" v-model="toggle" value="colour"> Colour
-              </label>
-            </div>
-          </div>
-          <transition name="fade" leave-active-class="dissapear">
-            <div class="col-12" v-show="toggle === 'bnw'">  
-              <h4>Black and White</h4>
-              <masonry>
-                <div v-for="image of bnw" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-              </masonry>
-            </div>
-          </transition>
-          <transition name="fade" leave-active-class="dissapear">
-            <div class="col-12" v-show="toggle === 'colour'">
-              <h4>Colour</h4>
-              <masonry>
-                <div v-for="image of colour" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
-              </masonry>
-            </div>
-          </transition>
-        </div>
-      </div>
-    </div>
-
-    <div class="row gear">
-      <div class="container">
-        <div class="row">
-           <div class="col-12 col-sm-8">
-            <h3><i class="fas fa-camera"></i> Gear</h3>
-           </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-sm">
-            <h4>Cameras</h4>
-            <ul>
-              <li>Nikon EM (2)</li>
-              <li>Nikon FM</li>
-              <li>Nikon F4</li>
-              <li>Nikon D7000</li>
-              <li>Nikon D700</li>
-              <li>Fujica GW690</li>
-              <li>Yashica Electro</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm">
-            <h4>Lenses</h4>
-            <ul>
-              <li>Nikkor 28mm f2.8 AI-s</li>
-              <li>Nikkor 35mm f2 AF-D</li>
-              <li>Nikkor 35mm f1.8G AF-S DX</li>
-              <li>Nikon Series E 50mm f1.8</li>
-              <li>Micro-Nikkor 55mm f2.8 AI-s</li>
-              <li>Helios 44-2</li>
-              <li>Nikon Series E 100mm f2.8</li>
-              <li>Nikon Series E 70-210mm f4</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm">
-            <h4>Misc</h4>
-            <ul>
-              <li>Nikon SB-24</li>
-              <li>Scanner: Epson V550</li>
-            
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-import images from "../../images/images";
 export default {
   name: "Photography",
   data() {
@@ -114,9 +45,6 @@ export default {
         keywords:
           "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
       },
-      bnw: images["bnw"],
-      colour: images["colour"],
-      toggle: "bnw"
     };
   },
 
@@ -146,26 +74,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h4 {
-  margin: 20px 0;
-}
 .gear,
 .photos {
   margin-top: 50px;
 }
-img {
-  max-width: 100%;
-}
-.btn.bnw {
-  &.active {
-    background-color: #000;
-    color: #fff;
-  }
-}
-.btn.colour {
-  &.active {
-    background-color: #0066ff;
-    color: #ff9900;
+nav ul {
+  li {
+    list-style-type: none;
+    border-right: 1px solid #0066ff;
+    text-align: center;
+    &:last-of-type {
+      border-right: none;
+    }
+    a {
+      &.router-link-exact-active {
+        text-decoration: underline;
+        color: #212529;
+        cursor: default;
+      }
+    }
   }
 }
 </style>

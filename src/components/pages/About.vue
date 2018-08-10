@@ -31,12 +31,10 @@
 </template>
 
 <script>
-import about from "../../copy/about";
 export default {
   name: "About",
   data() {
     return {
-      content: about,
       meta: {
         title: "About Me",
         description: "Personal Site of Edward Ganuelas",

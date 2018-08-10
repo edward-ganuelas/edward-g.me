@@ -18,12 +18,7 @@ export default {
   name: "Bio",
   data() {
     return {
-      content: about,
-      meta: {
-          title: "About Me",
-          description: "Personal Site of Edward Ganuelas",
-          keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
-      }
+  
     };
   },
 
@@ -33,19 +28,6 @@ export default {
   beforeMount: function() {
     // this.getContent();
   },
-  head: {
-    title: function() {
-      return {
-        inner: this.meta.title
-      };
-    },
-    meta: function() {
-      return [
-        { name: "description", content: this.meta.description, id: 'description' },
-        { name: "keywords", content: this.meta.keywords, id: 'keywords' }
-      ];
-    }
-  }
 };
 </script>
 
