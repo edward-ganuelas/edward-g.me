@@ -73,6 +73,30 @@ const images =
             'orientation': 'portrait',
             'title': 'Mimi the cat',
         },
+        {
+            'id': 13,
+            'url': 'https://images.edward-g.me/bnw/img13.jpg',
+            'orientation': 'landscape',
+            'title': 'Dundas Square',
+        },
+        {
+            'id': 14,
+            'url': 'https://images.edward-g.me/bnw/img14.jpg',
+            'orientation': 'landscape',
+            'title': 'Dundas',
+        },
+        {
+            'id': 15,
+            'url': 'https://images.edward-g.me/bnw/img15.jpg',
+            'orientation': 'landscape',
+            'title': 'Truth',
+        },
+        {
+            'id': 16,
+            'url': 'https://images.edward-g.me/bnw/img16.jpg',
+            'orientation': 'landscape',
+            'title': 'Bathurst',
+        },
 
     ],
     'colour':
@@ -130,6 +154,36 @@ const images =
                 'url': 'https://images.edward-g.me/colour/img09.jpg',
                 'orientation': 'portrait',
                 'title': 'Bay Street During Rush Hour. Medium Format Film',
+            },
+            {
+                'id': 10,
+                'url': 'https://images.edward-g.me/colour/img10.jpg',
+                'orientation': 'landscape',
+                'title': 'Grosvenor Street',
+            },
+            {
+                'id': 11,
+                'url': 'https://images.edward-g.me/colour/img11.jpg',
+                'orientation': 'landscape',
+                'title': 'Fall Road in Overlea',
+            },
+            {
+                'id': 12,
+                'url': 'https://images.edward-g.me/colour/img12.jpg',
+                'orientation': 'landscape',
+                'title': 'Santa Claus Parade',
+            },
+            {
+                'id': 13,
+                'url': 'https://images.edward-g.me/colour/img13.jpg',
+                'orientation': 'landscape',
+                'title': 'Snow White',
+            },
+            {
+                'id': 14,
+                'url': 'https://images.edward-g.me/colour/img14.jpg',
+                'orientation': 'landscape',
+                'title': 'Bathurst',
             },
         ]
 
