@@ -37,7 +37,23 @@
             <ul>
               <li>Nikon SB-24</li>
               <li>Scanner: Epson V550</li>
-            
+              <li>Current Developer: Illfosol 3</li>
+              <li>Current Fixer: Illford Rapid Fixer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm">
+            <h4>Favorite Films</h4>
+            <ul>
+              <li>Kodak TMax 400</li>
+              <li>Fujifilm Acros 100 (being discontinued) <i class="far fa-frown"></i></li>
+              <li>Kentmere 100 & 400</li>
+              <li>Illford FP4+</li>
+              <li>Kodak Porta 400</li>
+              <li>Kodak Ektar</li>
+              <li>CineStill 800T</li>
+              <li>Fujifilm Natura 1600 (being discontinued) <i class="far fa-frown"></i></li>
             </ul>
           </div>
         </div>
