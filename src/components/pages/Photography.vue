@@ -11,7 +11,7 @@
                <router-link to="/photography/gear">Gear</router-link>
             </li>
             <li class="col" v-if="false">
-              <router-link to="/about-me/music">Photo Projects</router-link>
+              <router-link to="/photography/projects">Photo Projects</router-link>
             </li>
           </ul>
         </nav>
