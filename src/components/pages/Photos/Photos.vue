@@ -21,18 +21,16 @@
               </label>
             </div>
           </div>
-
-          <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
-          <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
-          
         </div>
+         <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
+         <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
       </div>
     </div>
 </template>
 
 <script>
 import images from "../../../images/images";
-import ImageGrid from '@/components/ImageGrid';
+import ImageGrid from "@/components/ImageGrid";
 export default {
   name: "Photos",
   components: {
@@ -55,7 +53,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .btn.bnw {
   &.active {
     background-color: #000;
@@ -67,5 +64,8 @@ export default {
     background-color: #0066ff;
     color: #ff9900;
   }
+}
+.photos {
+  margin-bottom: 150px;
 }
 </style>
