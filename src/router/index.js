@@ -6,6 +6,9 @@ import Photography from '@/components/pages/Photography'
 import Facts from '@/components/pages/About/Facts'
 import Bio from '@/components/pages/About/Bio'
 import Music from '@/components/pages/About/Music'
+import Photos from '@/components/pages/Photos/Photos'
+import Gear from '@/components/pages/Photos/Gear'
+import Projects from '@/components/pages/Photos/Projects'
 
 Vue.use(Router)
 
@@ -39,8 +42,24 @@ export default new Router({
     },
     {
       path: '/photography',
-      name: 'Photography',
-      component: Photography
+      component: Photography,
+      children:[
+        {
+          path: '',
+          name: 'Photos',
+          component: Photos
+        },
+        {
+          path: 'gear',
+          name: 'Gear',
+          component: Gear
+        },
+        {
+          path: 'projects',
+          name: 'Projects',
+          component: Projects
+        }
+      ]
     }
   ]
 })
