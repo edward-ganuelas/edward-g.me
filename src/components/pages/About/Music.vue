@@ -11,6 +11,27 @@
     </div>
     <div class="col-12 col-sm-8">
       <h4>Thumbs Up</h4>
+      
+    </div>
+    <div class="col-12">
+      <p>Sort</p>
+       <div class="btn-group btn-group-toggle">
+          <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
+            <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> Clear
+          </label>
+          <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'title'}">
+            <input type="radio" name="options" id="title" autocomplete="off" v-model="filter" value="title"> 
+            Title
+          </label>
+          <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'artist'}">
+            <input type="radio" name="options" id="artist" autocomplete="off" v-model="filter" value="artist"> 
+            Artist
+          </label>
+          <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'album'}">
+            <input type="radio" name="options" id="album" autocomplete="off" v-model="filter" value="album"> 
+            Album
+          </label>
+        </div>
     </div>
     <div class="col-12">
       <table>
@@ -22,7 +43,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(music, index) in content" v-bind:key="index">
+          <tr v-for="(music, index) in filteredContent" v-bind:key="index">
             <td v-for="(content, index2) in music" v-bind:key="index2">{{content}}</td>
           </tr>
         </tbody>
@@ -32,51 +53,59 @@
 </template>
 
 <script>
-import about from "../../../copy/music";
+import music from "../../../copy/music";
+import _ from 'lodash';
 export default {
   name: "Music",
   data() {
     return {
-      content: about,
+      filter: '',
     };
   },
 
   methods: {},
-  beforeMount: function() {
-    // this.getContent();
-  },
+  computed: {
+    filteredContent(){
+      if(this.filter === ''){
+        return music;
+      }else{
+        return _.sortBy(music, this.filter)
+      }
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 h2,
 h3 {
   margin-bottom: 20px;
 }
-table{
+table {
   width: 100%;
   margin-bottom: 100px;
+  margin-top: 50px;
 }
-th,td{
+th,
+td {
   width: 33%;
   text-align: center;
 }
-tbody{
-  tr:last-child{
-    td{
+tbody {
+  tr:last-child {
+    td {
       border: none;
     }
   }
-   td{
-    border-bottom: 1px solid #434b53; 
+  td {
+    border-bottom: 1px solid #434b53;
     // &:last-child{
     //   border: none;
     // }
   }
-  tr:last-child{
-    td{
+  tr:last-child {
+    td {
       border: none;
     }
   }
@@ -87,6 +116,6 @@ tbody{
   //     border-right: 1px solid #FFF;
   //   }
   // }
- 
+  
 }
 </style>

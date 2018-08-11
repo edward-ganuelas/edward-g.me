@@ -18,29 +18,32 @@
 import _ from "lodash";
 export default {
   name: "ImageGrid",
-  props: ['images', 'title', 'toggle', 'activeClass'],
+  props: ["images", "title", "toggle", "activeClass"],
   data() {
     return {
       gridSize: 8
     };
   },
   methods: {
-    addGridSize(){
+    addGridSize() {
       this.gridSize += 4;
-      if(this.gridSize > this.numberOfImages){
+      if (this.gridSize > this.numberOfImages) {
         this.gridSize = this.numberOfImages;
       }
+      this.$ga.event({
+        eventCategory: `Load More ${this.toggle}`,
+        eventAction: "click",
+      });
     }
   },
-  computed:{
-    numberOfImages(){
+  computed: {
+    numberOfImages() {
       return _.size(this.images);
     },
-    grid(){
+    grid() {
       return _.slice(this.images, 0, this.gridSize);
     }
   }
-
 };
 </script>
 
@@ -52,7 +55,7 @@ img {
 h4 {
   margin: 20px 0;
 }
-button{
+button {
   margin: 50px auto;
   display: block;
 }
