@@ -14,7 +14,10 @@ Vue.use(VueMasonry);
 Vue.use(VueImg);
 Vue.use(VueAnalytics, {
   id: 'UA-112626956-1',
-  router
+  router,
+  debug: {
+    sendHitTask: process.env.NODE_ENV === 'production'
+  }
 })
 
 
