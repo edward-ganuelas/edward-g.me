@@ -19,9 +19,9 @@
 
 <script>
 import _ from "lodash";
-import { DIRECTUS } from "../api/apis";
-import RemoteInstance from "directus-sdk-javascript/remote";
+import { DIRECTUS, DIRECTUS_BLOG } from "../api/apis";
 import Spinner from './Spinner';
+import axios from 'axios';
 
 export default {
   name: "DevelopmentNews",
@@ -51,17 +51,11 @@ export default {
     }
   },
   mounted() {
-    const client = new RemoteInstance({
-      url: DIRECTUS
-    });
     (async () => {
       try {
         this.spin = true;
-        const data = await client.getItems("blog", {
-          limit: 1,
-          "order[published_date]": "DESC"
-        });
-        this.content = data.data[0];
+        const response = await axios.get(`${DIRECTUS}${DIRECTUS_BLOG}?limit=1&order[published_date]=DESC`);
+        this.content = response.data.data;
         this.spin = false;
       } catch (e) {
         console.log(e);
