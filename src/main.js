@@ -9,6 +9,8 @@ import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 
+
+
 Vue.use(VueHead);
 Vue.use(VueMasonry);
 Vue.use(VueImg);

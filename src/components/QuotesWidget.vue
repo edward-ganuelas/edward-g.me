@@ -1,7 +1,7 @@
 <template>
   <div class="quotesWidget row">
     <div class="col-12">
-      <h2>Random Quotes I Like</h2>
+      <h2>A Random Quote I Like</h2>
       
     </div>
     <div class="col-10 col-sm-6">
