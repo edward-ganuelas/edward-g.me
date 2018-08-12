@@ -10,6 +10,7 @@
         <p>Thank you, and check back soon!</p>
       </div>
     </div>
+    <development-news />
     <about-widget />
     <quotes-widget />
   </div>
@@ -19,11 +20,13 @@
 import axios from "axios";
 import AboutWidget from './AboutWidget';
 import QuotesWidget from './QuotesWidget';
+import DevelopmentNews from './DevelopmentNews';
 export default {
   name: "Home",
   components: {
     AboutWidget,
-    QuotesWidget
+    QuotesWidget,
+    DevelopmentNews
   },
   data() {
     return {
