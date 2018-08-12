@@ -8,7 +8,7 @@
       <p>{{content}}</p>
     </div>
     <div class="col-2  col-sm-6">
-      <button @click="setContent" class="btn btn-light"><i class="fas fa-sync-alt"></i></button>
+      <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
     </div>
   </div>
 </template>
