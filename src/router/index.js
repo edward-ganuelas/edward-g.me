@@ -9,6 +9,7 @@ import Music from '@/components/pages/About/Music'
 import Photos from '@/components/pages/Photos/Photos'
 import Gear from '@/components/pages/Photos/Gear'
 import Projects from '@/components/pages/Photos/Projects'
+import BlogPost from '@/components/blog/BlogPost';
 
 Vue.use(Router)
 
@@ -60,6 +61,11 @@ export default new Router({
           component: Projects
         }
       ]
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: BlogPost
     }
   ]
 })
