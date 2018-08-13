@@ -1,15 +1,15 @@
 <template>
-  <div class="filters">
+  <div class="card-body filters">
     <h3>Filters</h3>
     <ul>
-      <li><v-btn @click="onFilterClick('clear')">Clear</v-btn></li>
-      <li v-for="tag in filters" v-bind:id="tag.id" :key="tag.id"><v-btn @click="onFilterClick(tag.tag)" :disabled="tag.tag === filter">{{tag.tag}}</v-btn></li>
+      <li><button class="btn" @click="onFilterClick('clear')">Clear</button></li>
+      <li v-for="tag in filters" v-bind:id="tag.id" :key="tag.id"><button class="btn" @click="onFilterClick(tag.tag)" :disabled="tag.tag === filter">{{tag.tag}}</button></li>
     </ul>
   </div>
 </template>
 
 <script>
-import { API } from "../constants";
+import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
 import { get, sync } from "vuex-pathify";
 import axios from 'axios';
 

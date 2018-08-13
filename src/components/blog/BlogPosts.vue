@@ -1,62 +1,50 @@
 <template>
   <div class="posts">
-    <v-progress-circular indeterminate v-bind:size="100" v-bind:width="7" color="blue" v-if="this.savedPost === ''"></v-progress-circular>
-    <v-container grid-list-md text-xs-center v-if="this.savedPost !== ''">
-      <v-layout row wrap>
-      <v-flex xs-12 sm4 lg2 offset-lg1>
-        <v-card hover>
+    <div class="container" v-if="this.savedPost !== ''">
+      <div class="row">
+      <div class="col-12 col-sm-4 col-lg-2 offset-lg-1">
+        <div class="card">
           <blog-filters />
-        </v-card>
-      </v-flex>
-      <v-flex xs12 sm8 lg8>
+        </div>
+      </div>
+      <div class="col-12 col-sm-8 col-lg-8">
       <transition-group name="fade" leave-active-class="fadeOutRight">
-        <v-flex xs12 v-for="post in orderedPosts" v-bind:key="post.id">
-          <v-card hover>
-            <v-card-title primary-title>
-              <v-flex xs12>
-                <h2 class="headline">{{post.title}}</h2>
-                <author v-bind:author="post.author" v-if="post.author" />
-                <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-                <ul v-if="post.tags.data" class="tags">
-                  <li v-for="tag in post.tags.data" :key="tag.id"><v-chip>{{tag.tag}}</v-chip></li>
+        <div class="col-12" v-for="post in orderedPosts" v-bind:key="post.id">
+          <div class="card" hover>
+            <div class="card-body">
+              <h2 class="headline card-title">{{post.title}}</h2>
+               <author v-bind:author="post.author" v-if="post.author" />
+               <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
+               <ul v-if="post.tags.data" class="tags">
+                  <li v-for="tag in post.tags.data" :key="tag.id">{{tag.tag}}</li>
                 </ul>
-              </v-flex>
-            </v-card-title>
-            <v-card-text>
-              <blockquote>{{post.excerpt}}</blockquote>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn flat :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}">Read More</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>   
-      </transition-group>   
-      </v-flex>
-      </v-layout>
+                <blockquote class="card-text">{{post.excerpt}}</blockquote>
+              </div>
 
-        <v-card-text class="fab-wrapper">
-            <v-btn
-            absolute
-            dark
-            fab
-            right
-            color="red"
-            :to="{name: 'EightRay'}" >
-        <v-icon>home</v-icon>
-          </v-btn>
-        </v-card-text>
+                
+              
+            <!-- <v-card-actions>
+              <v-btn flat :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}">Read More</v-btn>
+            </v-card-actions> -->
+          </div>
+        </div>   
+      </transition-group>   
+      </div>
+      </div>
+
+       
          
-    </v-container>
+    </div>
   </div>
 </template>
 
 <script>
-import { API } from "../constants";
+import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
 import BlogFilters from "./BlogFilters";
 import Author from "./Author";
 import _ from "lodash";
 import { get, sync } from "vuex-pathify";
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "blog-posts",
   data() {
@@ -68,7 +56,7 @@ export default {
   },
   methods: {
     getPosts: async function() {
-      const response = await axios.get(API.post);
+      const response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}`);
       this.savedPost = response.data.data;
       localStorage.setItem("blog-eightray", JSON.stringify(response.data.data));
       localStorage.setItem("blog-eightray-last-update", Date.now());
@@ -153,20 +141,21 @@ export default {
     }
   },
   beforeMount: function() {
-    const posts = localStorage.getItem("blog-eightray");
-    const today = Date.now();
-    const lastFetch = localStorage.getItem("blog-eightray-last-update");
-    const milisecondsToDay = 86400000;
-    const daysSinceLastUpdate = today - lastFetch;
-    if (!posts) {
-      this.getPosts();
-    } else {
-      if (daysSinceLastUpdate > milisecondsToDay) {
-        this.getPosts();
-      } else {
-        this.savedPost = JSON.parse(posts);
-      }
-    }
+    this.getPosts();
+    // const posts = localStorage.getItem("blog-eightray");
+    // const today = Date.now();
+    // const lastFetch = localStorage.getItem("blog-eightray-last-update");
+    // const milisecondsToDay = 86400000;
+    // const daysSinceLastUpdate = today - lastFetch;
+    // if (!posts) {
+    //   this.getPosts();
+    // } else {
+    //   if (daysSinceLastUpdate > milisecondsToDay) {
+    //     this.getPosts();
+    //   } else {
+    //     this.savedPost = JSON.parse(posts);
+    //   }
+    // }
   }
 };
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div class="blog-post">
-    <v-progress-circular indeterminate v-bind:size="100" v-bind:width="7" color="blue" v-if="post === ''"></v-progress-circular>
       <v-container grid-list-md text-xs-center v-if="post !== ''">
       <v-layout row wrap>
           <v-flex xs12 md8 offset-md2>
@@ -40,7 +39,7 @@
 
 <script>
 // import axios from "axios";
-import { API } from "../constants";
+import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
 import Author from "./Author";
 import axios from "axios";
 

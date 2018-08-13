@@ -9,7 +9,7 @@ import Music from '@/components/pages/About/Music'
 import Photos from '@/components/pages/Photos/Photos'
 import Gear from '@/components/pages/Photos/Gear'
 import Projects from '@/components/pages/Photos/Projects'
-import BlogPost from '@/components/blog/BlogPost';
+import BlogPosts from '@/components/blog/BlogPosts';
 
 Vue.use(Router)
 
@@ -65,7 +65,7 @@ export default new Router({
     {
       path: '/blog',
       name: 'Blog',
-      component: BlogPost
+      component: BlogPosts
     }
   ]
 })
