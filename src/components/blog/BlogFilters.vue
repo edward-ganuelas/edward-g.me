@@ -30,10 +30,10 @@ export default {
     getFilters: async function() {
       const response = await axios.get(`${DIRECTUS}${TAGS}`);
       this.filters = response.data.data;
-      // localStorage.setItem(
-      //   "blog-eightray-filters",
-      //   JSON.stringify(response.data.data)
-      // );
+      localStorage.setItem(
+        "blog-edward-g-filters",
+        JSON.stringify(response.data.data)
+      );
     },
     onFilterClick: function(filter) {
       if (filter === "clear") {
@@ -53,21 +53,21 @@ export default {
   },
 
   beforeMount: function() {
-    this.getFilters();
-    // const filter = localStorage.getItem("blog-eightray-filters");
-    // const today = Date.now();
-    // const lastFetch = localStorage.getItem("blog-eightray-last-update");
-    // const milisecondsToDay = 86400000;
-    // const daysSinceLastUpdate = today - lastFetch;
-    // if (!filter) {
-    //   this.getFilters();
-    // } else {
-    //   if (daysSinceLastUpdate > milisecondsToDay) {
-    //     this.getFilters();
-    //   } else {
-    //     this.filters = JSON.parse(filter);
-    //   }
-    // }
+    // this.getFilters();
+    const filter = localStorage.getItem("blog-edward-g-filters");
+    const today = Date.now();
+    const lastFetch = localStorage.getItem("blog-edward-g-last-update");
+    const milisecondsToDay = 86400000;
+    const daysSinceLastUpdate = today - lastFetch;
+    if (!filter) {
+      this.getFilters();
+    } else {
+      if (daysSinceLastUpdate > milisecondsToDay) {
+        this.getFilters();
+      } else {
+        this.filters = JSON.parse(filter);
+      }
+    }
   }
 };
 </script>
