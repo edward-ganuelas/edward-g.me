@@ -19,6 +19,9 @@
                 <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
               </li>
               <li>
+                <router-link to="/blog"><span class='ico'><i class="fas fa-book-open"></i></span>Blog</router-link>
+              </li>
+              <li>
                 <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
               </li>
               <li>

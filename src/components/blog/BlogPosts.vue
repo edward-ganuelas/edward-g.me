@@ -2,23 +2,22 @@
   <div class="posts">
     <div class="container" v-if="this.savedPost !== ''">
       <div class="row">
-      <div class="col-12 col-sm-4 col-lg-2 offset-lg-1">
-        <div class="card">
+      <div class="col-12 col-lg-7 col-md-12">
           <blog-filters />
-        </div>
       </div>
-      <div class="col-12 col-sm-8 col-lg-8">
+      <div class="col-12 col-lg-7">
       <transition-group name="fade" leave-active-class="fadeOutRight">
         <div class="col-12" v-for="post in orderedPosts" v-bind:key="post.id">
-          <div class="card" hover>
+          <div class="card">
             <div class="card-body">
               <h2 class="headline card-title">{{post.title}}</h2>
                <author v-bind:author="post.author" v-if="post.author" />
                <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-               <ul v-if="post.tags.data" class="tags">
+               <!-- <ul v-if="post.tags.data" class="tags">
                   <li v-for="tag in post.tags.data" :key="tag.id">{{tag.tag}}</li>
-                </ul>
+                </ul> -->
                 <blockquote class="card-text">{{post.excerpt}}</blockquote>
+                <router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}">Read More</router-link>
               </div>
 
                 
@@ -58,8 +57,8 @@ export default {
     getPosts: async function() {
       const response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}`);
       this.savedPost = response.data.data;
-      localStorage.setItem("blog-eightray", JSON.stringify(response.data.data));
-      localStorage.setItem("blog-eightray-last-update", Date.now());
+      localStorage.setItem("blog-edward-g", JSON.stringify(response.data.data));
+      localStorage.setItem("blog-edward-g-last-update", Date.now());
     },
     publishedDate: function(published_date) {
       let date = new Date(published_date);
@@ -141,21 +140,21 @@ export default {
     }
   },
   beforeMount: function() {
-    this.getPosts();
-    // const posts = localStorage.getItem("blog-eightray");
-    // const today = Date.now();
-    // const lastFetch = localStorage.getItem("blog-eightray-last-update");
-    // const milisecondsToDay = 86400000;
-    // const daysSinceLastUpdate = today - lastFetch;
-    // if (!posts) {
-    //   this.getPosts();
-    // } else {
-    //   if (daysSinceLastUpdate > milisecondsToDay) {
-    //     this.getPosts();
-    //   } else {
-    //     this.savedPost = JSON.parse(posts);
-    //   }
-    // }
+    // this.getPosts();
+    const posts = localStorage.getItem("blog-edward-g");
+    const today = Date.now();
+    const lastFetch = localStorage.getItem("blog-edward-g-last-update");
+    const milisecondsToDay = 86400000;
+    const daysSinceLastUpdate = today - lastFetch;
+    if (!posts) {
+      this.getPosts();
+    } else {
+      if (daysSinceLastUpdate > milisecondsToDay) {
+        this.getPosts();
+      } else {
+        this.savedPost = JSON.parse(posts);
+      }
+    }
   }
 };
 </script>

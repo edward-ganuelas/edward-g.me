@@ -15,17 +15,17 @@ export default {
   },
   methods: {
     getAuthor: async function() {
-      let response = await axios.get(`${DIRECTUS}${API.user}${this.author}`);
+      let response = await axios.get(`${DIRECTUS}${AUTHOR}${this.author}`);
       this.name =
         response.data.data.first_name + " " + response.data.data.last_name;
-      localStorage.setItem(`eightray_author_${this.author}`, this.name);
+      localStorage.setItem(`edward-g_author_${this.author}`, this.name);
     }
   },
   beforeMount: function() {
-    if (localStorage.getItem(`eightray_author_${this.author}`) === null) {
+    if (localStorage.getItem(`edward-g_author_${this.author}`) === null) {
       this.getAuthor();
     } else {
-      this.name = localStorage.getItem(`eightray_author_${this.author}`);
+      this.name = localStorage.getItem(`edward-g_author_${this.author}`);
     }
   }
 };

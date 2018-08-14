@@ -1,39 +1,20 @@
 <template>
   <div class="blog-post">
-      <v-container grid-list-md text-xs-center v-if="post !== ''">
-      <v-layout row wrap>
-          <v-flex xs12 md8 offset-md2>
-            <h2>{{post.title}}</h2>
-            <author v-bind:author="post.author" v-if="post.author" />
-            <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-            <div v-html="post.content"></div>
-          </v-flex>
-      </v-layout>
-       <v-card-text class="fab-wrapper">
-        <v-speed-dial
-
-                absolute
-                right
-                direction="top"
-                :hover=false
-                transition="slide-y-reverse-transition"
-              >
-              <v-btn
-                slot="activator"
-                color="blue darken-2"
-                dark
-                fab
-                hover
-
-              >
-              <v-icon>toc</v-icon>
-              <v-icon>close</v-icon>
-            </v-btn>
-              <v-btn dark fab small color="orange" :to="{name: 'Home'}"><v-icon>keyboard_backspace</v-icon></v-btn>
-              <v-btn dark fab small color="red" :to="{name: 'EightRay'}"><v-icon>home</v-icon></v-btn>
-            </v-speed-dial>
-        </v-card-text>
-      </v-container>
+      <div class="container" v-if="post !== ''">
+        <div class="row">
+          <div class="col-12 col-lg-7">
+              <h2>{{post.title}}</h2>
+              <author v-bind:author="post.author" v-if="post.author" />
+              <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
+              <div v-html="post.content"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <router-link to="/blog"><i class="fas fa-caret-left"></i> Back</router-link>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -60,9 +41,9 @@ export default {
   },
   methods: {
     getPost: async function() {
-      let response = await axios.get(`${API.post}${this.id}`);
-      this.post = response.data;
-      localStorage.setItem(API.post + this.id, JSON.stringify(this.post));
+      let response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}/${this.id}`);
+      this.post = response.data.data;
+      // localStorage.setItem(API.post + this.id, JSON.stringify(this.post));
       window.setTimeout(() => {
         this.updateMetaData();
         this.$emit("updateHead");
@@ -86,12 +67,13 @@ export default {
     }
   },
   beforeMount: function() {
-    if (localStorage.getItem(API.post + this.id) === null) {
-      this.getPost();
-    } else {
-      this.post = JSON.parse(localStorage.getItem(API.post + this.id));
-      this.updateMetaData();
-    }
+    // if (localStorage.getItem(API.post + this.id) === null) {
+    //   this.getPost();
+    // } else {
+    //   this.post = JSON.parse(localStorage.getItem(API.post + this.id));
+    //   this.updateMetaData();
+    // }
+    this.getPost();
     this.$ga.page({
       page: "/post",
       title: this.post.title,
@@ -118,22 +100,7 @@ export default {
 <style lang="scss" scoped>
 .blog-post {
   width: 100%;
+  margin-bottom: 50px;
 }
-.progress-circular {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.fab-wrapper {
-  height: 100px;
-}
-.bottom-nav-wrap {
-  height: 200px;
-  position: absolute;
-  bottom: 80px;
-  .bottom-nav {
-    bottom: 70px;
-  }
-}
+
 </style>

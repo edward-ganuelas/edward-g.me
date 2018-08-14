@@ -1,17 +1,23 @@
 <template>
-  <div class="card-body filters">
-    <h3>Filters</h3>
-    <ul>
-      <li><button class="btn" @click="onFilterClick('clear')">Clear</button></li>
-      <li v-for="tag in filters" v-bind:id="tag.id" :key="tag.id"><button class="btn" @click="onFilterClick(tag.tag)" :disabled="tag.tag === filter">{{tag.tag}}</button></li>
-    </ul>
+  <div class="filters container">
+    <div class="row">
+      <div class="col-12">
+         <p>Filters</p>
+      </div>
+      <button type="button" class="btn btn-secondary col" @click="onFilterClick('clear')">Clear</button>
+      <button type="button" class="btn btn-secondary col" v-for="tag in filters" v-bind:id="tag.id" :key="tag.id" @click="onFilterClick(tag.tag)" :disabled="tag.tag === filter">{{tag.tag}}</button>
+    </div>
+   
+
+    
+      
   </div>
 </template>
 
 <script>
-import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
+import { DIRECTUS, TAGS } from "../../api/apis";
 import { get, sync } from "vuex-pathify";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "BlogFilters",
@@ -22,13 +28,12 @@ export default {
   },
   methods: {
     getFilters: async function() {
-
-      const response = await axios.get(API.tags);
+      const response = await axios.get(`${DIRECTUS}${TAGS}`);
       this.filters = response.data.data;
-      localStorage.setItem(
-        "blog-eightray-filters",
-        JSON.stringify(response.data.data)
-      );
+      // localStorage.setItem(
+      //   "blog-eightray-filters",
+      //   JSON.stringify(response.data.data)
+      // );
     },
     onFilterClick: function(filter) {
       if (filter === "clear") {
@@ -48,21 +53,21 @@ export default {
   },
 
   beforeMount: function() {
-    const filter = localStorage.getItem("blog-eightray-filters");
-    const today = Date.now();
-    const lastFetch = localStorage.getItem("blog-eightray-last-update");
-    const milisecondsToDay = 86400000;
-    const daysSinceLastUpdate = today - lastFetch;
-    if (!filter) {
-      this.getFilters();
-    } else {
-      if (daysSinceLastUpdate > milisecondsToDay) {
-        this.getFilters();
-      } else {
-        this.filters = JSON.parse(filter);
-      }
-    }
-
+    this.getFilters();
+    // const filter = localStorage.getItem("blog-eightray-filters");
+    // const today = Date.now();
+    // const lastFetch = localStorage.getItem("blog-eightray-last-update");
+    // const milisecondsToDay = 86400000;
+    // const daysSinceLastUpdate = today - lastFetch;
+    // if (!filter) {
+    //   this.getFilters();
+    // } else {
+    //   if (daysSinceLastUpdate > milisecondsToDay) {
+    //     this.getFilters();
+    //   } else {
+    //     this.filters = JSON.parse(filter);
+    //   }
+    // }
   }
 };
 </script>
@@ -77,5 +82,10 @@ ul {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
+}
+.btn{
+  border-radius: 0;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 </style>

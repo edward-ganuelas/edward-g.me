@@ -48,6 +48,7 @@ export default {
 @import "./node_modules/bootstrap/scss/_buttons.scss";
 @import "./node_modules/bootstrap/scss/_button-group.scss";
 @import "./node_modules/bootstrap/scss/_card.scss";
+@import "./node_modules/bootstrap/scss/_utilities.scss";
 html, body{
   font-size: 85%;
   color: #212529;
