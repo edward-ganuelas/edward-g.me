@@ -30,7 +30,7 @@
       </transition-group>   
       </div>
       </div>
-
+      <spinner :spin="spin" />
        
          
     </div>
@@ -44,19 +44,25 @@ import Author from "./Author";
 import _ from "lodash";
 import { get, sync } from "vuex-pathify";
 import axios from "axios";
+import Spinner from "../Spinner";
 export default {
   name: "blog-posts",
   data() {
-    return {};
+    return {
+      spin: false
+    };
   },
   components: {
     Author,
-    BlogFilters
+    BlogFilters,
+    Spinner
   },
   methods: {
     getPosts: async function() {
+      this.spin = true;
       const response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}`);
       this.savedPost = response.data.data;
+      this.spin = false;
       localStorage.setItem("blog-edward-g", JSON.stringify(response.data.data));
       localStorage.setItem("blog-edward-g-last-update", Date.now());
     },
@@ -184,11 +190,5 @@ ul {
 }
 .card {
   margin-bottom: 18px;
-}
-.progress-circular {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 </style>
