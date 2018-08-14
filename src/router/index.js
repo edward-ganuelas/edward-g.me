@@ -1,14 +1,16 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/components/Home'
-import About from '@/components/pages/About'
-import Photography from '@/components/pages/Photography'
-import Facts from '@/components/pages/About/Facts'
-import Bio from '@/components/pages/About/Bio'
-import Music from '@/components/pages/About/Music'
-import Photos from '@/components/pages/Photos/Photos'
-import Gear from '@/components/pages/Photos/Gear'
-import Projects from '@/components/pages/Photos/Projects'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/components/Home';
+import About from '@/components/pages/About';
+import Photography from '@/components/pages/Photography';
+import Facts from '@/components/pages/About/Facts';
+import Bio from '@/components/pages/About/Bio';
+import Music from '@/components/pages/About/Music';
+import Photos from '@/components/pages/Photos/Photos';
+import Gear from '@/components/pages/Photos/Gear';
+import Projects from '@/components/pages/Photos/Projects';
+import BlogPosts from '@/components/blog/BlogPosts';
+import BlogPost from '@/components/blog/BlogPost';
 
 Vue.use(Router)
 
@@ -60,6 +62,20 @@ export default new Router({
           component: Projects
         }
       ]
-    }
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: BlogPosts
+    },
+    {
+      path: '/post/:title',
+      name: 'Post',
+      component: BlogPost,
+      props: (route) =>({
+          id: route.query.id,
+          title: route.params.title
+      })
+  },
   ]
 })

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-7 main-content">
+      <div class="col-12 col-lg-7 main-content">
         <p>Hello, my name is Edward Paulo Ganuelas and this is my personal site.</p>
         <p>There is nothing much here right now, but I plan to do a lot of rolling updates soon!</p>
         <p>You can follow the development of this site on it's Github <a href="https://github.com/edward-ganuelas/edward-g.me" target="_blank" rel="noopener noreferrer">repo.</a></p>

@@ -8,6 +8,7 @@ require('vue2-animate/dist/vue2-animate.min.css')
 import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
+import store from './vuex/store';
 
 
 
@@ -28,6 +29,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   template: '<App/>',
   components: { App }
