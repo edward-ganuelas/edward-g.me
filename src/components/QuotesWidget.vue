@@ -1,13 +1,11 @@
 <template>
-  <div class="quotesWidget row">
+  <div class="quotesWidget row card shadow">
     <div class="col-12">
       <h2>A Random Quote I Like</h2>
       
     </div>
     <div class="col-10 col-sm-6">
       <blockquote><em>{{content}}</em></blockquote>
-    </div>
-    <div class="col-2 col-sm-6">
       <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
     </div>
   </div>

@@ -18,25 +18,23 @@ export default {
   data() {
     return {
       transitions: ["slideLeft", "fadeRight", "bounceDown", "zoom", "fadeUp"],
-      transition: '',
+      transition: ""
     };
   },
-  computed:{
-
-  },
+  computed: {},
   methods: {
-    changeTransition(){
+    changeTransition() {
       this.transition = this.transitions[this.getRandomNumber()];
     },
-    getRandomNumber(){
-      return _.random(0,4);
+    getRandomNumber() {
+      return _.random(0, 4);
     }
   },
-  mounted(){
+  mounted() {
     this.changeTransition();
-    this.$router.afterEach((to, from) =>{
-      this.changeTransition()
-    })
+    this.$router.afterEach((to, from) => {
+      this.changeTransition();
+    });
   }
 };
 </script>
@@ -48,20 +46,24 @@ export default {
 @import "./node_modules/bootstrap/scss/_buttons.scss";
 @import "./node_modules/bootstrap/scss/_button-group.scss";
 @import "./node_modules/bootstrap/scss/_card.scss";
-html, body{
+html,
+body {
   font-size: 85%;
   color: #212529;
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     font-size: 90%;
   }
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     font-size: 100%;
   }
 }
-h1, h2, h3, h4{
+h1,
+h2,
+h3,
+h4 {
   font-family: "Raleway", sans-serif;
 }
-a{
+a {
   color: #0066ff;
 }
 .application {
@@ -73,7 +75,17 @@ a{
 span.ico {
   margin-right: 8px;
 }
-.btn{
+.btn {
   border-radius: 15px;
+}
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+}
+.card{
+  padding: 25px 0;
 }
 </style>
