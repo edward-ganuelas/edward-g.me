@@ -8,7 +8,7 @@
       <div class="col-12 col-lg-7">
       <transition-group name="fade" leave-active-class="fadeOutRight">
         <div class="col-12" v-for="post in orderedPosts" v-bind:key="post.id">
-          <div class="card">
+          <div class="card shadow">
             <div class="card-body">
               <h2 class="headline card-title">{{post.title}}</h2>
                <author v-bind:author="post.author" v-if="post.author" />

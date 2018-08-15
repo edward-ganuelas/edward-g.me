@@ -1,13 +1,11 @@
 <template>
-  <div class="aboutWidget row">
+  <div class="aboutWidget row card shadow">
     <div class="col-12">
       <h2>A Random Fact About Me</h2>
       
     </div>
-    <div class="col-10 col-sm-6">
+    <div class="col-12">
       <p>{{content}}</p>
-    </div>
-    <div class="col-2  col-sm-6">
       <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
     </div>
   </div>
