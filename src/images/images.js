@@ -97,6 +97,29 @@ const images =
             'orientation': 'landscape',
             'title': 'Bathurst',
         },
+        {
+            'id': 17,
+            'url': 'https://images.edward-g.me/bnw/img17.jpg',
+            'orientation': 'Union Station Tracks',
+        },
+        {
+            'id': 18,
+            'url': 'https://images.edward-g.me/bnw/img18.jpg',
+            'orientation': 'portrait',
+            'title': 'Queen Street at Night, City Hall',
+        },
+        {
+            'id': 19,
+            'url': 'https://images.edward-g.me/bnw/img19.jpg',
+            'orientation': 'landscape',
+            'title': 'Union Station Tracks',
+        },
+        {
+            'id': 20,
+            'url': 'https://images.edward-g.me/bnw/img20.jpg',
+            'orientation': 'landscape',
+            'title': 'Tunnel at Niagara',
+        },
 
     ],
     'colour':
@@ -184,6 +207,12 @@ const images =
                 'url': 'https://images.edward-g.me/colour/img14.jpg',
                 'orientation': 'landscape',
                 'title': 'Bathurst',
+            },
+            {
+                'id': 15,
+                'url': 'https://images.edward-g.me/colour/img15.jpg',
+                'orientation': 'Portrait',
+                'title': 'Winter at City Hall',
             },
         ]
 
