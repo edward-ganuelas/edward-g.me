@@ -13,9 +13,10 @@
               <h2 class="headline card-title">{{post.title}}</h2>
                <author v-bind:author="post.author" v-if="post.author" />
                <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-               <!-- <ul v-if="post.tags.data" class="tags">
+               <ul v-if="post.tags.data" class="tags">
+                  <li>Tags:</li>
                   <li v-for="tag in post.tags.data" :key="tag.id">{{tag.tag}}</li>
-                </ul> -->
+                </ul>
                 <blockquote class="card-text">{{post.excerpt}}</blockquote>
                 <router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}">Read More</router-link>
               </div>
@@ -180,6 +181,14 @@ ul {
     margin-right: 10px;
     &:first-child {
       margin-left: 18px;
+    }
+  }
+}
+.tags {
+  li {
+    font-style: italic;
+    &:first-child {
+      margin-left: 0;
     }
   }
 }
