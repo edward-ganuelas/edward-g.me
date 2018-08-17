@@ -6,7 +6,7 @@
         <p>{{content.subHero}}</p>
       </div>
         <div class="col-12">
-          <nav class="">
+          <nav class="main">
             <ul>
               <li class="leftArrow"><i class="fas fa-chevron-left"></i></li>
               <li>
@@ -39,6 +39,7 @@
 
 <script>
 import axios from "axios";
+import anime from "animejs";
 export default {
   name: "HeaderNav",
   data() {
@@ -56,7 +57,7 @@ export default {
         eightray: {
           label: "EightRayedSun",
           to: "/eightray"
-        } 
+        }
       },
       drawer: null
     };
@@ -67,24 +68,40 @@ export default {
         this.content = x.data.content;
       });
     },
-    tracking(site){
-       this.$ga.event({
+    tracking(site) {
+      this.$ga.event({
         eventCategory: `Clicked ${site}`,
         eventAction: "click"
+      });
+    },
+    animateNav() {
+      anime({
+        targets: "nav.main li",
+        translateX: -100,
+        delay: 1000,
+        complete: () => {
+          anime({
+            targets: "nav.main li",
+            translateX: 0
+          });
+        }
       });
     }
   },
   beforeMount: function() {
     this.getContent();
   },
+  mounted() {
+    if (window.innerWidth <= 425) {
+      this.animateNav();
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 h1 {
-  
   margin-top: 24px;
   a {
     text-decoration: none;
@@ -128,9 +145,9 @@ nav {
     padding: auto;
   }
 }
-.leftArrow{
+.leftArrow {
   color: #0066ff;
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     display: none;
   }
 }
