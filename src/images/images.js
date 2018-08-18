@@ -214,6 +214,24 @@ const images =
                 'orientation': 'Portrait',
                 'title': 'Winter at City Hall',
             },
+            {
+                'id': 16,
+                'url': 'https://images.edward-g.me/colour/img16.jpg',
+                'orientation': 'Landscape',
+                'title': 'Food Stall at Night',
+            },
+            {
+                'id': 17,
+                'url': 'https://images.edward-g.me/colour/img17.jpg',
+                'orientation': 'Landscape',
+                'title': 'Eaton Centre Bridge',
+            },
+            {
+                'id': 18,
+                'url': 'https://images.edward-g.me/colour/img18.jpg',
+                'orientation': 'Landscape',
+                'title': 'Sakura, Digital',
+            },
         ]
 
 
