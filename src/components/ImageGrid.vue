@@ -8,7 +8,7 @@
         </masonry>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">Load More</button>
+        <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">See More Images ({{remainingImages}})</button>
       </div>
     </div>
   </transition>
@@ -39,6 +39,9 @@ export default {
   computed: {
     numberOfImages() {
       return _.size(this.images);
+    },
+    remainingImages(){
+      return this.numberOfImages - this.gridSize;
     },
     grid() {
       return _.slice(this.images, 0, this.gridSize);
