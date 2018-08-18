@@ -3,7 +3,7 @@
     <div class="row" v-show="toggle === activeClass">
       <div class="col-12">  
         <h4>{{title}}</h4>
-        <masonry>
+        <masonry :cols="2" :gutter="0">
           <div v-for="image of grid" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
         </masonry>
       </div>
@@ -40,11 +40,14 @@ export default {
     numberOfImages() {
       return _.size(this.images);
     },
+    shuffleImages(){
+      return _.shuffle(this.images);
+    },
     remainingImages(){
       return this.numberOfImages - this.gridSize;
     },
     grid() {
-      return _.slice(this.images, 0, this.gridSize);
+      return _.slice(this.shuffleImages, 0, this.gridSize);
     }
   }
 };
