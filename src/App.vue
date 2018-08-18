@@ -48,6 +48,7 @@ export default {
 @import "./node_modules/bootstrap/scss/_card.scss";
 html,
 body {
+   font-family: "Questrial", sans-serif;
   font-size: 85%;
   color: #212529;
   @media (min-width: 768px) {
@@ -66,9 +67,9 @@ h4 {
 a {
   color: #0066ff;
 }
-.application {
-  font-family: "Questrial", sans-serif;
-}
+// .application {
+//   font-family: "Questrial", sans-serif;
+// }
 .dissapear {
   display: none;
 }
