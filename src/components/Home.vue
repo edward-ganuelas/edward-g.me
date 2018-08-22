@@ -13,10 +13,32 @@
         <p>Thank you, and check back soon!</p> -->
       </div>
     </div>
-    <blog-widget />
-    <development-news />
-    <about-widget />
-    <quotes-widget />
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="container">
+           <blog-widget />
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="container">
+          <development-news />
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="container">
+          <about-widget />
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="container">
+           <quotes-widget />
+        </div>
+      </div>
+    </div>
+   
+    
+    
+   
   </div>
 </template>
 
