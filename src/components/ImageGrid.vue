@@ -47,7 +47,7 @@ export default {
       return this.numberOfImages - this.gridSize;
     },
     grid() {
-      return _.slice(this.shuffleImages, 0, this.gridSize);
+      return _.slice(this.images, 0, this.gridSize);
     }
   }
 };
