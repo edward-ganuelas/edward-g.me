@@ -232,6 +232,18 @@ const images =
                 'orientation': 'Landscape',
                 'title': 'Sakura, Digital',
             },
+            {
+                'id': 19,
+                'url': 'https://images.edward-g.me/colour/img19.jpg',
+                'orientation': 'Portrait',
+                'title': 'Flower after the rain',
+            },
+            {
+                'id': 20,
+                'url': 'https://images.edward-g.me/colour/img20.jpg',
+                'orientation': 'Landscape',
+                'title': 'Saint Lawrence Market Long Exposure',
+            },
         ]
 
 

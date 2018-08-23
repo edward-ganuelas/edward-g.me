@@ -17,6 +17,8 @@
               <li>Nikon D700</li>
               <li>Fujica GW690</li>
               <li>Yashica Electro</li>
+              <li>Yashica-44</li>
+              <li>Yashica-Mat</li>
             </ul>
           </div>
           <div class="col-12 col-sm">
