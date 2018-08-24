@@ -86,15 +86,19 @@ export default {
           });
         }
       });
+    },
+    activateNavAnimation() {
+      if (window.matchMedia("(max-width: 420px").matches) {
+        this.animateNav();
+      }
     }
   },
   beforeMount: function() {
     this.getContent();
   },
   mounted() {
-    if (window.innerWidth <= 425) {
-      this.animateNav();
-    }
+    this.activateNavAnimation();
+    window.onresize = this.activateNavAnimation();
   }
 };
 </script>
