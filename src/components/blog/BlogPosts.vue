@@ -15,7 +15,7 @@
                <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
                <ul v-if="post.tags.data" class="tags">
                   <li>Tags:</li>
-                  <li v-for="tag in post.tags.data" :key="tag.id">{{tag.tag}}</li>
+                  <li v-for="tag in post['personal-tags'].data" :key="tag.id">{{tag.tag}}</li>
                 </ul>
                 <blockquote class="card-text">{{post.excerpt}}</blockquote>
                 <router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}">Read More</router-link>
@@ -117,7 +117,7 @@ export default {
       // filteredPosts = 'test';
       filteredPosts = filteredPosts.filter(x => {
         let filterCheck = false;
-        x.tags.data.forEach(element => {
+        x['personal-tags'].data.forEach(element => {
           if (element.tag === this.filter) {
             filterCheck = true;
           }
@@ -135,7 +135,7 @@ export default {
       if (value !== "clear") {
         filteredPosts = filteredPosts.filter(x => {
           let filterCheck = false;
-          x.tags.data.forEach(element => {
+          x['personal-tags'].data.forEach(element => {
             if (element.tag === value) {
               filterCheck = true;
             }
