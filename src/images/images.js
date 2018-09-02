@@ -120,6 +120,30 @@ const images =
             'orientation': 'landscape',
             'title': 'Tunnel at Niagara',
         },
+        {
+            'id': 21,
+            'url': 'https://images.edward-g.me/bnw/img021.jpg',
+            'orientation': 'landscape',
+            'title': 'Skateboarding at Open Streets Toronto',
+        },
+        {
+            'id': 22,
+            'url': 'https://images.edward-g.me/bnw/img022.jpg',
+            'orientation': 'landscape',
+            'title': 'Couple Cycling at Open Streets Toronto',
+        },
+        {
+            'id': 23,
+            'url': 'https://images.edward-g.me/bnw/img023.jpg',
+            'orientation': 'portrait',
+            'title': 'Flowers at Queens Park',
+        },
+        {
+            'id': 24,
+            'url': 'https://images.edward-g.me/bnw/img024.jpg',
+            'orientation': 'square',
+            'title': 'Outside Union Station. Yashica Mat',
+        },
 
     ],
     'colour':
@@ -243,6 +267,24 @@ const images =
                 'url': 'https://images.edward-g.me/colour/img20.jpg',
                 'orientation': 'Landscape',
                 'title': 'Saint Lawrence Market Long Exposure',
+            },
+            {
+                'id': 21,
+                'url': 'https://images.edward-g.me/colour/img021.jpg',
+                'orientation': 'square',
+                'title': 'Test Shot of Yashica Mat. Fallen Firefighter Memorial.',
+            },
+            {
+                'id': 22,
+                'url': 'https://images.edward-g.me/colour/img022.jpg',
+                'orientation': 'square',
+                'title': 'Test shot of Yashica Mat. Whiteney Block',
+            },
+            {
+                'id': 23,
+                'url': 'https://images.edward-g.me/colour/img023.jpg',
+                'orientation': 'Landscape',
+                'title': 'Toronto',
             },
         ]
 
