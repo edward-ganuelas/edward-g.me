@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 header">
-        <h1><router-link to="/">{{content.hero}}</router-link></h1>
+        <h1><router-link to="/">{{content.hero}}</router-link>
+        </h1>
         <p>{{content.subHero}}</p>
       </div>
         <div class="col-12">
