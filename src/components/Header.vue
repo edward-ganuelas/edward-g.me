@@ -2,8 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 header">
-        <h1><router-link to="/">{{content.hero}}</router-link></h1>
-        <p>{{content.subHero}}</p>
+        <h1><router-link to="/">{{content.hero}}</router-link>
+        <span>{{content.subHero}}</span>
+        </h1>
       </div>
         <div class="col-12">
           <nav class="main">
@@ -110,6 +111,12 @@ h1 {
   a {
     text-decoration: none;
     color: #212529;
+  }
+  span{
+    font-size: 1rem;
+    font-family: "Questrial", sans-serif;
+    font-weight: normal;
+    display: block;
   }
 }
 .header {

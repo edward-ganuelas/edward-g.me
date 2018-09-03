@@ -89,4 +89,7 @@ span.ico {
 .card{
   padding: 25px 0;
 }
+.subIntro{
+  margin-bottom: 18px;
+}
 </style>

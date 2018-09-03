@@ -1,7 +1,13 @@
 <template>
   <div class="container">
+     <div class="row">
+      <div class="col-12 col-sm-8 subIntro">
+        <h2>Photography</h2>
+        <h3>A section about a hobby</h3>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-12 col-sm-8">
+      <div class="col-12 col-sm-2">
         <nav class="container">
           <ul class="row">
             <li class="col">
@@ -16,20 +22,8 @@
           </ul>
         </nav>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-8">
-        <h2>Photography</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-8">
-        <h3>A section about a hobby</h3>
-      </div>
-    </div>
-
-    
     <router-view></router-view>
+   </div>
   </div>
 </template>
 
@@ -76,7 +70,7 @@ export default {
 <style scoped lang="scss">
 .gear,
 .photos {
-  margin-top: 50px;
+  // margin-top: 50px;
 }
 nav ul {
   li {
@@ -93,6 +87,13 @@ nav ul {
         cursor: default;
       }
     }
+  }
+   @media (min-width: 768px){
+      display: inline;
+      padding-left: 0;
+      li{
+        border-right: none;
+      }
   }
 }
 </style>

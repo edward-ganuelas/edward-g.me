@@ -3,6 +3,13 @@
     <div class="row" v-show="toggle === activeClass">
       <div class="col-12">  
         <h4>{{title}}</h4>
+        <label class="sort">Order By:
+          <select v-model="sort">
+            <option value="old">Oldest at Top</option>
+            <option value="new">Newest at Top</option>
+            <option value="random">Random</option>
+          </select>
+        </label>
         <masonry :cols="2" :gutter="0">
           <div v-for="image of grid" v-bind:key="image['index']"><img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" /></div>
         </masonry>
@@ -21,7 +28,8 @@ export default {
   props: ["images", "title", "toggle", "activeClass"],
   data() {
     return {
-      gridSize: 8
+      gridSize: 8,
+      sort: "old"
     };
   },
   methods: {
@@ -46,8 +54,21 @@ export default {
     remainingImages(){
       return this.numberOfImages - this.gridSize;
     },
+    sortedImages(){
+      if(this.sort !== 'random'){
+        return this.images.sort((a,b)=>{
+          if(this.sort === 'old'){
+            return a.id - b.id;
+          }else if(this.sort === 'new'){
+            return b.id - a.id;
+          }
+        })
+      }else{
+        return this.shuffleImages;
+      }
+    },
     grid() {
-      return _.slice(this.images, 0, this.gridSize);
+      return _.slice(this.sortedImages, 0, this.gridSize);
     }
   }
 };
@@ -64,5 +85,8 @@ h4 {
 button {
   margin: 50px auto;
   display: block;
+}
+.sort{
+  margin-bottom: 18px;
 }
 </style>

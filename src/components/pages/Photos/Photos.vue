@@ -1,5 +1,5 @@
 <template>
-  <div class="row photos">
+  <div class="col-12 col-sm-10 photos">
       <div class="container">
         <div class="row">
           <div class="col-12">
