@@ -4,7 +4,7 @@
       <h2>A Random Quote I Like</h2>
       
     </div>
-    <div class="col-10 col-sm-6">
+    <div class="col-12">
       <blockquote><em>{{content}}</em></blockquote>
       <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
     </div>

@@ -70,6 +70,14 @@ export default {
     grid() {
       return _.slice(this.sortedImages, 0, this.gridSize);
     }
+  },
+  watch: {
+    sort: function(newVal, old){
+       this.$ga.event({
+        eventCategory: `Switch Sort to ${newVal} from ${this.title}`,
+        eventAction: "Switch",
+      });
+    }
   }
 };
 </script>
