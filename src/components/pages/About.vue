@@ -1,7 +1,14 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-8">
+      <div class="col-12 col-sm-8 subIntro">
+          <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
+          <h2>About Me</h2>
+          <p>Just a little something about me</p>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col-12 col-sm-2">
         <nav class="container">
           <ul class="row">
             <li class="col">
@@ -16,17 +23,10 @@
           </ul>
         </nav>
       </div>
+      <transition name="slideUp" leave-active-class="dissapear">
+        <router-view></router-view>
+      </transition>
     </div>
-    <div class="row">
-      <div class="col-12 col-sm-8">
-        <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-        <h2>About Me</h2>
-        <p>Just a little something about me</p>
-      </div>
-    </div>
-    <transition name="slideUp" leave-active-class="dissapear">
-      <router-view></router-view>
-    </transition>
   </div>
 </template>
 
@@ -104,6 +104,14 @@ nav ul {
         cursor: default;
       }
     }
+    
+  }
+  @media (min-width: 768px){
+      display: inline;
+      padding-left: 0;
+      li{
+        border-right: none;
+      }
   }
 }
 </style>

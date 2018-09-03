@@ -1,4 +1,6 @@
 <template>
+<div class="col-12 col-sm-10">
+  <div class="container">
   <div class="row">
     <div class="col-12 col-sm-8">
       <h3>Music</h3>
@@ -13,7 +15,7 @@
       <h4>Thumbs Up</h4>
       
     </div>
-    <div class="col-12">
+    <div class="col-12 col-sm-8">
       <p>Sort</p>
        <div class="btn-group btn-group-toggle">
           <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
@@ -33,7 +35,7 @@
           </label>
         </div>
     </div>
-    <div class="col-12">
+    <div class="col-12 col-sm-8">
       <table>
         <thead>
           <tr>
@@ -50,6 +52,8 @@
       </table>
     </div>
   </div>
+  </div>
+</div>
 </template>
 
 <script>
