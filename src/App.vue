@@ -61,6 +61,12 @@ body {
     font-size: 100%;
   }
 }
+#app{
+  &.dark-theme{
+    background-color: #000;
+    color: lightgray;
+  }
+}
 h1,
 h2,
 h3,
