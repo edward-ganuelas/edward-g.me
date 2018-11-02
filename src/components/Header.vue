@@ -15,8 +15,10 @@
           </div>
         </div>
       </div>
-      <div class="col-12" v-if="showTheme">
-        <theme-selector />
+      <div class="col-12">
+        <transition name="slideDown" leave-active-class="dissapear">
+          <theme-selector v-if="showTheme" />
+        </transition>
       </div>
         <div class="col-12">
           <nav class="main">
