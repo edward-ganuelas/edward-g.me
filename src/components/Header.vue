@@ -2,9 +2,21 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 header">
-        <h1><router-link to="/">{{content.hero}}</router-link>
-        <span>{{content.subHero}}</span>
-        </h1>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <h1><router-link to="/">{{content.hero}}</router-link>
+              <span>{{content.subHero}}</span>
+              </h1>
+            </div>
+            <div class="col-2 offset-4">
+              <button class="btn change-theme btn-outline-primary" @click="toggleTheme">Change Theme</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" v-if="showTheme">
+        <theme-selector />
       </div>
         <div class="col-12">
           <nav class="main">
@@ -41,8 +53,12 @@
 <script>
 import axios from "axios";
 import anime from "animejs";
+import ThemeSelector from "./ThemeSelector";
 export default {
   name: "HeaderNav",
+  components:{
+    ThemeSelector
+  },
   data() {
     return {
       content: "",
@@ -60,7 +76,8 @@ export default {
           to: "/eightray"
         }
       },
-      drawer: null
+      drawer: null,
+      showTheme: false
     };
   },
   methods: {
@@ -92,6 +109,9 @@ export default {
       if (window.matchMedia("(max-width: 420px").matches) {
         this.animateNav();
       }
+    },
+    toggleTheme(){
+      this.showTheme = this.showTheme ? false : true;
     }
   },
   beforeMount: function() {
@@ -161,5 +181,9 @@ nav {
   @media (min-width: 768px) {
     display: none;
   }
+}
+.change-theme{
+  margin: 24px auto auto 0;
+  display: block;
 }
 </style>
