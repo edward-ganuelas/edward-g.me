@@ -4,12 +4,12 @@
       <div class="col-12 header">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <h1><router-link to="/">{{content.hero}}</router-link>
               <span>{{content.subHero}}</span>
               </h1>
             </div>
-            <div class="col-2 offset-4">
+            <div class="col-6 offset-6 col-lg-2 offset-lg-4">
               <button class="btn change-theme btn-outline-primary theme-toggle" @click="toggleTheme">Change Theme</button>
             </div>
           </div>
@@ -185,7 +185,7 @@ nav {
   }
 }
 .change-theme{
-  margin: 24px auto auto 0;
+  margin: 30px auto 30px auto;
   display: block;
 }
 .dark-theme{
