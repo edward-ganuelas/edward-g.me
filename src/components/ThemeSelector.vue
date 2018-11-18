@@ -14,11 +14,6 @@ export default {
   computed:{
     darkTheme: sync('DarkTheme')
   },
-  data(){
-    return{
-      show: false
-    }
-  },
   methods: {
     changeTheme(theme){
       switch(theme){
@@ -29,6 +24,7 @@ export default {
           this.darkTheme = true;
           break;
       }
+      this.$emit('clicked');
     }
   }
 }

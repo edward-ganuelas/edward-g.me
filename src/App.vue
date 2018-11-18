@@ -63,8 +63,14 @@ body {
 }
 #app{
   &.dark-theme{
-    background-color: #000;
-    color: lightgray;
+    background-color: #696969;
+    color: #C0C0C0;
+    a{
+      color: #1900ff
+    }
+    .card{
+      background-color: #696969;
+    }
   }
 }
 h1,

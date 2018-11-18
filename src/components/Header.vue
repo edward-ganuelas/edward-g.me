@@ -10,14 +10,14 @@
               </h1>
             </div>
             <div class="col-2 offset-4">
-              <button class="btn change-theme btn-outline-primary" @click="toggleTheme">Change Theme</button>
+              <button class="btn change-theme btn-outline-primary theme-toggle" @click="toggleTheme">Change Theme</button>
             </div>
           </div>
         </div>
       </div>
       <div class="col-12">
         <transition name="slideDown" leave-active-class="dissapear">
-          <theme-selector v-if="showTheme" />
+          <theme-selector v-if="showTheme" v-on:clicked="toggleTheme" />
         </transition>
       </div>
         <div class="col-12">
@@ -187,5 +187,17 @@ nav {
 .change-theme{
   margin: 24px auto auto 0;
   display: block;
+}
+.dark-theme{
+  .theme-toggle{
+    background-color: #1900ff;
+    border-color: #1900ff;
+    color: #C0C0C0;
+  }
+  h1{
+    a{
+      color: #C0C0C0!important;
+    }
+  }
 }
 </style>
