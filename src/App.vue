@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
     <header-nav />
       <transition :name="transition" leave-active-class="dissapear">
         <router-view></router-view>
@@ -10,6 +10,7 @@
 <script>
 import HeaderNav from "./components/Header";
 import _ from "lodash";
+import {sync} from "vuex-pathify";
 export default {
   name: "app",
   components: {
@@ -21,7 +22,9 @@ export default {
       transition: ""
     };
   },
-  computed: {},
+  computed: {
+    darkTheme: sync('DarkTheme')
+  },
   methods: {
     changeTransition() {
       this.transition = this.transitions[this.getRandomNumber()];
@@ -56,6 +59,18 @@ body {
   }
   @media (min-width: 1024px) {
     font-size: 100%;
+  }
+}
+#app{
+  &.dark-theme{
+    background-color: #696969;
+    color: #C0C0C0;
+    a{
+      color: #1900ff
+    }
+    .card{
+      background-color: #696969;
+    }
   }
 }
 h1,
