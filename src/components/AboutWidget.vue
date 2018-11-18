@@ -46,4 +46,10 @@ export default {
   margin-top: 24px;
   margin-bottom: 24px;
 }
+.dark-theme{
+  button{
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+  }
+}
 </style>

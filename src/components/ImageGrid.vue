@@ -97,4 +97,11 @@ button {
 .sort{
   margin-bottom: 18px;
 }
+.dark-theme{
+  .btn.btn-primary{
+    background-color: #1900ff;
+    border-color: #1900ff;
+    color: #C0C0C0;
+  }
+}
 </style>

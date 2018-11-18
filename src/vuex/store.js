@@ -10,6 +10,7 @@ const state = {
     BlogPosts: '',
     Filters: '',
     Filter: '',
+    DarkTheme: false
 
 }
 

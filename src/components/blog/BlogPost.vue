@@ -100,7 +100,11 @@ export default {
 <style lang="scss" scoped>
 .blog-post {
   width: 100%;
-  margin-bottom: 50px;
+}
+.dark-theme{
+  .blog-post{
+  height: 100vh;
+  }
 }
 
 </style>
