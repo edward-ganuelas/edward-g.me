@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import images from "../../../images/images";
 import ImageGrid from "@/components/ImageGrid";
 export default {
@@ -38,8 +39,8 @@ export default {
   },
   data() {
     return {
-      bnw: images["bnw"],
-      colour: images["colour"],
+      bnw: [],
+      colour: [],
       toggle: "bnw"
     };
   },
@@ -49,6 +50,11 @@ export default {
         eventCategory: `Instagram`,
         eventAction: "click"
       });
+    },
+    async getImages(){
+     const images = await axios.get('https://eightray.sfo2.digitaloceanspaces.com/json/images.json');
+     this.bnw = images.data.content.bnw;
+     this.colour = images.data.content.colour;
     }
   },
   watch:{
@@ -58,6 +64,9 @@ export default {
         eventAction: "click"
       });
     }
+  },
+  beforeMount(){
+    this.getImages();
   }
 };
 </script>
