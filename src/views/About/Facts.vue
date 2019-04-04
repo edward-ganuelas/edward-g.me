@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import about from '../../../copy/about';
+import about from '../../copy/about';
 export default {
   name: "Facts",
   data() {
