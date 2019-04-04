@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     this.changeTransition();
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach(() => {
       this.changeTransition();
     });
   }
