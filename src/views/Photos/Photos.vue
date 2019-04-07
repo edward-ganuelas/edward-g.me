@@ -30,7 +30,6 @@
 
 <script>
 import axios from "axios";
-import images from "../../../images/images";
 import ImageGrid from "@/components/ImageGrid";
 export default {
   name: "Photos",

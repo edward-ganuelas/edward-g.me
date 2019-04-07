@@ -16,7 +16,7 @@
 
 <script>
 import { DIRECTUS, TAGS } from "../../api/apis";
-import { get, sync } from "vuex-pathify";
+import { sync } from "vuex-pathify";
 import axios from "axios";
 
 export default {

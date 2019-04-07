@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import music from "../../../copy/music";
+import music from "../../copy/music";
 import _ from 'lodash';
 export default {
   name: "Music",
