@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     this.changeTransition();
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach(() => {
       this.changeTransition();
     });
   }
@@ -61,15 +61,20 @@ body {
     font-size: 100%;
   }
 }
-#app{
-  &.dark-theme{
-    background-color: #696969;
-    color: #C0C0C0;
+body, #app{
+  &.dark-theme, &.dark{
+    background-color: #010617;
+    color: #e6e4e4;
     a{
-      color: #1900ff
+      color: #20425B
     }
     .card{
-      background-color: #696969;
+      background-color: #010617;
+      border-color: #20425B;
+    }
+    .theme-toggle{
+      background-color: #bd471a;
+      border-color: #f78703;
     }
   }
 }

@@ -44,10 +44,10 @@
 
 <script>
 import axios from "axios";
-import AboutWidget from './AboutWidget';
-import QuotesWidget from './QuotesWidget';
-import DevelopmentNews from './DevelopmentNews';
-import BlogWidget from './BlogWidget';
+import AboutWidget from '@/components/AboutWidget';
+import QuotesWidget from '@/components/QuotesWidget';
+import DevelopmentNews from '@/components/DevelopmentNews';
+import BlogWidget from '@/components/BlogWidget';
 export default {
   name: "Home",
   components: {

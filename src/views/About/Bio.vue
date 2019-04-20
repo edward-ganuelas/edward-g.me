@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import about from '../../../copy/about';
 export default {
   name: "Bio",
   data() {

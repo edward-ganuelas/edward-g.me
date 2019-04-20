@@ -35,7 +35,6 @@ export default {
       post: "",
       keywords: "",
       title: "",
-      keywords: "",
       description: ""
     };
   },

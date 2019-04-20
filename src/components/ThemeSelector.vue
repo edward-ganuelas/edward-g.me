@@ -16,12 +16,15 @@ export default {
   },
   methods: {
     changeTheme(theme){
+      const body = document.querySelector('body');
       switch(theme){
         case 'light':
           this.darkTheme = false;
+          body.classList.replace('dark', 'light');
           break;
         case 'dark':
           this.darkTheme = true;
+          body.classList.replace('light', 'dark');
           break;
       }
       this.$emit('clicked');
@@ -31,7 +34,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .themeSelector{
   margin: 0 auto;
   width: 50%;

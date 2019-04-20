@@ -56,7 +56,8 @@ export default {
     },
     sortedImages(){
       if(this.sort !== 'random'){
-        return this.images.sort((a,b)=>{
+        let images = this.images.slice();
+        return images.sort((a,b)=>{
           if(this.sort === 'old'){
             return a.id - b.id;
           }else if(this.sort === 'new'){
@@ -72,7 +73,7 @@ export default {
     }
   },
   watch: {
-    sort: function(newVal, old){
+    sort: function(newVal){
        this.$ga.event({
         eventCategory: `Switch Sort to ${newVal} from ${this.title}`,
         eventAction: "Switch",
