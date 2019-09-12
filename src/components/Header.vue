@@ -53,6 +53,7 @@ import anime from "animejs";
 import Darkmode from 'darkmode-js';
 
 const DARK_MODE_OPTIONS = Object.freeze({
+  mixColor: '#fff', // default: '#fff'
   backgroundColor: 'transparent',  // default: '#fff'
   autoMatchOsTheme: true // default: true
 });
