@@ -62,7 +62,7 @@ body {
   }
 }
 body, #app{
-  &.dark-theme, &.dark{
+  &.dark-theme, &.dark, &.darkmode--activated{
     background-color: #010617;
     color: #e6e4e4;
     a{

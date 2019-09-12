@@ -16,6 +16,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.3",
     "core-js": "^2.6.5",
+    "darkmode-js": "^1.4.0",
     "lodash": "^4.17.10",
     "v-img": "^0.2.0",
     "vue": "^2.6.6",
