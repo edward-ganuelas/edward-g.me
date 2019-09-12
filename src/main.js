@@ -9,10 +9,6 @@ import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
-import Darkmode from 'darkmode-js';
-
-
-new Darkmode().showWidget();
 
 Vue.use(VueHead);
 Vue.use(VueMasonry);
