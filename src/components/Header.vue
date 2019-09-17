@@ -10,10 +10,15 @@
               </h1>
             </div>
             <div class="col-6 offset-6 col-lg-2 offset-lg-4">
-              <button class="btn change-theme btn-outline-primary theme-toggle" @click="toggleTheme">{{themeLabel}}</button>
+              <button class="btn change-theme btn-outline-primary theme-toggle" @click="toggleTheme">Change Theme</button>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-12">
+        <transition name="slideDown" leave-active-class="dissapear">
+          <theme-selector v-if="showTheme" v-on:clicked="toggleTheme" />
+        </transition>
       </div>
         <div class="col-12">
           <nav class="main">
@@ -50,16 +55,12 @@
 <script>
 import axios from "axios";
 import anime from "animejs";
-import Darkmode from 'darkmode-js';
-
-const DARK_MODE_OPTIONS = Object.freeze({
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: 'transparent',  // default: '#fff'
-  autoMatchOsTheme: true // default: true
-});
-
+import ThemeSelector from "./ThemeSelector";
 export default {
   name: "HeaderNav",
+  components:{
+    ThemeSelector
+  },
   data() {
     return {
       content: "",
@@ -78,19 +79,8 @@ export default {
         }
       },
       drawer: null,
-      showTheme: false,
-      themeLabels: Object.freeze({
-        DARK_MODE: 'Dark Mode',
-        NORMAL: 'Normal'
-      }),
-      darkMode: null,
-      isDarkModeActive: false
+      showTheme: false
     };
-  },
-  computed: {
-    themeLabel() {
-      return this.isDarkModeActive ? this.themeLabels.NORMAL : this.themeLabels.DARK_MODE;
-    }
   },
   methods: {
     getContent: function() {
@@ -122,14 +112,12 @@ export default {
         this.animateNav();
       }
     },
-    toggleTheme() {
-      this.darkMode.toggle();
-      this.isDarkModeActive = this.darkMode.isActivated();
+    toggleTheme(){
+      this.showTheme = this.showTheme ? false : true;
     }
   },
   beforeMount: function() {
     this.getContent();
-    this.darkMode = new Darkmode(DARK_MODE_OPTIONS);
   },
   mounted() {
     this.activateNavAnimation();
@@ -200,7 +188,7 @@ nav {
   margin: 30px auto 30px auto;
   display: block;
 }
-.dark-theme, .darkmode--activated{
+.dark-theme{
   .theme-toggle{
     background-color: #1900ff;
     border-color: #1900ff;

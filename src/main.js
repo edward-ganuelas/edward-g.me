@@ -10,6 +10,8 @@ import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
 
+
+
 Vue.use(VueHead);
 Vue.use(VueMasonry);
 Vue.use(VueImg);
