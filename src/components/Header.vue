@@ -1,65 +1,43 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 header">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12 col-lg-6">
-              <h1><router-link to="/">{{content.hero}}</router-link>
-              <span>{{content.subHero}}</span>
-              </h1>
-            </div>
-            <div class="col-6 offset-6 col-lg-2 offset-lg-4">
-              <button class="btn change-theme btn-outline-primary theme-toggle" @click="toggleTheme">Change Theme</button>
-            </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 header">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-lg-6">
+            <h1><router-link to="/">{{content.hero}}</router-link>
+            <span>{{content.subHero}}</span>
+            </h1>
+          </div>
+          <div class="col-6 offset-6 col-lg-2 offset-lg-4">
+            <Slide right>
+              <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
+              <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
+              <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
+              <router-link to="/blog"><span class='ico'><i class="fas fa-file-alt"></i></span>Blog</router-link>
+              <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
+              <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
+              <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">EightRayedSun</a>
+              <theme-selector />
+            </Slide>
           </div>
         </div>
       </div>
-      <div class="col-12">
-        <transition name="slideDown" leave-active-class="dissapear">
-          <theme-selector v-if="showTheme" v-on:clicked="toggleTheme" />
-        </transition>
-      </div>
-        <div class="col-12">
-          <nav class="main">
-            <ul>
-              <li class="leftArrow"><i class="fas fa-chevron-left"></i></li>
-              <li>
-                <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
-              </li>
-              <li>
-                <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
-              </li>
-              <li>
-                <router-link to="/photography"><span class='ico'><i class="fas fa-camera-retro"></i></span>Photography</router-link>
-              </li>
-              <li>
-                <router-link to="/blog"><span class='ico'><i class="fas fa-file-alt"></i></span>Blog</router-link>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
-              </li>
-              <li>
-                <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
-              </li>
-              <li>
-                <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">EightRayedSun</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
 import axios from "axios";
 import anime from "animejs";
 import ThemeSelector from "./ThemeSelector";
+import { Slide } from 'vue-burger-menu';
 export default {
   name: "HeaderNav",
   components:{
-    ThemeSelector
+    ThemeSelector,
+    Slide
   },
   data() {
     return {
@@ -79,7 +57,6 @@ export default {
         }
       },
       drawer: null,
-      showTheme: false
     };
   },
   methods: {
@@ -112,9 +89,6 @@ export default {
         this.animateNav();
       }
     },
-    toggleTheme(){
-      this.showTheme = this.showTheme ? false : true;
-    }
   },
   beforeMount: function() {
     this.getContent();
@@ -144,44 +118,6 @@ h1 {
 .header {
   @media (min-width: 768px) {
     padding-left: 15px;
-  }
-}
-nav {
-  white-space: nowrap;
-  overflow-x: auto;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    @media (min-width: 1440px) {
-      width: 61.8%;
-      float: right;
-      flex-direction: row;
-    }
-    li {
-      flex: 1 0;
-      text-align: center;
-      margin: 0 1rem;
-      a {
-        text-decoration: none;
-      }
-    }
-  }
-}
-.fab-wrapper {
-  padding: 0;
-  position: relative;
-  @media (min-width: 1024px) {
-    height: 100px;
-    padding: auto;
-  }
-}
-.leftArrow {
-  color: #0066ff;
-  @media (min-width: 768px) {
-    display: none;
   }
 }
 .change-theme{
