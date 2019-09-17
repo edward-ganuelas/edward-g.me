@@ -18,7 +18,7 @@
               <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a>
               <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')"><span class='ico'><i class='fab fa-github'></i></span>Github</a>
               <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">EightRayedSun</a>
-              <theme-selector />
+              <!-- <theme-selector /> -->
             </Slide>
           </div>
         </div>
@@ -31,12 +31,12 @@
 <script>
 import axios from "axios";
 import anime from "animejs";
-import ThemeSelector from "./ThemeSelector";
+// import ThemeSelector from "./ThemeSelector";
 import { Slide } from 'vue-burger-menu';
 export default {
   name: "HeaderNav",
   components:{
-    ThemeSelector,
+    // ThemeSelector,
     Slide
   },
   data() {
