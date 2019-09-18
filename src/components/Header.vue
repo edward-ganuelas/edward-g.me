@@ -6,8 +6,9 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <h1><router-link to="/">{{content.hero}}</router-link>
-            <span>{{content.subHero}}</span>
+              <span>{{content.subHero}}</span>
             </h1>
+            <tag-line :tagLine=selectedTagLine />
           </div>
           <div class="col-6 offset-6 col-lg-2 offset-lg-4">
             <Slide right>
@@ -30,14 +31,16 @@
 
 <script>
 import axios from "axios";
-import anime from "animejs";
+import _ from "lodash";
+import TagLine from "@/components/TagLine";
 // import ThemeSelector from "./ThemeSelector";
 import { Slide } from 'vue-burger-menu';
 export default {
   name: "HeaderNav",
   components:{
     // ThemeSelector,
-    Slide
+    Slide,
+    TagLine
   },
   data() {
     return {
@@ -57,12 +60,16 @@ export default {
         }
       },
       drawer: null,
+      tagLines: [],
+      selectedTagLine: ""
     };
   },
   methods: {
-    getContent: function() {
+    getContent: async function() {
       axios.get("static/json/header.json").then(x => {
         this.content = x.data.content;
+        this.tagLines = x.data.content.tagLines;
+        this.setTagLine();
       });
     },
     tracking(site) {
@@ -71,31 +78,15 @@ export default {
         eventAction: "click"
       });
     },
-    animateNav() {
-      anime({
-        targets: "nav.main li",
-        translateX: -100,
-        delay: 1000,
-        complete: () => {
-          anime({
-            targets: "nav.main li",
-            translateX: 0
-          });
-        }
-      });
-    },
-    activateNavAnimation() {
-      if (window.matchMedia("(max-width: 420px").matches) {
-        this.animateNav();
-      }
-    },
+    setTagLine(){
+      this.selectedTagLine = this.tagLines[_.random(0, this.tagLines.length)];
+    }
   },
-  beforeMount: function() {
+  beforeMount() {
     this.getContent();
-  },
-  mounted() {
-    this.activateNavAnimation();
-    window.onresize = this.activateNavAnimation();
+    this.$router.afterEach(()=>{
+      this.setTagLine();
+    });
   }
 };
 </script>
