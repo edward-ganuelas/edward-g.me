@@ -4,7 +4,7 @@
     <div class="col-12 header">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-6 col-lg-6">
             <h1>
               <router-link to="/">
                 <svg width="200" height="60">
@@ -15,7 +15,7 @@
             </h1>
             <tag-line :tagLine=selectedTagLine />
           </div>
-          <div class="col-6 offset-6 col-lg-2 offset-lg-4">
+          <div class="col-6 col-lg-2 offset-lg-4">
             <Slide right>
               <router-link to="/"><span class='ico'><i class='fas fa-home'></i></span>Home</router-link>
               <router-link to="/about-me"><span class='ico'><i class='fas fa-user'></i></span>About Me</router-link>
