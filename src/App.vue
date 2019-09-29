@@ -77,6 +77,9 @@ body, #app{
       border-color: #f78703;
     }
   }
+  & > .container-fluid {
+    border-bottom: 2px inset #0066FF;
+  }
 }
 h1,
 h2,

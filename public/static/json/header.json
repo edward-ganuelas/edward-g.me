@@ -1,6 +1,11 @@
 {
     "content": {
         "hero": "edward-g.me",
-        "subHero": "Personal site of Edward Ganuelas"
+        "subHero": "Personal site of Edward Ganuelas",
+        "tagLines": [
+            "Pretending that People Read This",
+            "Blogging About the Mundane",
+            "Insert Witty Tagline Here"
+        ]
     }
 }
