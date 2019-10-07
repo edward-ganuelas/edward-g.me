@@ -15,67 +15,67 @@ import BlogPost from '@/components/blog/BlogPost';
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/about-me',
-      component: About,
-      children:[
+    routes: [
         {
-          path: '',
-          name: 'Bio',
-          component: Bio
+            path: '/',
+            name: 'Home',
+            component: Home
         },
         {
-          path: 'facts',
-          name: 'Facts',
-          component: Facts
+            path: '/about-me',
+            component: About,
+            children:[
+                {
+                    path: '',
+                    name: 'Bio',
+                    component: Bio
+                },
+                {
+                    path: 'facts',
+                    name: 'Facts',
+                    component: Facts
+                },
+                {
+                    path: 'music',
+                    name: 'Music',
+                    component: Music
+                },
+            ]
         },
         {
-          path: 'music',
-          name: 'Music',
-          component: Music
+            path: '/photography',
+            component: Photography,
+            children:[
+                {
+                    path: '',
+                    name: 'Photos',
+                    component: Photos
+                },
+                {
+                    path: 'gear',
+                    name: 'Gear',
+                    component: Gear
+                },
+                {
+                    path: 'projects',
+                    name: 'Projects',
+                    component: Projects
+                }
+            ]
         },
-      ]
-    },
-    {
-      path: '/photography',
-      component: Photography,
-      children:[
         {
-          path: '',
-          name: 'Photos',
-          component: Photos
+            path: '/blog',
+            name: 'Blog',
+            component: BlogPosts
         },
         {
-          path: 'gear',
-          name: 'Gear',
-          component: Gear
+            path: '/post/:title',
+            name: 'Post',
+            component: BlogPost,
+            props: (route) => ({
+                id: route.query.id,
+                title: route.params.title
+            })
         },
-        {
-          path: 'projects',
-          name: 'Projects',
-          component: Projects
-        }
-      ]
-    },
-    {
-      path: '/blog',
-      name: 'Blog',
-      component: BlogPosts
-    },
-    {
-      path: '/post/:title',
-      name: 'Post',
-      component: BlogPost,
-      props: (route) =>({
-          id: route.query.id,
-          title: route.params.title
-      })
-  },
-  ]
+    ]
 })

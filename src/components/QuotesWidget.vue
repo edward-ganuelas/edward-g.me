@@ -1,42 +1,41 @@
 <template>
-  <div class="quotesWidget row card shadow">
-    <div class="col-12">
-      <h2>A Random Quote I Like</h2>
-      
+    <div class="quotesWidget row card shadow">
+        <div class="col-12">
+            <h2>A Random Quote I Like</h2>
+        </div>
+        <div class="col-12">
+            <blockquote><em>{{content}}</em></blockquote>
+            <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
+        </div>
     </div>
-    <div class="col-12">
-      <blockquote><em>{{content}}</em></blockquote>
-      <button @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
-    </div>
-  </div>
 </template>
 
 <script>
 import _ from "lodash";
 import Quotes from "../copy/quotes";
 export default {
-  name: "QuotesWidget",
-  data() {
-    return {
-      content: ""
-    };
-  },
-  methods: {
-    getRandomContent() {
-      const randomNumer = _.random(0, Quotes.length - 1);
-      this.$ga.event({
-        eventCategory: `Load Random Quote`,
-        eventAction: "click",
-      });
-      return Quotes[randomNumer];
+    name: "QuotesWidget",
+    data() {
+        return {
+            content: ""
+        };
     },
-    setContent() {
-      this.content = this.getRandomContent();
+    methods: {
+        getRandomContent() {
+            const randomNumer = _.random(0, Quotes.length - 1);
+            this.$ga.event({
+                eventCategory: `Load Random Quote`,
+                eventAction: "click",
+            });
+            return Quotes[randomNumer];
+        },
+        setContent() {
+            this.content = this.getRandomContent();
+        }
+    },
+    mounted() {
+        this.setContent();
     }
-  },
-  mounted() {
-    this.setContent();
-  }
 };
 </script>
 
