@@ -94,29 +94,18 @@ td {
     text-align: center;
 }
 tbody {
-  tr:last-child {
-    td {
-        border: none;
+    tr:last-child {
+        td {
+            border: none;
+        }
     }
-  }
-  td {
-    border-bottom: 1px solid #434b53;
-    // &:last-child{
-    //   border: none;
-    // }
-  }
-  tr:last-child {
     td {
-        border: none;
+        border-bottom: 1px solid #434b53;
     }
-  }
-  // tr:nth-child(odd){
-  //   background-color: #434b53;
-  //   color: #FFF;
-  //   td{
-  //     border-right: 1px solid #FFF;
-  //   }
-  // }
-  
+    tr:last-child {
+        td {
+            border: none;
+        }
+    }
 }
 </style>

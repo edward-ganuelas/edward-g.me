@@ -16,11 +16,11 @@ Vue.use(VueHead);
 Vue.use(VueMasonry);
 Vue.use(VueImg);
 Vue.use(VueAnalytics, {
-  id: 'UA-112626956-1',
-  router,
-  debug: {
-    sendHitTask: process.env.NODE_ENV === 'production'
-  }
+    id: 'UA-112626956-1',
+    router,
+    debug: {
+        sendHitTask: process.env.NODE_ENV === 'production'
+    }
 })
 
 
@@ -28,7 +28,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  store,
-  router,
-  render: h=>h(App)
+    store,
+    router,
+    render: h=>h(App)
 }).$mount('#app')
