@@ -21,9 +21,9 @@
                                     <span class='ico'><i class='fas fa-home'></i></span>
                                     Home
                                 </router-link>
-                                <router-link to="/about-me">
-                                    <span class='ico'><i class='fas fa-user'></i></span>
-                                    About Me
+                                <router-link to="/about">
+                                    <span class='ico'><i class="fas fa-info-circle"></i></span>
+                                    About
                                 </router-link>
                                 <router-link to="/photography">
                                     <span class='ico'><i class="fas fa-camera-retro"></i></span>

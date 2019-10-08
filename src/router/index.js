@@ -2,15 +2,17 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home';
 import About from '@/views/About';
-import Photography from '@/views/Photography';
-import Facts from '@/views/About/Facts';
+import AboutSite from '@/views/About/AboutSite';
 import Bio from '@/views/About/Bio';
-import Music from '@/views/About/Music';
-import Photos from '@/views/Photos/Photos';
-import Gear from '@/views/Photos/Gear';
-import Projects from '@/views/Photos/Projects';
-import BlogPosts from '@/components/blog/BlogPosts';
 import BlogPost from '@/components/blog/BlogPost';
+import BlogPosts from '@/components/blog/BlogPosts';
+import Facts from '@/views/About/Facts';
+import Gear from '@/views/Photos/Gear';
+import Music from '@/views/About/Music';
+import Photography from '@/views/Photography';
+import Photos from '@/views/Photos/Photos';
+import Projects from '@/views/Photos/Projects';
+
 
 Vue.use(Router)
 
@@ -22,11 +24,16 @@ export default new Router({
             component: Home
         },
         {
-            path: '/about-me',
+            path: '/about',
             component: About,
             children:[
                 {
                     path: '',
+                    name: 'AboutSite',
+                    component: AboutSite
+                },
+                {
+                    path: 'bio',
                     name: 'Bio',
                     component: Bio
                 },
