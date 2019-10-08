@@ -1,15 +1,15 @@
 <template>
-  <p class="blockquote">
-      {{tagLine}}
-  </p>
+    <p class="blockquote">
+        {{tagLine}}
+    </p>
 </template>
 
 <script>
 export default {
-  name: 'TagLine',
-  props: {
-    tagLine: String
-  }
+    name: 'TagLine',
+    props: {
+        tagLine: String
+    }
 }
 </script>
 

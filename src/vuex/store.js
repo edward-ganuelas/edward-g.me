@@ -15,7 +15,7 @@ const state = {
 }
 
 const getters = {
-   ...make.getters(state)
+    ...make.getters(state)
 }
 
 const mutations = {
