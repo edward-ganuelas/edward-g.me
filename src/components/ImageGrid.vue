@@ -1,7 +1,7 @@
 <template>
     <transition name="fade" leave-active-class="dissapear">
         <div class="row" v-show="toggle === activeClass">
-            <div class="col-12">  
+            <div class="col-12 col-md-8 offset-md-2">  
                 <h4>{{title}}</h4>
                 <label class="sort">Order By:
                     <select v-model="sort">

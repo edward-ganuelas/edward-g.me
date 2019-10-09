@@ -1,15 +1,13 @@
 <template>
-    <div class="col-12 col-sm-10">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-8">
-                    <h3>Just some random facts about me.</h3>
-                </div>
-                <div class="col-12 col-sm-8">
-                    <ul>
-                        <li v-for="(copy, index) in content" v-bind:key="index">{{copy}}</li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3>Just some random facts about me.</h3>
+            </div>
+            <div class="col-12 col-md-8 offset-md-2">
+                <ul>
+                    <li v-for="(copy, index) in content" v-bind:key="index">{{copy}}</li>
+                </ul>
             </div>
         </div>
     </div>

@@ -1,16 +1,15 @@
 <template>
-    <div class="col-12 col-sm-10 photos">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                <h3><i class="fas fa-images"></i> Photos</h3>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="sr-only"><i class="fas fa-images"></i> Photos</h3>
             </div>
-            <div class="row">
-                <div class="col-12">
-                <p>Here's a sample of my photos. These were primarily shot in film and I will keep adding to this list. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer" @click="instagram"><i class="fab fa-instagram"></i> Instagram</a>.</p>
-                </div>
-                <div class="col-12">
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+            <p>Here's a sample of my photos. These were primarily shot in film and I will keep adding to this list. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer" @click="instagram"><i class="fab fa-instagram"></i> Instagram</a>.</p>
+            </div>
+            <div class="col-4 col-md-4 offset-md-4">
                 <div class="btn-group btn-group-toggle">
                     <label class="btn bnw btn-secondary" v-bind:class="{active: toggle === 'bnw'}">
                     <input type="radio" name="options" id="bnw" autocomplete="off" v-model="toggle" value="bnw"> 
@@ -21,11 +20,10 @@
                         Colour
                     </label>
                 </div>
-                </div>
             </div>
-            <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
-            <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
         </div>
+        <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
+        <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
     </div>
 </template>
 
