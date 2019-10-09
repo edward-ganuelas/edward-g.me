@@ -11,10 +11,14 @@
                 <nav class="container">
                     <ul class="row">
                         <li class="col">
-                            <router-link to="/photography">Photos</router-link>
+                            <router-link to="/photography"><span class="ico"><i class="fas fa-images"></i></span>
+                                Photos
+                            </router-link>
                         </li>
                         <li class="col">
-                            <router-link to="/photography/gear">Gear</router-link>
+                            <router-link to="/photography/gear"><span class="ico"><i class="fas fa-camera"></i></span>
+                                Gear
+                            </router-link>
                         </li>
                         <li class="col" v-if="false">
                             <router-link to="/photography/projects">Photo Projects</router-link>
