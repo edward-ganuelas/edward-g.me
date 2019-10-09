@@ -13,6 +13,12 @@
                 <li><a href="https://www.chaijs.com/" target="_blank" rel="noopener">Chai.js</a></li>
                 <li><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a></li>
                 <li><a href="https://eslint.org/" target="_blank" rel="noopener">ESLint</a></li>
+                <li><a href="https://fontawesome.com/" target="_blank" rel="noopener">Fontawesome</a>
+                    <ul>
+                        <li><a href="https://fontawesome.com/license/free" target="_blank" rel="noopener">License</a>
+                        </li>
+                    </ul>
+                </li>
                 <li><a href="https://lodash.com/" target="_blank" rel="noopener">Lodash</a></li>
                 <li><a href="https://sass-lang.com/" target="_blank" rel="noopener">Sass</a></li>
                 <li><a href="https://github.com/crowdbotics/v-img" target="_blank" rel="noopener">v-img</a></li>
