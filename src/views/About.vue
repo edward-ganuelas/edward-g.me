@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
                 <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-                <h2>About Me</h2>
-                <p>Just a little something about me</p>
+                <h2>About</h2>
+                <p>A little something, something</p>
             </div>
         </div>
         <div class="row">
@@ -12,13 +12,28 @@
                 <nav class="container">
                     <ul class="row">
                         <li class="col">
-                            <router-link to="/about-me/">Bio</router-link>
+                            <router-link to="/about/">
+                                <span class="ico"><i class="fas fa-asterisk"></i></span>
+                                About Site
+                            </router-link>
                         </li>
                         <li class="col">
-                            <router-link to="/about-me/facts">Facts</router-link>
+                            <router-link to="/about/bio">
+                                <span class="ico"><i class="fas fa-user"></i></span>
+                                Bio
+                            </router-link>
                         </li>
                         <li class="col">
-                            <router-link to="/about-me/music">Music</router-link>
+                            <router-link to="/about/facts">
+                                <span class="icon"><i class="fas fa-info-circle"></i></span>
+                                Facts
+                            </router-link>
+                        </li>
+                        <li class="col">
+                            <router-link to="/about/music">
+                                <span class="ico"><i class="fas fa-music"></i></span>
+                                Music
+                            </router-link>
                         </li>
                     </ul>
                 </nav>
@@ -36,7 +51,7 @@ export default {
     data() {
         return {
             meta: {
-                title: "About Me",
+                title: "About",
                 description: "Personal Site of Edward Ganuelas",
                 keywords:
                     "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
@@ -95,7 +110,7 @@ nav ul {
   li {
     list-style-type: none;
     border-right: 1px solid #0066ff;
-    text-align: center;
+    text-align: left;
     &:last-of-type {
       border-right: none;
     }
