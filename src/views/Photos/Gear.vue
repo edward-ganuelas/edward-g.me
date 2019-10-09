@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="sr-only"><i class="fas fa-camera"></i> Gear</h3>
+                <h3 class="sr-only">Gear</h3>
             </div>
         </div>
         <div class="row">
