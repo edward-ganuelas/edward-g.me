@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-2">
+            <div class="col-12">
                 <nav class="container">
                     <ul class="row">
                         <li class="col">
@@ -38,9 +38,13 @@
                     </ul>
                 </nav>
             </div>
-            <transition name="slideUp" leave-active-class="dissapear">
-                <router-view></router-view>
-            </transition>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <transition name="slideUp" leave-active-class="dissapear">
+                    <router-view></router-view>
+                </transition>
+            </div>
         </div>
     </div>
 </template>
@@ -110,25 +114,18 @@ nav ul {
   li {
     list-style-type: none;
     border-right: 1px solid #0066ff;
-    text-align: left;
+    text-align: center;
     &:last-of-type {
       border-right: none;
     }
     a {
       &.router-link-exact-active {
-        text-decoration: underline;
+        text-decoration: none;
         color: #212529;
         cursor: default;
       }
     }
     
-  }
-  @media (min-width: 768px){
-      display: inline;
-      padding-left: 0;
-      li{
-        border-right: none;
-      }
   }
 }
 </style>
