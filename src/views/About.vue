@@ -51,7 +51,7 @@ export default {
     data() {
         return {
             meta: {
-                title: "About Me",
+                title: "About",
                 description: "Personal Site of Edward Ganuelas",
                 keywords:
                     "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"

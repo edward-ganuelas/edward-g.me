@@ -44,7 +44,37 @@
 
 <script>
 export default {
-    name: "AboutSite",
+    name: 'AboutSite',
+    data() {
+        return {
+            meta: {
+                title: 'About the Site',
+                description: 'Personal Site of Edward Ganuelas - About the Site',
+                keywords: 'developer, javascript, gaming, basketball, raptors, nba' 
+            }
+        }
+    },
+    head: {
+        title() {
+            return {
+                inner: this.meta.title
+            };
+        },
+        meta() {
+            return [
+                {
+                    name: 'description',
+                    content: this.meta.description,
+                    id: 'description'
+                },
+                {
+                    name: 'keywords', 
+                    content: this.meta.keywords, 
+                    id: 'keywords' 
+                }
+            ]
+        }
+    }
 };
 </script>
 
