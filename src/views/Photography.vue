@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-2">
+            <div class="col-12">
                 <nav class="container">
                     <ul class="row">
                         <li class="col">
@@ -22,8 +22,8 @@
                     </ul>
                 </nav>
             </div>
-            <router-view></router-view>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -76,17 +76,10 @@ nav ul {
         }
         a {
             &.router-link-exact-active {
-                text-decoration: underline;
+                text-decoration: none;
                 color: #212529;
                 cursor: default;
             }
-        }
-    }
-    @media (min-width: 768px) {
-        display: inline;
-        padding-left: 0;
-        li{
-            border-right: none;
         }
     }
 }
