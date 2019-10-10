@@ -34,6 +34,7 @@
                 </li>
                 <li><a href="https://github.com/MatteoGabriele/vue-analytics" target="_blank" rel="noopener">vue-analytics</a></li>
                 <li><a href="https://github.com/mbj36/vue-burger-menu" target="_blank" rel="noopener">vue-burger-menu</a></li>
+                <li><a href="https://wlada.github.io/vue-carousel-3d/" target="_blank" rel="noopener">vue-carousel-3d</a></li>
                 <li><a href="https://github.com/ktquez/vue-head" target="_blank" rel="noopener">vue-head</a></li>
                 <li><a href="https://github.com/paulcollett/vue-masonry-css" target="_blank" rel="noopener">vue-masonry-css</a></li>
                 <li><a href="https://github.com/asika32764/vue2-animate" target="_blank" rel="noopener">vue2-animate</a></li>

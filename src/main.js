@@ -4,11 +4,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueHead from 'vue-head'
-require('vue2-animate/dist/vue2-animate.min.css')
 import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
+require('vue2-animate/dist/vue2-animate.min.css')
 
 
 
