@@ -108,6 +108,10 @@ span.ico {
 }
 .card{
     padding: 25px 0;
+    background-color: #D3D3D3;
+    button {
+        background-color: #C0C0C0;
+    }
 }
 .subIntro {
      margin-bottom: 18px;

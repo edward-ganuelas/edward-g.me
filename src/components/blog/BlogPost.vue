@@ -2,11 +2,14 @@
     <div class="blog-post">
         <div class="container" v-if="post !== ''">
             <div class="row">
-                <div class="col-12 col-lg-7">
-                    <h2>{{post.title}}</h2>
-                    <author v-bind:author="post.author" v-if="post.author" />
-                    <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-                    <div v-html="post.content"></div>
+                <div class="col-12 col-md-8 offset-md-2 card shadow">
+                    <div class="card-body">
+                        <h2>{{post.title}}</h2>
+                        <author v-bind:author="post.author" v-if="post.author" />
+                        <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
+                        <div v-html="post.content"></div>
+                    </div>
+                    
                 </div>
             </div>
             <div class="row">
@@ -89,6 +92,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+.container {
+    margin-top: 18px;
+}
 .blog-post {
      width: 100%;
 }
