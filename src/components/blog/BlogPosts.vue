@@ -2,31 +2,36 @@
     <div class="posts">
         <div class="container" v-if="this.savedPost !== ''">
             <div class="row">
-                <div class="col-12 col-lg-7 col-md-12">
+                <div class="col-12 col-md-8 offset-md-2">
                     <blog-filters />
                 </div>
-                <div class="col-12 col-lg-7">
-                    <transition-group name="fade" leave-active-class="fadeOutRight">
-                        <div class="col-12" v-for="post in orderedPosts" v-bind:key="post.id">
-                            <div class="card shadow">
-                                <div class="card-body">
-                                    <h2 class="headline card-title">{{post.title}}</h2>
-                                    <author v-bind:author="post.author" v-if="post.author" />
-                                    <p v-if="post.published_date">
-                                        Published on {{publishedDate(post.published_date)}}
-                                    </p>
-                                <ul v-if="post.tags.data" class="tags">
-                                    <li>Tags:</li>
-                                    <li v-for="tag in post['personal-tags'].data" :key="tag.id">
-                                        {{tag.tag}}
-                                    </li>
-                                </ul>
-                                <blockquote class="card-text">{{post.excerpt}}</blockquote>
-                                <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">Read More</router-link>
-                                </div>
-                            </div>
-                        </div>   
-                    </transition-group>   
+                <div class="col-12 col-md-8 offset-md-2">
+                    
+                        <carousel-3d :loop="false" height="350" width="350" :controlsVisible="true" :count="orderedPosts.length">
+                            <slide v-for="(post, index) in orderedPosts" v-bind:key="post.id" :index="index">
+                                    
+                                    <div class="card shadow">
+                                        <div class="card-body">
+                                            <h2 class="headline card-title">{{post.title}}</h2>
+                                            <author v-bind:author="post.author" v-if="post.author" />
+                                            <p v-if="post.published_date">
+                                                Published on {{publishedDate(post.published_date)}}
+                                            </p>
+                                            <ul v-if="post.tags.data" class="tags">
+                                                <li>Tags:</li>
+                                                <li v-for="tag in post['personal-tags'].data" :key="tag.id">
+                                                    {{tag.tag}}
+                                                </li>
+                                            </ul>
+                                            <blockquote class="card-text">{{post.excerpt}}</blockquote>
+                                            <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">Read More</router-link>
+                                        </div>
+                                    </div>
+                                 
+                            </slide>
+                        </carousel-3d>
+                        
+
                 </div>
             </div>
             <spinner :spin="spin" />
@@ -36,6 +41,7 @@
 
 <script>
 import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
+import { Carousel3d, Slide } from 'vue-carousel-3d';
 import BlogFilters from "./BlogFilters";
 import Author from "./Author";
 import _ from "lodash";
@@ -53,7 +59,9 @@ export default {
     components: {
         Author,
         BlogFilters,
-        Spinner
+        Spinner,
+        Carousel3d,
+        Slide
     },
     methods: {
         async getPosts() {
