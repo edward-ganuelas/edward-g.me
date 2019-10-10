@@ -111,6 +111,7 @@ span.ico {
     background-color: #D3D3D3;
     button {
         background-color: #C0C0C0;
+        border-color: #C0C0C0;
     }
 }
 .subIntro {
