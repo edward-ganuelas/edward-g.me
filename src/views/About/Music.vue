@@ -4,16 +4,18 @@
             <div class="col-12">
                 <h3 class="sr-only">Music</h3>
             </div>
-            <div class="col-12 col-md-8 offset-md-2">
-                <p>I like music, I listen to music everyday to switch modes or prepare for a certain mindset. If I'm working on a mundane tasks I keep it on to keep my head energized. I also listen to music to prepare myself so that I can focus and ususally when I reach that state then the music stops.</p>
-                <p>I listen to all kinds of music though I primarily listent to classic Rock and Rap. I sometimes listen to Disney music and I'm not particulary found of EDM or country. </p>
-                <p>Some of my favorite classic acts are AC/DC, Queen, Tupac, and Eminem</p>
-                <p>I'm one of the rare unicorns that uses Google Play Music and the following playlist is my auto 'Thumbs Up' playlist, a collection of random song from different genres and different artist. The way the playlist works is that songs in the top of the list is the newest one I liked.</p>
+            <div class="col-12 col-md-8 offset-md-2 card shadow">
+                <div class="card-body">
+                    <p>I like music, I listen to music everyday to switch modes or prepare for a certain mindset. If I'm working on a mundane tasks I keep it on to keep my head energized. I also listen to music to prepare myself so that I can focus and ususally when I reach that state then the music stops.</p>
+                    <p>I listen to all kinds of music though I primarily listent to classic Rock and Rap. I sometimes listen to Disney music and I'm not particulary found of EDM or country. </p>
+                    <p>Some of my favorite classic acts are AC/DC, Queen, Tupac, and Eminem</p>
+                    <p>I'm one of the rare unicorns that uses Google Play Music and the following playlist is my auto 'Thumbs Up' playlist, a collection of random song from different genres and different artist. The way the playlist works is that songs in the top of the list is the newest one I liked.</p>
+                </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-8 offset-md-2">
                 <h4>Thumbs Up</h4>
             </div>
-            <div class="col-4 col-md-4 offset-md-4">
+            <div class="col-4 col-md-4 offset-md-4 toggle">
                 <p>Sort</p>
                 <div class="btn-group btn-group-toggle">
                     <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
@@ -33,21 +35,23 @@
                     </label>
                 </div>
             </div>
-            <div class="col-12 col-md-8 offset-md-2">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Artist</th>
-                        <th>Album</th>
-                    </tr>
-                    </thead>
+            <div class="col-12 col-md-8 offset-md-2 card shadow">
+                <div class="card-body">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Artist</th>
+                            <th>Album</th>
+                        </tr>
+                        </thead>
                     <tbody>
-                    <tr v-for="(music, index) in filteredContent" v-bind:key="index">
-                        <td v-for="(content, index2) in music" v-bind:key="index2">{{content}}</td>
-                    </tr>
+                        <tr v-for="(music, index) in filteredContent" v-bind:key="index">
+                            <td v-for="(content, index2) in music" v-bind:key="index2">{{content}}</td>
+                        </tr>
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -81,10 +85,11 @@ h2,
 h3 {
     margin-bottom: 20px;
 }
+h4{
+    margin-top: 18px;
+}
 table {
     width: 100%;
-    margin-bottom: 100px;
-    margin-top: 50px;
 }
 th,
 td {
@@ -105,5 +110,8 @@ tbody {
             border: none;
         }
     }
+}
+.toggle {
+    margin-bottom: 18px;
 }
 </style>
