@@ -5,9 +5,9 @@
                 <div class="col-12 col-md-8 offset-md-2 card shadow">
                     <div class="card-body">
                         <h2>{{post.title}}</h2>
-                        <author v-bind:author="post.author" v-if="post.author" />
+                        <p class="author">Edward Ganuelas</p>
                         <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
-                        <div v-html="post.content"></div>
+                        <div v-html="post.post"></div>
                     </div>
                     
                 </div>
@@ -22,16 +22,15 @@
 </template>
 
 <script>
-import { DIRECTUS, PERSONAL_BLOG } from "../../api/apis";
-import Author from "./Author";
-import axios from "axios";
+import mixin from '@/mixins/mixin';
+import moment from 'moment';
+import client from "@/directus";
+import _ from 'lodash';
 
 export default {
     name: "BlogPost",
     props: ["id"],
-    components: {
-        Author
-    },
+    mixins: [mixin],
     data() {
         return {
             post: "",
@@ -42,16 +41,12 @@ export default {
     },
     methods: {
         async getPost() {
-            let response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}/${this.id}`);
-            this.post = response.data.data;
-            window.setTimeout(() => {
-                this.updateMetaData();
-                this.$emit("updateHead");
-            }, 2000);
+            const response = await client.getItem('blog', this.id);
+            this.post = response.data;
+            this.updateMetaData();
         },
         publishedDate(published_date) {
-            let date = new Date(published_date);
-            return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+            return moment(published_date).format('MMM D YYYY');
         },
         updateMetaData() {
             this.title = this.post.title;
@@ -59,15 +54,19 @@ export default {
             this.description = this.post.excerpt;
         },
         getKeyWords() {
-            let keywords = [];
-            this.post.tags.data.forEach((x) => {
-                keywords.push(x.tag);
-            });
-            return keywords.join();
+            if (!this.savedBlogTags) {
+                return [];
+            }
+            const blogTags = _.cloneDeep(this.savedBlogTags);
+            const savedTags = _.cloneDeep(this.savedTags);
+            const tagIds = blogTags.filter(blogTag => blogTag.blog_id === parseInt(this.id)).map(blogTag => blogTag.tags_id);
+            return savedTags.filter(tag=> _.includes(tagIds, tag.id)).map(tag=> tag.tag).join(',');
         }
     },
-    beforeMount: function() {
-        this.getPost();
+    async beforeMount() {
+        await this.getPost();
+        await this.getBlogTags();
+        await this.getTags();
         this.$ga.page({
             page: "/post",
             title: this.post.title,
@@ -83,7 +82,7 @@ export default {
         meta() {
             return [
                 { name: "description", content: this.description },
-                { name: "keywords", content: this.description }
+                { name: "keywords", content: this.keywords }
             ];
         }
     }

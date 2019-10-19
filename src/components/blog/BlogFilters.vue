@@ -7,10 +7,10 @@
         <button type="button" class="btn btn-secondary col" @click="onFilterClick('clear')">Clear</button>
         <button type="button" 
             class="btn btn-secondary col" 
-            v-for="tag in filters" 
+            v-for="tag in savedTags" 
             v-bind:id="tag.id" 
             :key="tag.id" 
-            @click="onFilterClick(tag.tag)" 
+            @click="onFilterClick(tag.tag, tag.id)" 
             :disabled="tag.tag === filter">
                 {{tag.tag}}
         </button>
@@ -19,46 +19,24 @@
 </template>
 
 <script>
-import { DIRECTUS, TAGS } from "../../api/apis";
+
 import { sync } from "vuex-pathify";
-import axios from "axios";
 
 export default {
     name: "BlogFilters",
+    props: ['savedTags'],
     methods: {
-        async getFilters() {
-            const response = await axios.get(`${DIRECTUS}${TAGS}`);
-            this.filters = response.data.data;
-            localStorage.setItem("blog-edward-g-filters", JSON.stringify(response.data.data));
-        },
-        onFilterClick(filter) {
+        onFilterClick(filter, tagId) {
             if (filter === "clear") {
                 this.filter = "";
             } else {
-                this.filter = filter;
+                this.filter = tagId;
             }
             this.$ga.event({ eventCategory: `Filter ${filter}`, eventAction: "click" });
         }
     },
     computed: {
-        filters: sync("Filters"),
         filter: sync("Filter")
-    },
-    beforeMount() {
-        const filter = localStorage.getItem("blog-edward-g-filters");
-        const today = Date.now();
-        const lastFetch = localStorage.getItem("blog-edward-g-last-update");
-        const milisecondsToDay = 86400000;
-        const daysSinceLastUpdate = today - lastFetch;
-        if (!filter) {
-            this.getFilters();
-        } else {
-            if (daysSinceLastUpdate > milisecondsToDay) {
-                this.getFilters();
-            } else {
-                this.filters = JSON.parse(filter);
-            }
-        }
     }
 };
 </script>
