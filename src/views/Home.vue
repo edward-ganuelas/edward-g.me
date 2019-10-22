@@ -41,6 +41,15 @@ import AboutWidget from '@/components/AboutWidget';
 import QuotesWidget from '@/components/QuotesWidget';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
+import moment from 'moment';
+import _ from 'lodash';
+import client from "@/directus";
+
+const BLOG_TYPES = Object.freeze({
+    TECH: 'tech',
+    PERSONAL: 'personal'
+});
+
 export default {
     name: "Home",
     components: {
@@ -55,8 +64,9 @@ export default {
             meta: {
                 title: "Home",
                 description: "Personal Site of Edward Ganuelas",
-                keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
-            }
+                keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe",
+            },
+            blogPosts: undefined
         };
     },
     methods: {
@@ -64,6 +74,25 @@ export default {
             axios.get("static/json/main.json").then((x) => {
                 this.content = x.data.content;
             });
+        },
+        async getAllPosts() {
+            const response = await client.getItems('blog');
+            this.blogPosts = Object.freeze(response.data);
+        }
+    },
+    computed: {
+        personalPosts() {
+            const blogPosts = _.cloneDeep(this.blogPosts);
+            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.PERSONAL);
+        },
+        techPosts() {
+            const blogPosts = _.cloneDeep(this.blogPosts);
+            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
+        },
+        latestPersonalPost() {
+            const personalPosts = this.personalPosts;
+            const sortedPosts = _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc']);
+            return sortedPosts;
         }
     },
     head: {
@@ -78,6 +107,9 @@ export default {
                 { name: "keywords", content: this.meta.keywords, id: 'keywords' }
             ];
         }
+    },
+    async beforeMount() {
+        await this.getAllPosts();
     }
 };
 </script>
