@@ -91,8 +91,11 @@ export default {
         },
         latestPersonalPost() {
             const personalPosts = this.personalPosts;
-            const sortedPosts = _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc']);
-            return sortedPosts;
+            return _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
+        },
+        latestTechPost() {
+            const techPosts = this.techPosts;
+            return _.orderBy(techPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
         }
     },
     head: {
