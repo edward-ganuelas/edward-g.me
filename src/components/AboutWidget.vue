@@ -13,13 +13,14 @@
 </template>
 
 <script>
-import _ from "lodash";
-import About from "../copy/about";
+import _ from 'lodash';
+import About from '@/copy/about';
 export default {
-    name: "AboutWidget",
+    name: 'AboutWidget',
     data() {
         return {
-            content: ""
+            content: '',
+            aboutIterator: '',
         };
     },
     methods: {
@@ -27,12 +28,18 @@ export default {
             const randomNumer = _.random(0, About.length -1);
             this.$ga.event({
                 eventCategory: `Load Random About`,
-                eventAction: "click",
+                eventAction: 'click',
             });
             return About[randomNumer];
         },
         setContent() {
             this.content = this.getRandomContent();
+        },
+        *aboutGenerator() {
+            const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
+            for (let i = 0; i < shuffledAboutFacts.length; i++) {
+                yield shuffledAboutFacts[i];
+            }
         }
     },
     mounted() {
