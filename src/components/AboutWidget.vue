@@ -13,30 +13,43 @@
 </template>
 
 <script>
-import _ from "lodash";
-import About from "../copy/about";
+import _ from 'lodash';
+import About from '@/copy/about';
 export default {
-    name: "AboutWidget",
+    name: 'AboutWidget',
     data() {
         return {
-            content: ""
+            content: '',
+            aboutIterator: '',       
         };
     },
     methods: {
-        getRandomContent() {
-            const randomNumer = _.random(0, About.length -1);
+        setContent() {
+            const iterator = this.aboutIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.content = iterator.value;
             this.$ga.event({
                 eventCategory: `Load Random About`,
-                eventAction: "click",
+                eventAction: 'click',
             });
-            return About[randomNumer];
         },
-        setContent() {
-            this.content = this.getRandomContent();
-        }
+        *aboutGenerator() {
+            const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
+            for (let i = 0; i < shuffledAboutFacts.length; i++) {
+                yield shuffledAboutFacts[i];
+            }
+        },
+        initializeGenerator() {
+            this.aboutIterator = this.aboutGenerator();
+            this.content = this.aboutIterator.next().value;
+        },
     },
     mounted() {
-        this.setContent();
+        if (!_.isObject(this.aboutIterator)) {
+            this.initializeGenerator();
+        }
     }
 };
 </script>

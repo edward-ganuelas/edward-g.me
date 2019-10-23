@@ -1,4 +1,4 @@
-const about = [
+const about = Object.freeze([
     'Came to Canada in the year 2005',
     'First job was at McDonalds. Worked in the kitchen and eventually got promoted to Crew Trainer and Team Leader',
     'Went to George Brown College for the Computer Programmer Analyst program',
@@ -23,6 +23,6 @@ const about = [
     'Drives an old manual Civic',
     'Doesn\'t consider himself a car guy even though he drives stick',
     'Has more cameras than he has talent'
-];
+]);
 
 export default about;
