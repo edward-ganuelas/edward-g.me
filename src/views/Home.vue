@@ -36,14 +36,14 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 import AboutWidget from '@/components/AboutWidget';
 import QuotesWidget from '@/components/QuotesWidget';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
 import moment from 'moment';
 import _ from 'lodash';
-import client from "@/directus";
+import client from '@/directus';
 
 const BLOG_TYPES = Object.freeze({
     TECH: 'tech',
@@ -51,7 +51,7 @@ const BLOG_TYPES = Object.freeze({
 });
 
 export default {
-    name: "Home",
+    name: 'Home',
     components: {
         AboutWidget,
         QuotesWidget,
@@ -60,18 +60,18 @@ export default {
     },
     data() {
         return {
-            content: "",
+            content: '',
             meta: {
-                title: "Home",
-                description: "Personal Site of Edward Ganuelas",
-                keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe",
+                title: 'Home',
+                description: 'Personal Site of Edward Ganuelas',
+                keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
             },
             blogPosts: undefined
         };
     },
     methods: {
         getContent() {
-            axios.get("static/json/main.json").then((x) => {
+            axios.get('static/json/main.json').then((x) => {
                 this.content = x.data.content;
             });
         },
@@ -112,8 +112,8 @@ export default {
         },
         meta() {
             return [
-                { name: "description", content: this.meta.description, id: 'description' },
-                { name: "keywords", content: this.meta.keywords, id: 'keywords' }
+                { name: 'description', content: this.meta.description, id: 'description' },
+                { name: 'keywords', content: this.meta.keywords, id: 'keywords' }
             ];
         }
     },
