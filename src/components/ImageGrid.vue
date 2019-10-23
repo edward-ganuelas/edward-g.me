@@ -3,11 +3,11 @@
         <div class="row" v-show="toggle === activeClass">
             <div class="col-12 col-md-8 offset-md-2">  
                 <h4>{{title}}</h4>
-                <label class="sort">Order By:
+                <label class="sort">{{$t('imageGrid.orderBy')}}
                     <select v-model="sort">
-                        <option value="old">Oldest at Top</option>
-                        <option value="new">Newest at Top</option>
-                        <option value="random">Random</option>
+                        <option value="old">{{$t('imageGrid.old')}}</option>
+                        <option value="new">{{$t('imageGrid.new')}}</option>
+                        <option value="random">{{$t('imageGrid.random')}}</option>
                     </select>
                 </label>
                 <masonry :cols="2" :gutter="0">

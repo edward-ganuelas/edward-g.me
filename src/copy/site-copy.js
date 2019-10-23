@@ -20,6 +20,12 @@ const messages = {
             home: 'Home',
             about: 'About',
             photography: 'Photography'
+        },
+        imageGrid: {
+            orderBy: 'Order By:',
+            old: 'Oldest at Top',
+            new: 'Newest at Top',
+            random: 'Random'
         }
     }
 }
