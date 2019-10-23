@@ -1,38 +1,26 @@
 <template>
     <div class="row developmentNews card shadow">
         <div class="container">
-            <div class="row" v-if="content !== ''">
+            <div class="row">
                 <div class="col-12">
                     <h2>Development News</h2>
                 </div>
                 <div class="col-12">
-                    <h3>{{content.title}}</h3>
-                    <p>{{content.excerpt}}</p>
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.excerpt}}</p>
                     <p>Read More from the <a :href="blogLink" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun blog')">eightrayedsun blog</a></p>
                 </div>
             </div>
-            <spinner :spin="spin" />
         </div>
     </div>
 </template>
 
 <script>
 import _ from "lodash";
-import { DIRECTUS, DIRECTUS_BLOG } from "../api/apis";
-import Spinner from './Spinner';
-import axios from 'axios';
 
 export default {
     name: "DevelopmentNews",
-    components:{
-        Spinner
-    },
-    data() {
-        return {
-            content: "",
-            spin: false
-        };
-    },
+    props: ['post'],
     methods: {
         tracking(site) {
             this.$ga.event({
@@ -43,24 +31,11 @@ export default {
     },
     computed: {
         blogLink() {
-            const title = _.kebabCase(this.content.title);
+            const title = _.kebabCase(this.post.title);
             return `https://blog.eightrayedsun.com/#/post/${title}?id=${
-                this.content.id
+                this.post.id
             }`;
         }
-    },
-    mounted() {
-        (async () => {
-            try {
-                this.spin = true;
-                const response = await axios.get(`${DIRECTUS}${DIRECTUS_BLOG}?limit=1&order[published_date]=DESC`);
-                this.content = response.data.data[0];
-                this.spin = false;
-            } catch (e) {
-                console.log(e);
-                this.spin = false;
-            }
-        })();
     }
 };
 </script>

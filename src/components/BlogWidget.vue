@@ -1,39 +1,27 @@
 <template>
     <div class="row blogWidget card shadow">
         <div class="container">
-            <div class="row" v-if="content !== ''">
+            <div class="row">
                 <div class="col-12">
                     <h2>Latest Blog Post</h2>
                 </div>
                 <div class="col-12">
-                    <h3>{{content.title}}</h3>
-                    <p>{{content.excerpt}}</p>
-                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(content.title)}, query: {id: content.id}}" >Read More</router-link></p>
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.excerpt}}</p>
+                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}" >Read More</router-link></p>
                     <p><router-link to="/blog">See More Blog Posts</router-link></p>
                 </div>
             </div>
-            <spinner :spin="spin" />
         </div>
     </div>
 </template>
 
 <script>
 import _ from "lodash";
-import { DIRECTUS, PERSONAL_BLOG } from "../api/apis";
-import Spinner from './Spinner';
-import axios from 'axios';
 
 export default {
     name: "BlogWidget",
-    components:{
-        Spinner
-    },
-    data() {
-        return {
-            content: "",
-            spin: false
-        };
-    },
+    props: ['post'],
     methods: {
         tracking(site) {
             this.$ga.event({
@@ -44,19 +32,6 @@ export default {
         kebabTitle(title) {
             return _.kebabCase(title);
         }
-    },
-    mounted() {
-        (async () => {
-            try {
-                this.spin = true;
-                const response = await axios.get(`${DIRECTUS}${PERSONAL_BLOG}?limit=1&order[published_date]=DESC`);
-                this.content = response.data.data[0];
-                this.spin = false;
-            } catch (e) {
-                console.log(e);
-                this.spin = false;
-            }
-        })();
     }
 };
 </script>
