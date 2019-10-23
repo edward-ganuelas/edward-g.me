@@ -12,13 +12,15 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="container">
-                    <blog-widget />
+                <div class="container" v-if="latestPersonalPost">
+                    <blog-widget :post="latestPersonalPost" />
+                    <spinner :spin="spin" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="container">
-                    <development-news />
+                <div class="container" v-if="latestTechPost">
+                    <development-news :post="latestTechPost" />
+                    <spinner :spin="spin" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
@@ -36,34 +38,77 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 import AboutWidget from '@/components/AboutWidget';
 import QuotesWidget from '@/components/QuotesWidget';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
+import Spinner from '@/components/Spinner';
+import moment from 'moment';
+import _ from 'lodash';
+import client from '@/directus';
+
+const BLOG_TYPES = Object.freeze({
+    TECH: 'tech',
+    PERSONAL: 'personal'
+});
+
 export default {
-    name: "Home",
+    name: 'Home',
     components: {
         AboutWidget,
         QuotesWidget,
         DevelopmentNews,
-        BlogWidget
+        BlogWidget,
+        Spinner
     },
     data() {
         return {
-            content: "",
+            content: '',
             meta: {
-                title: "Home",
-                description: "Personal Site of Edward Ganuelas",
-                keywords: "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
-            }
+                title: 'Home',
+                description: 'Personal Site of Edward Ganuelas',
+                keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
+            },
+            blogPosts: undefined,
+            spin: false
         };
     },
     methods: {
         getContent() {
-            axios.get("static/json/main.json").then((x) => {
+            axios.get('static/json/main.json').then((x) => {
                 this.content = x.data.content;
             });
+        },
+        async getAllPosts() {
+            this.spin = true;
+            const response = await client.getItems('blog');
+            this.blogPosts = Object.freeze(response.data);
+            this.spin = false;
+        }
+    },
+    computed: {
+        personalPosts() {
+            if (!_.isObject(this.blogPosts)){
+                return;
+            }
+            const blogPosts = _.cloneDeep(this.blogPosts);
+            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.PERSONAL);
+        },
+        techPosts() {
+            if (!_.isObject(this.blogPosts)){
+                return;
+            }
+            const blogPosts = _.cloneDeep(this.blogPosts);
+            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
+        },
+        latestPersonalPost() {
+            const personalPosts = this.personalPosts;
+            return _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
+        },
+        latestTechPost() {
+            const techPosts = this.techPosts;
+            return _.orderBy(techPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
         }
     },
     head: {
@@ -74,10 +119,13 @@ export default {
         },
         meta() {
             return [
-                { name: "description", content: this.meta.description, id: 'description' },
-                { name: "keywords", content: this.meta.keywords, id: 'keywords' }
+                { name: 'description', content: this.meta.description, id: 'description' },
+                { name: 'keywords', content: this.meta.keywords, id: 'keywords' }
             ];
         }
+    },
+    async beforeMount() {
+        await this.getAllPosts();
     }
 };
 </script>
