@@ -17,7 +17,8 @@ export default {
     name: 'QuotesWidget',
     data() {
         return {
-            content: ''
+            content: '',
+            quoteIterator: '',
         };
     },
     methods: {
@@ -30,11 +31,27 @@ export default {
             return Quotes[randomNumer];
         },
         setContent() {
-            this.content = this.getRandomContent();
-        }
+            const iterator = this.quoteIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.content = iterator.value;
+        },
+        *quoteGenerator() {
+            const shuffledQuotes = _.shuffle(_.cloneDeep(Quotes));
+            for (let i = 0; i < shuffledQuotes.length; i++) {
+                yield shuffledQuotes[i];
+            }
+        },
+        initializeGenerator() {
+            this.quoteIterator = this.quoteGenerator();
+            this.content = this.quoteIterator.next().value;
+        },
     },
     mounted() {
-        this.setContent();
+        if (!_.isObject(this.aboutIterator)) {
+            this.initializeGenerator();
+        }
     }
 };
 </script>
