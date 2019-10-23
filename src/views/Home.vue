@@ -14,11 +14,13 @@
             <div class="col-12 col-md-6">
                 <div class="container" v-if="latestPersonalPost">
                     <blog-widget :post="latestPersonalPost" />
+                    <spinner :spin="spin" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="container" v-if="latestTechPost">
                     <development-news :post="latestTechPost" />
+                    <spinner :spin="spin" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
@@ -41,6 +43,7 @@ import AboutWidget from '@/components/AboutWidget';
 import QuotesWidget from '@/components/QuotesWidget';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
+import Spinner from '@/components/Spinner';
 import moment from 'moment';
 import _ from 'lodash';
 import client from '@/directus';
@@ -56,7 +59,8 @@ export default {
         AboutWidget,
         QuotesWidget,
         DevelopmentNews,
-        BlogWidget
+        BlogWidget,
+        Spinner
     },
     data() {
         return {
@@ -66,7 +70,8 @@ export default {
                 description: 'Personal Site of Edward Ganuelas',
                 keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
             },
-            blogPosts: undefined
+            blogPosts: undefined,
+            spin: false
         };
     },
     methods: {
@@ -76,8 +81,10 @@ export default {
             });
         },
         async getAllPosts() {
+            this.spin = true;
             const response = await client.getItems('blog');
             this.blogPosts = Object.freeze(response.data);
+            this.spin = false;
         }
     },
     computed: {
