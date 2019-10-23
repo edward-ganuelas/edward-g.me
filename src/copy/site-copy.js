@@ -10,6 +10,11 @@ const messages = {
         },
         aboutWidget: {
             header: 'A Random Fact About Me'
+        },
+        developmentNews: {
+            header: 'Development News',
+            readMorePreLink: 'Read More from the',
+            readMorePostLink: 'eightrayedsun blog.'
         }
     }
 }
