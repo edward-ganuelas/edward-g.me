@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             content: '',
-            aboutIterator: '',
+            aboutIterator: '',       
         };
     },
     methods: {
@@ -33,17 +33,27 @@ export default {
             return About[randomNumer];
         },
         setContent() {
-            this.content = this.getRandomContent();
+            const iterator = this.aboutIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.content = iterator.value;
         },
         *aboutGenerator() {
             const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
             for (let i = 0; i < shuffledAboutFacts.length; i++) {
                 yield shuffledAboutFacts[i];
             }
-        }
+        },
+        initializeGenerator() {
+            this.aboutIterator = this.aboutGenerator();
+            this.content = this.aboutIterator.next().value;
+        },
     },
     mounted() {
-        this.setContent();
+        if (!_.isObject(this.aboutIterator)) {
+            this.initializeGenerator();
+        }
     }
 };
 </script>
