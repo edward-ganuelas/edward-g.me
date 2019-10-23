@@ -11,30 +11,43 @@
 </template>
 
 <script>
-import _ from "lodash";
-import Quotes from "../copy/quotes";
+import _ from 'lodash';
+import Quotes from '@/copy/quotes';
 export default {
-    name: "QuotesWidget",
+    name: 'QuotesWidget',
     data() {
         return {
-            content: ""
+            content: '',
+            quoteIterator: '',
         };
     },
     methods: {
-        getRandomContent() {
-            const randomNumer = _.random(0, Quotes.length - 1);
+        setContent() {
+            const iterator = this.quoteIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.content = iterator.value;
             this.$ga.event({
                 eventCategory: `Load Random Quote`,
-                eventAction: "click",
+                eventAction: 'click',
             });
-            return Quotes[randomNumer];
         },
-        setContent() {
-            this.content = this.getRandomContent();
-        }
+        *quoteGenerator() {
+            const shuffledQuotes = _.shuffle(_.cloneDeep(Quotes));
+            for (let i = 0; i < shuffledQuotes.length; i++) {
+                yield shuffledQuotes[i];
+            }
+        },
+        initializeGenerator() {
+            this.quoteIterator = this.quoteGenerator();
+            this.content = this.quoteIterator.next().value;
+        },
     },
     mounted() {
-        this.setContent();
+        if (!_.isObject(this.aboutIterator)) {
+            this.initializeGenerator();
+        }
     }
 };
 </script>
