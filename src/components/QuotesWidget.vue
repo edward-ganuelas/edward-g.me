@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import _ from "lodash";
-import Quotes from "../copy/quotes";
+import _ from 'lodash';
+import Quotes from '@/copy/quotes';
 export default {
-    name: "QuotesWidget",
+    name: 'QuotesWidget',
     data() {
         return {
-            content: ""
+            content: ''
         };
     },
     methods: {
@@ -25,7 +25,7 @@ export default {
             const randomNumer = _.random(0, Quotes.length - 1);
             this.$ga.event({
                 eventCategory: `Load Random Quote`,
-                eventAction: "click",
+                eventAction: 'click',
             });
             return Quotes[randomNumer];
         },
