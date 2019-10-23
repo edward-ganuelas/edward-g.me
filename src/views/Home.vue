@@ -12,13 +12,13 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6">
-                <div class="container">
-                    <blog-widget />
+                <div class="container" v-if="latestPersonalPost">
+                    <blog-widget :post="latestPersonalPost" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
-                <div class="container">
-                    <development-news />
+                <div class="container" v-if="latestTechPost">
+                    <development-news :post="latestTechPost" />
                 </div>
             </div>
             <div class="col-12 col-md-6">
@@ -82,10 +82,16 @@ export default {
     },
     computed: {
         personalPosts() {
+            if (!_.isObject(this.blogPosts)){
+                return;
+            }
             const blogPosts = _.cloneDeep(this.blogPosts);
             return blogPosts.filter(post => post.blog_type === BLOG_TYPES.PERSONAL);
         },
         techPosts() {
+            if (!_.isObject(this.blogPosts)){
+                return;
+            }
             const blogPosts = _.cloneDeep(this.blogPosts);
             return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
         },
