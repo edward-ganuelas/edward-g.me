@@ -19,15 +19,15 @@
                             <Slide right>
                                 <router-link to="/">
                                     <span class='ico'><i class='fas fa-home'></i></span>
-                                    Home
+                                    {{$t('nav.home')}}
                                 </router-link>
                                 <router-link to="/about">
                                     <span class='ico'><i class="fas fa-info-circle"></i></span>
-                                    About
+                                    {{$t('nav.about')}}
                                 </router-link>
                                 <router-link to="/photography">
                                     <span class='ico'><i class="fas fa-camera-retro"></i></span>
-                                    Photography
+                                    {{$t('nav.photography')}}
                                 </router-link>
                                 <router-link to="/blog">
                                     <span class='ico'><i class="fas fa-file-alt"></i></span>

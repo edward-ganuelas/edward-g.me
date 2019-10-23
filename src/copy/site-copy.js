@@ -15,6 +15,11 @@ const messages = {
             header: 'Development News',
             readMorePreLink: 'Read More from the',
             readMorePostLink: 'eightrayedsun blog.'
+        },
+        nav: {
+            home: 'Home',
+            about: 'About',
+            photography: 'Photography'
         }
     }
 }
