@@ -22,10 +22,6 @@ export default {
         };
     },
     methods: {
-        getRandomContent() {
-            const randomNumer = _.random(0, Quotes.length - 1);
-            return Quotes[randomNumer];
-        },
         setContent() {
             const iterator = this.quoteIterator.next();
             if (iterator.done) {
