@@ -24,10 +24,6 @@ export default {
     methods: {
         getRandomContent() {
             const randomNumer = _.random(0, Quotes.length - 1);
-            this.$ga.event({
-                eventCategory: `Load Random Quote`,
-                eventAction: 'click',
-            });
             return Quotes[randomNumer];
         },
         setContent() {
@@ -36,6 +32,10 @@ export default {
                 return this.initializeGenerator();
             }
             this.content = iterator.value;
+            this.$ga.event({
+                eventCategory: `Load Random Quote`,
+                eventAction: 'click',
+            });
         },
         *quoteGenerator() {
             const shuffledQuotes = _.shuffle(_.cloneDeep(Quotes));
