@@ -24,20 +24,16 @@ export default {
         };
     },
     methods: {
-        getRandomContent() {
-            const randomNumer = _.random(0, About.length -1);
-            this.$ga.event({
-                eventCategory: `Load Random About`,
-                eventAction: 'click',
-            });
-            return About[randomNumer];
-        },
         setContent() {
             const iterator = this.aboutIterator.next();
             if (iterator.done) {
                 return this.initializeGenerator();
             }
             this.content = iterator.value;
+            this.$ga.event({
+                eventCategory: `Load Random About`,
+                eventAction: 'click',
+            });
         },
         *aboutGenerator() {
             const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
