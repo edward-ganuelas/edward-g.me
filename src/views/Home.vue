@@ -9,8 +9,6 @@
                     <p>If you are interested to know more about Edward the developer, checkout my other site <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a> or my <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer">Github</a> page.</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-12 col-md-6">
                 <div class="container" v-if="latestPersonalPost">
                     <blog-widget :post="latestPersonalPost" />
@@ -23,7 +21,7 @@
                     <spinner :spin="spin" />
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+             <div class="col-12 col-md-6">
                 <div class="container">
                     <about-widget />
                 </div>
