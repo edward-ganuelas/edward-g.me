@@ -1,9 +1,11 @@
 <template>
     <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
         <header-nav />
-        <transition :name="transition" leave-active-class="dissapear">
-            <router-view></router-view>
-        </transition>
+        <div class="content-wrapper">
+             <transition :name="transition" leave-active-class="dissapear">
+                <router-view></router-view>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -79,6 +81,13 @@ body, #app{
     }
     & > .container-fluid {
         border-bottom: 2px inset #0066FF;
+    }
+}
+#app {
+    max-height: 100vh;
+    .content-wrapper{
+        max-height: 100%;
+        overflow-y: auto;
     }
 }
 h1,
