@@ -1,8 +1,8 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid header">
         <div class="row">
-            <div class="col-12 header">
-                <div class="container-fluid">
+            <div class="col-12">
+                <div class="container">
                     <div class="row">
                         <div class="col-6 col-lg-6">
                             <h1>
@@ -132,6 +132,10 @@ h1 {
     }
 }
 .header {
+    background-color: #0066ff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 18px;
     @media (min-width: 768px) {
         padding-left: 15px;
     }

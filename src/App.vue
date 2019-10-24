@@ -79,16 +79,9 @@ body, #app{
             border-color: #f78703;
         }
     }
-    & > .container-fluid {
-        border-bottom: 2px inset #0066FF;
-    }
 }
 #app {
-    max-height: 100vh;
-    .content-wrapper{
-        max-height: 100%;
-        overflow-y: auto;
-    }
+
 }
 h1,
 h2,
