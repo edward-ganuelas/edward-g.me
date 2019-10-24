@@ -6,7 +6,7 @@
                 <h3>A section about a hobby</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row sub-nav">
             <div class="col-12">
                 <nav class="container">
                     <ul class="row">
