@@ -37,15 +37,15 @@
 <script>
 import mixin from '@/mixins/mixin';
 import { Carousel3d, Slide } from 'vue-carousel-3d';
-import BlogFilters from "./BlogFilters";
-import Author from "./Author";
-import _ from "lodash";
+import BlogFilters from './BlogFilters';
+import Author from './Author';
+import _ from 'lodash';
 import moment from 'moment';
-import { get, sync } from "vuex-pathify";
-import Spinner from "../Spinner";
+import { get, sync } from 'vuex-pathify';
+import Spinner from '@/components/Spinner';
 
 export default {
-    name: "blog-posts",
+    name: 'blog-posts',
     mixins: [mixin],
     data() {
         return {
@@ -94,8 +94,8 @@ export default {
                 return new Date(x.published_date);
             }).reverse();
         },
-        savedPost: sync("BlogPosts"),
-        filter: get("Filter"),
+        savedPost: sync('BlogPosts'),
+        filter: get('Filter'),
         filteredPosts() {
             if (this.filter === '') {
                 return this.savedPost;
@@ -110,7 +110,7 @@ export default {
         filtereas(value) {
             this.resetPosts();
             let filteredPosts = this.savedPost;
-            if (value !== "clear") {
+            if (value !== 'clear') {
                 filteredPosts = filteredPosts.filter((x) => {
                     let filterCheck = false;
                     x['personal-tags'].data.forEach((element) => {

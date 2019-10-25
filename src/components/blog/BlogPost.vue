@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <h2>{{post.title}}</h2>
                         <p class="author">Edward Ganuelas</p>
-                        <p v-if="post.published_date">Published on {{publishedDate(post.published_date)}}</p>
+                        <p v-if="post.published_date">{{$t('blog.publishedOn')}} {{publishedDate(post.published_date)}}</p>
                         <div v-html="post.post"></div>
                     </div>
                     
@@ -24,19 +24,19 @@
 <script>
 import mixin from '@/mixins/mixin';
 import moment from 'moment';
-import client from "@/directus";
+import client from '@/directus';
 import _ from 'lodash';
 
 export default {
-    name: "BlogPost",
-    props: ["id"],
+    name: 'BlogPost',
+    props: ['id'],
     mixins: [mixin],
     data() {
         return {
-            post: "",
-            keywords: "",
-            title: "",
-            description: ""
+            post: '',
+            keywords: '',
+            title: '',
+            description: ''
         };
     },
     methods: {
@@ -68,7 +68,7 @@ export default {
         await this.getBlogTags();
         await this.getTags();
         this.$ga.page({
-            page: "/post",
+            page: '/post',
             title: this.post.title,
             location: window.location.href
         });
@@ -81,8 +81,8 @@ export default {
         },
         meta() {
             return [
-                { name: "description", content: this.description },
-                { name: "keywords", content: this.keywords }
+                { name: 'description', content: this.description },
+                { name: 'keywords', content: this.keywords }
             ];
         }
     }

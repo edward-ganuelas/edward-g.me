@@ -48,7 +48,11 @@ const messages = {
             `
         },
         about,
-        photography
+        photography,
+        blog: {
+            filters: 'Filters',
+            clear: 'Clear'
+        }
     }
 }
 
