@@ -17,7 +17,7 @@
                 </masonry>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">See More Images ({{remainingImages}})</button>
+                <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">{{$t('imageGrid.seeMore')}} ({{remainingImages}})</button>
             </div>
         </div>
     </transition>

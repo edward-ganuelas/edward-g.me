@@ -27,7 +27,8 @@ const messages = {
             orderBy: 'Order By:',
             old: 'Oldest at Top',
             new: 'Newest at Top',
-            random: 'Random'
+            random: 'Random',
+            seeMore: 'See More Images'
         },
         blogWidget: {
             header: 'Latest Blog Post',
