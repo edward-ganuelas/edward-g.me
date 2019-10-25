@@ -129,6 +129,7 @@ span.ico {
         padding: 0;
         max-height: 400px;
         height: 100vh;
+        margin-bottom: 2px;     
         & > * {
             height: 100%;
         }
@@ -149,7 +150,7 @@ span.ico {
     }
 }
 .content-wrapper {
-    max-height: calc(100vh - #{$headerHeight + 10px});
+    max-height: calc(100vh - #{$headerHeight + 5px});
     overflow-y: auto;
 }
 .widget {
