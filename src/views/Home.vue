@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2 card shadow main-content">
+            <div class="col-10 offset-1 col-md-8 offset-md-2 card shadow main-content">
                 <div class="card-body">
                     <p>Hello, my name is Edward Paulo Ganuelas and this is my personal site.</p>
                     <p>For those who are wondering, what is the purpose of this site? Well the purpose is that this site would focus more
@@ -9,27 +9,25 @@
                     <p>If you are interested to know more about Edward the developer, checkout my other site <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a> or my <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer">Github</a> page.</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="container" v-if="latestPersonalPost">
+            <div class="col-10 offset-1 offset-md-0 col-md-6 card sub-card shadow">
+                <div v-if="latestPersonalPost">
                     <blog-widget :post="latestPersonalPost" />
                     <spinner :spin="spin" />
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="container" v-if="latestTechPost">
+            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
+                <div v-if="latestTechPost">
                     <development-news :post="latestTechPost" />
                     <spinner :spin="spin" />
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="container">
+             <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
+                <div>
                     <about-widget />
                 </div>
             </div>
-            <div class="col-12 col-md-6">
-                <div class="container">
+            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
+                <div>
                     <quotes-widget />
                 </div>
             </div>
@@ -133,9 +131,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .main-content {
+    margin-top: 18px;
     margin-bottom: 18px;
-    @media(min-width: 1024px){
-        margin-top: 18px;
+}
+.sub-card{
+    padding: 0;
+    height: 100vh;
+    max-height: 50vh;
+    margin-bottom: 2px;     
+    & > * {
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+    }
+    margin-bottom: 18px;
+    @media (min-width: 768px) {
+        margin-bottom: 0;
+        max-height: 400px;
     }
 }
 </style>

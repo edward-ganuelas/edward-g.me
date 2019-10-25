@@ -1,5 +1,5 @@
 <template>
-    <div class="row blogWidget card shadow">
+    <div class="row blogWidget widget">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,10 +38,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.developmentNews{
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
 .blogWidget{
 
 }
