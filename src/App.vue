@@ -1,6 +1,6 @@
 <template>
     <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
-        <header-nav />
+        <header-nav ref="headerNav" />
         <div class="content-wrapper">
              <transition :name="transition" leave-active-class="dissapear">
                 <router-view></router-view>
@@ -21,7 +21,8 @@ export default {
     data() {
         return {
             transitions: ["slideLeft", "fadeRight", "bounceDown", "zoom", "fadeUp"],
-            transition: ""
+            transition: "",
+            contentWrapperStyle: null
         };
     },
     computed: {
@@ -37,6 +38,13 @@ export default {
     },
     mounted() {
         this.changeTransition();
+        
+        this.$nextTick(()=> {
+            console.log(this.$refs.headerNav.$el);
+            this.contentWrapperStyle = {
+                maxHeight: `calc(100vh - ${this.$refs.headerNav.$el.offsetHeight}px)`
+            }
+        });
         this.$router.afterEach(() => {
             this.changeTransition();
         });
@@ -51,6 +59,7 @@ export default {
 @import "./node_modules/bootstrap/scss/_buttons.scss";
 @import "./node_modules/bootstrap/scss/_button-group.scss";
 @import "./node_modules/bootstrap/scss/_card.scss";
+@import "@/styles/variables.scss";
 html,
 body {
     font-family: "Questrial", sans-serif;
@@ -81,7 +90,8 @@ body, #app{
     }
 }
 #app {
-
+    max-height: 100vh;
+    overflow: hidden;
 }
 h1,
 h2,
@@ -110,17 +120,17 @@ span.ico {
 }
 .card{
     padding: 25px 0;
-    background-color: #D3D3D3;
+    background-color: $cardBackgroundColor;
     button {
-        background-color: #C0C0C0;
-        border-color: #C0C0C0;
+        background-color: $buttonGrey;
+        border-color: $buttonGrey;
     }
 }
 .subIntro {
      margin-bottom: 18px;
 }
 .sub-nav{
-    background-color: #ff9900;
+    background-color: $orange;
     border-radius: 5px;
     nav {
         ul {
@@ -129,5 +139,9 @@ span.ico {
             }
         }
     }
+}
+.content-wrapper {
+    max-height: calc(100vh - #{$headerHeight + 10px});
+    overflow-y: auto;
 }
 </style>
