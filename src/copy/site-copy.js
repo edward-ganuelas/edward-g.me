@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import about from '@/copy/About/en/about';
 
 Vue.use(VueI18n);
 
@@ -36,7 +37,8 @@ const messages = {
         },
         quotesWidget: {
             header: 'A Random Quote I Like'
-        }
+        },
+        about,
     }
 }
 

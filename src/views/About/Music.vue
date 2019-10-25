@@ -2,36 +2,32 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="sr-only">Music</h3>
+                <h3 class="sr-only">{{$t('about.music.header')}}</h3>
             </div>
             <div class="col-12 col-md-8 offset-md-2 card shadow">
-                <div class="card-body">
-                    <p>I like music, I listen to music everyday to switch modes or prepare for a certain mindset. If I'm working on a mundane tasks I keep it on to keep my head energized. I also listen to music to prepare myself so that I can focus and ususally when I reach that state then the music stops.</p>
-                    <p>I listen to all kinds of music though I primarily listent to classic Rock and Rap. I sometimes listen to Disney music and I'm not particulary found of EDM or country. </p>
-                    <p>Some of my favorite classic acts are AC/DC, Queen, Tupac, and Eminem</p>
-                    <p>I'm one of the rare unicorns that uses Google Play Music and the following playlist is my auto 'Thumbs Up' playlist, a collection of random song from different genres and different artist. The way the playlist works is that songs in the top of the list is the newest one I liked.</p>
+                <div class="card-body" v-html="$t('about.music.mainContent')">
                 </div>
             </div>
             <div class="col-12 col-md-8 offset-md-2">
-                <h4>Thumbs Up</h4>
+                <h4>{{$t('about.music.thumbsUp')}}</h4>
             </div>
             <div class="col-4 col-md-4 offset-md-4 toggle">
                 <p>Sort</p>
                 <div class="btn-group btn-group-toggle">
                     <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
-                        <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> Clear
+                        <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> {{$t('about.music.clear')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'title'}">
                         <input type="radio" name="options" id="title" autocomplete="off" v-model="filter" value="title"> 
-                        Title
+                        {{$t('about.music.title')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'artist'}">
                         <input type="radio" name="options" id="artist" autocomplete="off" v-model="filter" value="artist"> 
-                        Artist
+                        {{$t('about.music.artist')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'album'}">
                         <input type="radio" name="options" id="album" autocomplete="off" v-model="filter" value="album"> 
-                        Album
+                        {{$t('about.music.album')}}
                     </label>
                 </div>
             </div>
