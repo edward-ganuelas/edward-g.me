@@ -1,13 +1,17 @@
 <template>
-    <div class="aboutWidget row card shadow">
-        <div class="col-12">
-            <h2>A Random Fact About Me</h2>
-        </div>
-        <div class="col-12">
-            <p>{{content}}</p>
-            <button @click="setContent" class="btn btn-light">
-                <i class="fas fa-random"></i>
-            </button>
+    <div class="aboutWidget row widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>A Random Fact About Me</h2>
+                </div>
+                <div class="col-12">
+                    <p>{{content}}</p>
+                    <button @click="setContent" class="btn btn-light">
+                        <i class="fas fa-random"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -56,10 +60,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.aboutWidget {
-    margin-top: 24px;
-    margin-bottom: 24px;
-}
 .dark-theme{
     button{
         background-color: #C0C0C0;

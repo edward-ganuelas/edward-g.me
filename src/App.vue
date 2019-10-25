@@ -125,6 +125,14 @@ span.ico {
         background-color: $buttonGrey;
         border-color: $buttonGrey;
     }
+    &.sub-card{
+        padding: 0;
+        max-height: 400px;
+        height: 100vh;
+        & > * {
+            height: 100%;
+        }
+    }
 }
 .subIntro {
      margin-bottom: 18px;
@@ -143,5 +151,12 @@ span.ico {
 .content-wrapper {
     max-height: calc(100vh - #{$headerHeight + 10px});
     overflow-y: auto;
+}
+.widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 </style>
