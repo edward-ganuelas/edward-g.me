@@ -9,9 +9,10 @@ import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
 import i18n from '@/copy/site-copy';
+import Ripple from 'vue-ripple-directive';
 require('vue2-animate/dist/vue2-animate.min.css')
 
-
+Ripple.color = 'rgba(0, 102, 255, 0.9)';
 
 Vue.use(VueHead);
 Vue.use(VueMasonry);
@@ -23,6 +24,7 @@ Vue.use(VueAnalytics, {
         sendHitTask: process.env.NODE_ENV === 'production'
     }
 })
+Vue.directive('ripple', Ripple);
 
 
 Vue.config.productionTip = false

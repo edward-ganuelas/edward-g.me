@@ -18,11 +18,11 @@ export default {
         changeTheme(theme){
             const body = document.querySelector('body');
             switch(theme){
-                case 'light':
+            case 'light':
                 this.darkTheme = false;
                 body.classList.replace('dark', 'light');
                 break;
-                case 'dark':
+            case 'dark':
                 this.darkTheme = true;
                 body.classList.replace('light', 'dark');
                 break;
