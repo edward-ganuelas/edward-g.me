@@ -1,8 +1,8 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid header">
         <div class="row">
-            <div class="col-12 header">
-                <div class="container-fluid">
+            <div class="col-12">
+                <div class="container">
                     <div class="row">
                         <div class="col-6 col-lg-6">
                             <h1>
@@ -16,7 +16,7 @@
                             <tag-line :tagLine=selectedTagLine />
                         </div>
                         <div class="col-6 col-lg-2 offset-lg-4">
-                            <Slide right>
+                            <Slide right @closeMenu="toggleDrawer" @openMenu="toggleDrawer" :burgerIcon="!isDrawerOpen">
                                 <router-link to="/">
                                     <span class='ico'><i class='fas fa-home'></i></span>
                                     {{$t('nav.home')}}
@@ -84,9 +84,9 @@ export default {
                     to: "/eightray"
                 }
             },
-            drawer: null,
             tagLines: [],
-            selectedTagLine: ""
+            selectedTagLine: "",
+            isDrawerOpen: false
         };
     },
     methods: {
@@ -105,6 +105,9 @@ export default {
         },
         setTagLine() {
             this.selectedTagLine = this.tagLines[_.random(0, this.tagLines.length)];
+        },
+        toggleDrawer() {
+            this.isDrawerOpen = !this.isDrawerOpen;
         }
     },
     beforeMount() {
@@ -118,6 +121,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "@/styles/variables.scss";
 h1 {
      margin-top: 24px;
     a {
@@ -132,9 +136,11 @@ h1 {
     }
 }
 .header {
-    @media (min-width: 768px) {
-        padding-left: 15px;
-    }
+    background-color: #0066ff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 18px;
+    height: $headerHeight;
 }
 .change-theme{
     margin: 30px auto 30px auto;

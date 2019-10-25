@@ -8,7 +8,7 @@
                 <div class="col-12 col-md-8 offset-md-2"> 
                     <carousel-3d :loop="false" height="350" width="350" :controlsVisible="true" :count="orderedPosts.length">
                         <slide v-for="(post, index) in orderedPosts" v-bind:key="post.id" :index="index">
-                            <div class="card shadow">
+                            <div class="card">
                                 <div class="card-body">
                                     <h2 class="headline card-title">{{post.title}}</h2>
                                     <author v-bind:author="post.author" v-if="post.author" />
@@ -165,5 +165,10 @@ ul {
 }
 .card {
     margin-bottom: 18px;
+}
+.carousel-3d-slider {
+    .card {
+        border: none;
+    }
 }
 </style>
