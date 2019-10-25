@@ -6,33 +6,32 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2">
-            <p>Here's a sample of my photos. These were primarily shot in film and I will keep adding to this list. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer" @click="instagram"><i class="fab fa-instagram"></i> Instagram</a>.</p>
+            <div class="col-12 col-md-8 offset-md-2" v-html="$t('photography.photos.content')">
             </div>
             <div class="col-4 col-md-4 offset-md-4">
                 <div class="btn-group btn-group-toggle">
                     <label class="btn bnw btn-secondary" v-bind:class="{active: toggle === 'bnw'}">
                     <input type="radio" name="options" id="bnw" autocomplete="off" v-model="toggle" value="bnw"> 
-                        Black and White
+                        {{$t('photography.photos.bnw')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: toggle === 'colour'}">
                     <input type="radio" name="options" id="colour" autocomplete="off" v-model="toggle" value="colour"> 
-                        Colour
+                        {{$t('photography.photos.colour')}}
                     </label>
                 </div>
             </div>
         </div>
-        <image-grid :images="bnw" :toggle="toggle" title="Black and White" activeClass="bnw" />
-        <image-grid :images="colour" :toggle="toggle" title="Colour" activeClass="colour" />
+        <image-grid :images="bnw" :toggle="toggle" :title="$t('photography.photos.bnw')" activeClass="bnw" />
+        <image-grid :images="colour" :toggle="toggle" :title="$t('photography.photos.colour')" activeClass="colour" />
     </div>
 </template>
 
 <script>
-import axios from "axios";
-import ImageGrid from "@/components/ImageGrid";
+import axios from 'axios';
+import ImageGrid from '@/components/ImageGrid';
 
 export default {
-    name: "Photos",
+    name: 'Photos',
     components: {
         ImageGrid
     },
@@ -40,14 +39,14 @@ export default {
         return {
             bnw: [],
             colour: [],
-            toggle: "bnw"
+            toggle: 'bnw'
         };
     },
     methods:{
         instagram() {
             this.$ga.event({
                 eventCategory: `Instagram`,
-                eventAction: "click"
+                eventAction: 'click'
             });
         },
         async getImages() {
@@ -60,7 +59,7 @@ export default {
         toggle(newVal) {
             this.$ga.event({
                 eventCategory: `Toggle ${newVal}`,
-                eventAction: "click"
+                eventAction: 'click'
             });
         }
     },

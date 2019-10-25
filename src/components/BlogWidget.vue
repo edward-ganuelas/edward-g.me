@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>Latest Blog Post</h2>
+                    <h2>{{$t('blogWidget.header')}}</h2>
                 </div>
                 <div class="col-12">
                     <h3>{{post.title}}</h3>
                     <p>{{post.excerpt}}</p>
-                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}" >Read More</router-link></p>
-                    <p><router-link to="/blog">See More Blog Posts</router-link></p>
+                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}" >{{$t('common.readMore')}}</router-link></p>
+                    <p><router-link to="/blog">{{$t('blogWidget.seeMore')}}</router-link></p>
                 </div>
             </div>
         </div>
