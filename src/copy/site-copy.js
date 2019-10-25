@@ -6,7 +6,8 @@ Vue.use(VueI18n);
 const messages = {
     en: {
         common: {
-            shuffle: 'Shuffle'
+            shuffle: 'Shuffle',
+            back: 'Back'
         },
         aboutWidget: {
             header: 'A Random Fact About Me'
@@ -26,6 +27,14 @@ const messages = {
             old: 'Oldest at Top',
             new: 'Newest at Top',
             random: 'Random'
+        },
+        blogWidget: {
+            header: 'Latest Blog Post',
+            readMore: 'Read More',
+            seeMore: 'See More Blog Posts'
+        },
+        quotesWidget: {
+            header: 'A Random Quote I Like'
         }
     }
 }

@@ -14,7 +14,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <router-link to="/blog"><i class="fas fa-caret-left"></i> Back</router-link>
+                    <router-link to="/blog"><i class="fas fa-caret-left"></i> {{$t('common.back')}}</router-link>
                 </div>
             </div>
         </div>
