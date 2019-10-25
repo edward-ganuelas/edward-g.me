@@ -8,7 +8,7 @@
                 <div class="col-12">
                     <h3>{{post.title}}</h3>
                     <p>{{post.excerpt}}</p>
-                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}" >{{$t('blogWidget.readMore')}}</router-link></p>
+                    <p><router-link :to="{name: 'Post', params: {title: kebabTitle(post.title)}, query: {id: post.id}}" >{{$t('common.readMore')}}</router-link></p>
                     <p><router-link to="/blog">{{$t('blogWidget.seeMore')}}</router-link></p>
                 </div>
             </div>

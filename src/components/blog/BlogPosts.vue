@@ -22,7 +22,7 @@
                                         </li>
                                     </ul>
                                     <blockquote class="card-text">{{post.excerpt}}</blockquote>
-                                    <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">Read More</router-link>
+                                    <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">{{$t('common.readMore')}}</router-link>
                                 </div>
                             </div>
                         </slide>

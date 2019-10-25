@@ -7,7 +7,8 @@ const messages = {
     en: {
         common: {
             shuffle: 'Shuffle',
-            back: 'Back'
+            back: 'Back',
+            readMore: 'Read More',
         },
         aboutWidget: {
             header: 'A Random Fact About Me'
@@ -30,7 +31,6 @@ const messages = {
         },
         blogWidget: {
             header: 'Latest Blog Post',
-            readMore: 'Read More',
             seeMore: 'See More Blog Posts'
         },
         quotesWidget: {
