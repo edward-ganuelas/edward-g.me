@@ -125,15 +125,6 @@ span.ico {
         background-color: $buttonGrey;
         border-color: $buttonGrey;
     }
-    &.sub-card{
-        padding: 0;
-        max-height: 400px;
-        height: 100vh;
-        margin-bottom: 2px;     
-        & > * {
-            height: 100%;
-        }
-    }
 }
 .subIntro {
      margin-bottom: 18px;

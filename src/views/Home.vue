@@ -10,24 +10,24 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 card sub-card shadow">
-                <div class="container" v-if="latestPersonalPost">
+                <div v-if="latestPersonalPost">
                     <blog-widget :post="latestPersonalPost" />
                     <spinner :spin="spin" />
                 </div>
             </div>
             <div class="col-12 col-md-6 card sub-card shadow">
-                <div class="container" v-if="latestTechPost">
+                <div v-if="latestTechPost">
                     <development-news :post="latestTechPost" />
                     <spinner :spin="spin" />
                 </div>
             </div>
              <div class="col-12 col-md-6 card sub-card shadow">
-                <div class="container">
+                <div>
                     <about-widget />
                 </div>
             </div>
             <div class="col-12 col-md-6 card sub-card shadow">
-                <div class="container">
+                <div>
                     <quotes-widget />
                 </div>
             </div>
@@ -134,6 +134,17 @@ export default {
     margin-bottom: 18px;
     @media(min-width: 1024px){
         margin-top: 18px;
+    }
+}
+.sub-card{
+    padding: 0;
+    max-height: 400px;
+    height: 100vh;
+    margin-bottom: 2px;     
+    & > * {
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
 }
 </style>
