@@ -39,6 +39,14 @@ const messages = {
         quotesWidget: {
             header: 'A Random Quote I Like'
         },
+        home: {
+            content: `
+            <p>Hello, my name is Edward Paulo Ganuelas and this is my personal site.</p>
+            <p>For those who are wondering, what is the purpose of this site? Well the purpose is that this site would focus more
+            on Edward the person more than Edward the developer. My hobbies, photographs, personal blog and small things about me would be found here.</p>
+            <p>If you are interested to know more about Edward the developer, checkout my other site <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a> or my <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer">Github</a> page.</p>
+            `
+        },
         about,
         photography
     }
