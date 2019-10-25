@@ -8509,6 +8509,13 @@ vue-masonry-css@^1.0.2:
   resolved "https://registry.yarnpkg.com/vue-masonry-css/-/vue-masonry-css-1.0.3.tgz#a5e7bb248570eeedcd358637d3f1f4fc7f0c5f86"
   integrity sha512-viecHQiHVLez7HlYUQsv1wJb2MT/RDSzkDp6m3In41vPrk6OsBmT2qRE8LZqYIA4daIwrnx/Xm8h4fjOpuE3hw==
 
+vue-ripple-directive@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-ripple-directive/-/vue-ripple-directive-2.0.1.tgz#817ae4bc2874cbf01d8a018c8e8d97c8cadb6355"
+  integrity sha512-jXZEX6uZpo89wxmdcw02uFpsMBpm1pxjQ60uqghNLQ8H8ju9eon2vE0+vvSWJ1WGCOTEfxGDR4InabJJu5f1GA==
+  dependencies:
+    vue "^2.2.1"
+
 vue-router@^3.0.1:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.3.tgz#e6b14fabc0c0ee9fda0e2cbbda74b350e28e412b"
@@ -8540,7 +8547,7 @@ vue2-animate@^1.0.4:
   resolved "https://registry.yarnpkg.com/vue2-animate/-/vue2-animate-1.0.4.tgz#23fd1ee4ef2e25672f6a84a3363f306160f38032"
   integrity sha1-I/0e5O8uJWcvaoSjNj8wYWDzgDI=
 
-vue@^2.5.17, vue@^2.6.6:
+vue@^2.2.1, vue@^2.5.17, vue@^2.6.6:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==

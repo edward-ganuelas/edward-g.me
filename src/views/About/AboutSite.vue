@@ -38,8 +38,10 @@
                     <li><a href="https://wlada.github.io/vue-carousel-3d/" target="_blank" rel="noopener">vue-carousel-3d</a></li>
                     <li><a href="https://github.com/ktquez/vue-head" target="_blank" rel="noopener">vue-head</a></li>
                     <li><a href="https://github.com/paulcollett/vue-masonry-css" target="_blank" rel="noopener">vue-masonry-css</a></li>
-                    <li><a href="https://github.com/asika32764/vue2-animate" target="_blank" rel="noopener">vue2-animate</a></li>
+                    
                     <li><a href="https://davestewart.github.io/vuex-pathify/#/" target="_blank" rel="noopener">vuex-pathify</a></li>
+                    <li><a href="https://github.com/PygmySlowLoris/vue-ripple-directive" target="_blank" rel="noopener">vue-ripple-directive</a></li>
+                    <li><a href="https://github.com/asika32764/vue2-animate" target="_blank" rel="noopener">vue2-animate</a></li>
                     <li><a href="https://github.com/robinvdvleuten/vuex-persistedstate" target="_blank" rel="noopener">vuex-persistedstate</a></li>
                     <li><a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a></li>
                 </ul>
