@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import about from '@/copy/About/en/about';
+import photography from '@/copy/Photography/en/photography';
 
 Vue.use(VueI18n);
 
@@ -39,6 +40,7 @@ const messages = {
             header: 'A Random Quote I Like'
         },
         about,
+        photography
     }
 }
 
