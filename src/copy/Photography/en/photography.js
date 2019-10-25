@@ -7,7 +7,11 @@ export default {
         photoProjects: 'Photo Projects'
     },
     gear: {
-        header: 'Gear'
+        header: 'Gear',
+        cameras: 'Cameras',
+        lenses: 'Lenses',
+        favouriteFilms: 'Favorite Films'
+
     },
     photos: {
         header: 'Photos',
