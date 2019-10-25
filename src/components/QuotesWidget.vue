@@ -7,7 +7,7 @@
                 </div>
                 <div class="col-12">
                     <blockquote><em>{{content}}</em></blockquote>
-                    <button @click="setContent" class="btn btn-light"  :title="$t('common.shuffle')"><i class="fas fa-random"></i></button>
+                    <button v-ripple @click="setContent" class="btn btn-light"  :title="$t('common.shuffle')"><i class="fas fa-random"></i></button>
                 </div>
             </div>
         </div>
