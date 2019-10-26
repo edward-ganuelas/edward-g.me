@@ -1,14 +1,14 @@
 # build stage
 FROM node:lts-alpine as build-stage
+WORKDIR /
+COPY . .
+
 RUN apk --no-cache --virtual build-dependencies add \
     python \
     make \
-    g++ 
-    
-WORKDIR /
-COPY . .
-RUN yarn 
-RUN yarn build \
+    g++ \
+    && yarn \
+    && yarn builld \
     && apk del build-dependencies
 
 # production stage
