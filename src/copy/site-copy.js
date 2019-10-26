@@ -51,7 +51,8 @@ const messages = {
         photography,
         blog: {
             filters: 'Filters',
-            clear: 'Clear'
+            clear: 'Clear',
+            publishedOn: 'Published On'
         }
     }
 }
