@@ -8,7 +8,7 @@ RUN apk --no-cache --virtual build-dependencies add \
     make \
     g++ \
     && yarn \
-    && yarn builld \
+    && yarn build \
     && apk del build-dependencies
 
 # production stage
