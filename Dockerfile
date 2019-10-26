@@ -1,10 +1,15 @@
 # build stage
 FROM node:lts-alpine as build-stage
-RUN apk add --no-cache python make g++ build-essential
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ 
+    
 WORKDIR /
 COPY . .
 RUN yarn 
-RUN yarn build
+RUN yarn build \
+    && apk del build-dependencies
 
 # production stage
 FROM nginx:stable-alpine as production-stage
