@@ -40,7 +40,6 @@ export default {
         this.changeTransition();
         
         this.$nextTick(()=> {
-            console.log(this.$refs.headerNav.$el);
             this.contentWrapperStyle = {
                 maxHeight: `calc(100vh - ${this.$refs.headerNav.$el.offsetHeight}px)`
             }

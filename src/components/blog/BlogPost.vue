@@ -6,7 +6,7 @@
                     <div class="card-body">
                         <h2>{{post.title}}</h2>
                         <p class="author">Edward Ganuelas</p>
-                        <p v-if="post.published_date">{{$t('blog.publishedOn')}} {{publishedDate(post.published_date)}}</p>
+                        <p v-if="post.publish_date">{{$t('blog.publishedOn')}} {{publishedDate(post.publish_date)}}</p>
                         <div v-html="post.post"></div>
                     </div>
                     
