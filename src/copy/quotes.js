@@ -1,4 +1,4 @@
-const quotes = [
+const quotes = Object.freeze([
     'Just who the hell do you think I am ? ~Kamina',
 
     'Talent is God - given.Be humble. Fame is man - given. Be grateful. Conceit is self - given. Be careful.~John Wooden',
@@ -22,6 +22,6 @@ const quotes = [
     'Hakuna Matata',
     'Can anybody, find me, somebody to love? ~ Freddie Mercury'
 
-];
+]);
 
 export default quotes;

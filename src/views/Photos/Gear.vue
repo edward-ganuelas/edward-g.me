@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="sr-only">Gear</h3>
+                <h3 class="sr-only">{{$t('photography.gear.header')}}</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-sm">
-                <h4>Cameras</h4>
+                <h4>{{$t('photography.gear.cameras')}}</h4>
                 <ul>
                     <li>Nikon EM (2)</li>
                     <li>Nikon FM</li>
@@ -21,7 +21,7 @@
                 </ul>
             </div>
             <div class="col-12 col-sm">
-                <h4>Lenses</h4>
+                <h4>{{$t('photography.gear.lenses')}}</h4>
                 <ul>
                 <li>Nikkor 28mm f2.8 AI-s</li>
                 <li>Nikkor 35mm f2 AF-D</li>
@@ -45,7 +45,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm">
-                <h4>Favorite Films</h4>
+                <h4>{{$t('photography.gear.favouriteFilms')}}</h4>
                 <ul>
                 <li>Kodak TMax 400</li>
                     <li>Fujifilm Acros 100 (being discontinued) <i class="far fa-frown"></i></li>
@@ -63,7 +63,7 @@
 
 <script>
 export default {
-    name: "Gear"
+    name: 'Gear'
 };
 </script>
 

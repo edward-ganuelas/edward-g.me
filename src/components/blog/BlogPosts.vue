@@ -8,7 +8,7 @@
                 <div class="col-12 col-md-8 offset-md-2"> 
                     <carousel-3d :loop="false" height="350" width="350" :controlsVisible="true" :count="orderedPosts.length">
                         <slide v-for="(post, index) in orderedPosts" v-bind:key="post.id" :index="index">
-                            <div class="card shadow">
+                            <div class="card">
                                 <div class="card-body">
                                     <h2 class="headline card-title">{{post.title}}</h2>
                                     <author v-bind:author="post.author" v-if="post.author" />
@@ -22,7 +22,7 @@
                                         </li>
                                     </ul>
                                     <blockquote class="card-text">{{post.excerpt}}</blockquote>
-                                    <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">Read More</router-link>
+                                    <router-link :to="{name: 'Post', params: { title: kebabTitle(post.title) }, query: { id: post.id } }">{{$t('common.readMore')}}</router-link>
                                 </div>
                             </div>
                         </slide>
@@ -37,15 +37,15 @@
 <script>
 import mixin from '@/mixins/mixin';
 import { Carousel3d, Slide } from 'vue-carousel-3d';
-import BlogFilters from "./BlogFilters";
-import Author from "./Author";
-import _ from "lodash";
+import BlogFilters from './BlogFilters';
+import Author from './Author';
+import _ from 'lodash';
 import moment from 'moment';
-import { get, sync } from "vuex-pathify";
-import Spinner from "../Spinner";
+import { get, sync } from 'vuex-pathify';
+import Spinner from '@/components/Spinner';
 
 export default {
-    name: "blog-posts",
+    name: 'blog-posts',
     mixins: [mixin],
     data() {
         return {
@@ -94,8 +94,8 @@ export default {
                 return new Date(x.published_date);
             }).reverse();
         },
-        savedPost: sync("BlogPosts"),
-        filter: get("Filter"),
+        savedPost: sync('BlogPosts'),
+        filter: get('Filter'),
         filteredPosts() {
             if (this.filter === '') {
                 return this.savedPost;
@@ -110,7 +110,7 @@ export default {
         filtereas(value) {
             this.resetPosts();
             let filteredPosts = this.savedPost;
-            if (value !== "clear") {
+            if (value !== 'clear') {
                 filteredPosts = filteredPosts.filter((x) => {
                     let filterCheck = false;
                     x['personal-tags'].data.forEach((element) => {
@@ -165,5 +165,10 @@ ul {
 }
 .card {
     margin-bottom: 18px;
+}
+.carousel-3d-slider {
+    .card {
+        border: none;
+    }
 }
 </style>

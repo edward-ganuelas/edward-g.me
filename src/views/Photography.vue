@@ -2,26 +2,26 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
-                <h2>Photography</h2>
-                <h3>A section about a hobby</h3>
+                <h2>{{$t('photography.header')}}</h2>
+                <h3>{{$t('photography.subHeader')}}</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row sub-nav">
             <div class="col-12">
                 <nav class="container">
                     <ul class="row">
                         <li class="col">
                             <router-link to="/photography"><span class="ico"><i class="fas fa-images"></i></span>
-                                Photos
+                                {{$t('photography.nav.photos')}}
                             </router-link>
                         </li>
                         <li class="col">
                             <router-link to="/photography/gear"><span class="ico"><i class="fas fa-camera"></i></span>
-                                Gear
+                                {{$t('photography.nav.gear')}}
                             </router-link>
                         </li>
                         <li class="col" v-if="false">
-                            <router-link to="/photography/projects">Photo Projects</router-link>
+                            <router-link to="/photography/projects">{{$t('photography.nav.photoProjects')}}</router-link>
                         </li>
                     </ul>
                 </nav>
@@ -33,15 +33,15 @@
 
 <script>
 export default {
-    name: "Photography",
+    name: 'Photography',
     data() {
         return {
-            content: "",
+            content: '',
             meta: {
-                title: "Photography",
-                description: "Personal Site of Edward Ganuelas",
+                title: 'Photography',
+                description: 'Personal Site of Edward Ganuelas',
                 keywords:
-                "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
+                'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe'
             },
         };
     },
@@ -54,11 +54,11 @@ export default {
         meta() {
             return [
                 {
-                    name: "description",
+                    name: 'description',
                     content: this.meta.description,
-                    id: "description"
+                    id: 'description'
                 },
-                { name: "keywords", content: this.meta.keywords, id: "keywords" }
+                { name: 'keywords', content: this.meta.keywords, id: 'keywords' }
             ];
         }
     }

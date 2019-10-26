@@ -1,40 +1,57 @@
 <template>
-    <div class="quotesWidget row card shadow">
-        <div class="col-12">
-            <h2>A Random Quote I Like</h2>
-        </div>
-        <div class="col-12">
-            <blockquote><em>{{content}}</em></blockquote>
-            <button v-ripple @click="setContent" class="btn btn-light"><i class="fas fa-random"></i></button>
+    <div class="quotesWidget row widget">
+        <div class="container">
+            <div class="row">
+                 <div class="col-12">
+                    <h2>{{$t('quotesWidget.header')}}</h2>
+                </div>
+                <div class="col-12">
+                    <blockquote><em>{{content}}</em></blockquote>
+                    <button v-ripple @click="setContent" class="btn btn-light"  :title="$t('common.shuffle')"><i class="fas fa-random"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import _ from "lodash";
-import Quotes from "../copy/quotes";
+import _ from 'lodash';
+import Quotes from '@/copy/quotes';
 export default {
-    name: "QuotesWidget",
+    name: 'QuotesWidget',
     data() {
         return {
-            content: ""
+            content: '',
+            quoteIterator: '',
         };
     },
     methods: {
-        getRandomContent() {
-            const randomNumer = _.random(0, Quotes.length - 1);
+        setContent() {
+            const iterator = this.quoteIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.content = iterator.value;
             this.$ga.event({
                 eventCategory: `Load Random Quote`,
-                eventAction: "click",
+                eventAction: 'click',
             });
-            return Quotes[randomNumer];
         },
-        setContent() {
-            this.content = this.getRandomContent();
-        }
+        *quoteGenerator() {
+            const shuffledQuotes = _.shuffle(_.cloneDeep(Quotes));
+            for (let i = 0; i < shuffledQuotes.length; i++) {
+                yield shuffledQuotes[i];
+            }
+        },
+        initializeGenerator() {
+            this.quoteIterator = this.quoteGenerator();
+            this.content = this.quoteIterator.next().value;
+        },
     },
     mounted() {
-        this.setContent();
+        if (!_.isObject(this.aboutIterator)) {
+            this.initializeGenerator();
+        }
     }
 };
 </script>
