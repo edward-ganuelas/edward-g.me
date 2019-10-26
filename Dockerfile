@@ -1,5 +1,6 @@
 # build stage
 FROM node:lts-alpine as build-stage
+RUN apk add --no-cache python make g++
 WORKDIR /
 COPY . .
 RUN yarn 
