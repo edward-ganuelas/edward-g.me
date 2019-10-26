@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>A Random Fact About Me</h2>
+                    <h2>{{$t('aboutWidget.header')}}</h2>
                 </div>
                 <div class="col-12">
                     <p>{{content}}</p>
-                    <button @click="setContent" class="btn btn-light">
+                    <button v-ripple @click="setContent" class="btn btn-light" :title="$t('common.shuffle')">
                         <i class="fas fa-random"></i>
                     </button>
                 </div>

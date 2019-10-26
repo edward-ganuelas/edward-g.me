@@ -2,9 +2,9 @@
     <div class="filters container">
         <div class="row">
             <div class="col-12">
-                <p>Filters</p>
+                <p>{{$t('blog.filters')}}</p>
             </div>
-        <button type="button" class="btn btn-secondary col" @click="onFilterClick('clear')">Clear</button>
+        <button type="button" class="btn btn-secondary col" @click="onFilterClick('clear')">{{$t('blog.clear')}}</button>
         <button type="button" 
             class="btn btn-secondary col" 
             v-for="tag in savedTags" 
@@ -20,23 +20,23 @@
 
 <script>
 
-import { sync } from "vuex-pathify";
+import { sync } from 'vuex-pathify';
 
 export default {
-    name: "BlogFilters",
+    name: 'BlogFilters',
     props: ['savedTags'],
     methods: {
         onFilterClick(filter, tagId) {
-            if (filter === "clear") {
-                this.filter = "";
+            if (filter === 'clear') {
+                this.filter = '';
             } else {
                 this.filter = tagId;
             }
-            this.$ga.event({ eventCategory: `Filter ${filter}`, eventAction: "click" });
+            this.$ga.event({ eventCategory: `Filter ${filter}`, eventAction: 'click' });
         }
     },
     computed: {
-        filter: sync("Filter")
+        filter: sync('Filter')
     }
 };
 </script>

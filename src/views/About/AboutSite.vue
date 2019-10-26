@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-            <h3 class="sr-only">About The Site</h3>
+            <h3 class="sr-only">{{$t('about.aboutSite.header')}}</h3>
         </div>
         <div class="col-12 col-md-8 offset-md-2 card shadow">
             <div class="card-body">
-                <p>Showing some love to the open source projects that made this site possible:</p>
+                <p>{{$t('about.aboutSite.tagLine')}}</p>
                 <ul>
                     <li><a href="https://github.com/axios/axios" target="_blank" rel="noopener">Axios</a></li>
                     <li><a href="https://babeljs.io/" target="_blank" rel="noopener">Babel.js</a></li>

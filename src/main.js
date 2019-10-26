@@ -8,6 +8,7 @@ import VueMasonry from 'vue-masonry-css';
 import VueImg from 'v-img';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
+import i18n from '@/copy/site-copy';
 import Ripple from 'vue-ripple-directive';
 require('vue2-animate/dist/vue2-animate.min.css')
 
@@ -32,5 +33,6 @@ Vue.config.productionTip = false
 new Vue({
     store,
     router,
+    i18n,
     render: h=>h(App)
 }).$mount('#app')

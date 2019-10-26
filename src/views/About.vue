@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
                 <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
-                <h2>About</h2>
+                <h2>{{$t('about.header')}}</h2>
                 <p>A little something, something</p>
             </div>
         </div>
@@ -14,25 +14,25 @@
                         <li class="col">
                             <router-link to="/about/">
                                 <span class="ico"><i class="fas fa-asterisk"></i></span>
-                                About Site
+                                {{$t('about.nav.aboutSite')}}
                             </router-link>
                         </li>
                         <li class="col">
                             <router-link to="/about/bio">
                                 <span class="ico"><i class="fas fa-user"></i></span>
-                                Bio
+                                {{$t('about.nav.bio')}}
                             </router-link>
                         </li>
                         <li class="col">
                             <router-link to="/about/facts">
                                 <span class="icon"><i class="fas fa-info-circle"></i></span>
-                                Facts
+                                 {{$t('about.nav.facts')}}
                             </router-link>
                         </li>
                         <li class="col">
                             <router-link to="/about/music">
                                 <span class="ico"><i class="fas fa-music"></i></span>
-                                Music
+                                {{$t('about.nav.music')}}
                             </router-link>
                         </li>
                     </ul>
@@ -51,14 +51,14 @@
 
 <script>
 export default {
-    name: "About",
+    name: 'About',
     data() {
         return {
             meta: {
-                title: "About",
-                description: "Personal Site of Edward Ganuelas",
+                title: 'About',
+                description: 'Personal Site of Edward Ganuelas',
                 keywords:
-                    "developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe"
+                    'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe'
             }
         };
     },
@@ -71,14 +71,14 @@ export default {
         meta() {
             return [
                 {
-                    name: "description",
+                    name: 'description',
                     content: this.meta.description,
-                    id: "description"
+                    id: 'description'
                 },
                 { 
-                    name: "keywords", 
+                    name: 'keywords', 
                     content: this.meta.keywords, 
-                    id: "keywords" 
+                    id: 'keywords' 
                 }
             ];
         }

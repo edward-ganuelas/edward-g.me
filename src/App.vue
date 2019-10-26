@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import HeaderNav from "./components/Header";
-import _ from "lodash";
-import {sync} from "vuex-pathify";
+import HeaderNav from '@/components/Header';
+import _ from 'lodash';
+import {sync} from 'vuex-pathify';
 export default {
-    name: "app",
+    name: 'app',
     components: {
         HeaderNav
     },
     data() {
         return {
-            transitions: ["slideLeft", "fadeRight", "bounceDown", "zoom", "fadeUp"],
-            transition: "",
+            transitions: ['slideLeft', 'fadeRight', 'bounceDown', 'zoom', 'fadeUp'],
+            transition: '',
             contentWrapperStyle: null
         };
     },
@@ -40,7 +40,6 @@ export default {
         this.changeTransition();
         
         this.$nextTick(()=> {
-            console.log(this.$refs.headerNav.$el);
             this.contentWrapperStyle = {
                 maxHeight: `calc(100vh - ${this.$refs.headerNav.$el.offsetHeight}px)`
             }

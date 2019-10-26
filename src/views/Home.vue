@@ -2,11 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10 offset-1 col-md-8 offset-md-2 card shadow main-content">
-                <div class="card-body">
-                    <p>Hello, my name is Edward Paulo Ganuelas and this is my personal site.</p>
-                    <p>For those who are wondering, what is the purpose of this site? Well the purpose is that this site would focus more
-                    on Edward the person more than Edward the developer. My hobbies, photographs, personal blog and small things about me would be found here.</p>
-                    <p>If you are interested to know more about Edward the developer, checkout my other site <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a> or my <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer">Github</a> page.</p>
+                <div class="card-body" v-html="$t('home.content')">
                 </div>
             </div>
             <div class="col-10 offset-1 offset-md-0 col-md-6 card sub-card shadow">
