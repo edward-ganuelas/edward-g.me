@@ -86,7 +86,8 @@ export default {
             },
             tagLines: [],
             selectedTagLine: "",
-            isDrawerOpen: false
+            isDrawerOpen: false,
+            taglineIterator: null,
         };
     },
     methods: {
@@ -103,8 +104,22 @@ export default {
                 eventAction: "click"
             });
         },
+        *tagLineGenerator() {
+            const tagLines = _.shuffle(_.cloneDeep(this.tagLines));
+            for (let i = 0; i < tagLines.length; i++) {
+                yield tagLines[i];
+            }
+        },
+        initializeGenerator() {
+            this.taglineIterator = this.tagLineGenerator();
+            this.selectedTagLine = this.taglineIterator.next().value;
+        },
         setTagLine() {
-            this.selectedTagLine = this.tagLines[_.random(0, this.tagLines.length)];
+            const iterator = this.taglineIterator.next();
+            if (iterator.done) {
+                return this.initializeGenerator();
+            }
+            this.selectedTagLine = iterator.value;
         },
         toggleDrawer() {
             this.isDrawerOpen = !this.isDrawerOpen;
@@ -112,6 +127,7 @@ export default {
     },
     beforeMount() {
         this.getContent();
+        this.initializeGenerator();
         this.$router.afterEach(()=>{
             this.setTagLine();
         });
