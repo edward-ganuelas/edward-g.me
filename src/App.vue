@@ -1,7 +1,8 @@
 <template>
     <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
-        <header-nav ref="headerNav" />
-        <div class="content-wrapper">
+        <header-component ref="header" />
+        <main-nav />
+        <div id="page-wrap" class="content-wrapper">
              <transition :name="transition" leave-active-class="dissapear">
                 <router-view></router-view>
             </transition>
@@ -10,13 +11,15 @@
 </template>
 
 <script>
-import HeaderNav from '@/components/Header';
+import HeaderComponent from '@/components/Header';
+import MainNav from '@/components/MainNav';
 import _ from 'lodash';
 import {sync} from 'vuex-pathify';
 export default {
     name: 'app',
     components: {
-        HeaderNav
+        HeaderComponent,
+        MainNav
     },
     data() {
         return {
@@ -41,7 +44,7 @@ export default {
         
         this.$nextTick(()=> {
             this.contentWrapperStyle = {
-                maxHeight: `calc(100vh - ${this.$refs.headerNav.$el.offsetHeight}px)`
+                maxHeight: `calc(100vh - ${this.$refs.header.$el.offsetHeight}px)`
             }
         });
         this.$router.afterEach(() => {
@@ -89,8 +92,10 @@ body, #app{
     }
 }
 #app {
-    max-height: 100vh;
-    overflow: hidden;
+    @media (min-width: 1024px) {
+        max-height: 100vh;
+        overflow: hidden;
+    }
 }
 h1,
 h2,
@@ -140,8 +145,10 @@ span.ico {
     }
 }
 .content-wrapper {
-    max-height: calc(100vh - #{$headerHeight + 5px});
-    overflow-y: auto;
+    @media (min-width: 1024px) {
+        max-height: calc(100vh - #{$headerHeight + 5px});
+        overflow-y: auto;
+    }
 }
 .widget {
     display: flex;
