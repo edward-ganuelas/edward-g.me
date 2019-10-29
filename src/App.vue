@@ -1,7 +1,7 @@
 <template>
     <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
         <header-nav ref="headerNav" />
-        <div class="content-wrapper">
+        <div id="page-wrap" class="content-wrapper">
              <transition :name="transition" leave-active-class="dissapear">
                 <router-view></router-view>
             </transition>
@@ -11,6 +11,7 @@
 
 <script>
 import HeaderNav from '@/components/Header';
+import MainNav from '@/components/MainNav';
 import _ from 'lodash';
 import {sync} from 'vuex-pathify';
 export default {

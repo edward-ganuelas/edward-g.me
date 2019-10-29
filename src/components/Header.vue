@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6 col-lg-6">
+                        <div class="col-12">
                             <h1>
                                 <router-link to="/">
                                     <svg width="200" height="60">
@@ -14,38 +14,6 @@
                                 <span>{{content.subHero}}</span>
                             </h1>
                             <tag-line :tagLine=selectedTagLine />
-                        </div>
-                        <div class="col-6 col-lg-2 offset-lg-4">
-                            <Slide right @closeMenu="toggleDrawer" @openMenu="toggleDrawer" :burgerIcon="!isDrawerOpen">
-                                <router-link to="/">
-                                    <span class='ico'><i class='fas fa-home'></i></span>
-                                    {{$t('nav.home')}}
-                                </router-link>
-                                <router-link to="/about">
-                                    <span class='ico'><i class="fas fa-info-circle"></i></span>
-                                    {{$t('nav.about')}}
-                                </router-link>
-                                <router-link to="/photography">
-                                    <span class='ico'><i class="fas fa-camera-retro"></i></span>
-                                    {{$t('nav.photography')}}
-                                </router-link>
-                                <router-link to="/blog">
-                                    <span class='ico'><i class="fas fa-file-alt"></i></span>
-                                    Blog
-                                </router-link>
-                                <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
-                                    <span class='ico'><i class='fab fa-linkedin'></i></span>
-                                    Linkedin
-                                </a>
-                                <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')">
-                                    <span class='ico'><i class='fab fa-github'></i></span>
-                                    Github
-                                </a>
-                                <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">
-                                    EightRayedSun
-                                </a>
-                                <!-- <theme-selector /> -->
-                            </Slide>
                         </div>
                     </div>
                 </div>
@@ -58,13 +26,9 @@
 import axios from 'axios';
 import _ from 'lodash';
 import TagLine from '@/components/TagLine';
-// import ThemeSelector from './ThemeSelector';
-import { Slide } from 'vue-burger-menu';
 export default {
     name: 'HeaderNav',
     components:{
-        // ThemeSelector,
-        Slide,
         TagLine
     },
     data() {
@@ -82,12 +46,6 @@ export default {
                 this.content = x.data.content;
                 this.tagLines = x.data.content.tagLines;
                 this.setTagLine();
-            });
-        },
-        tracking(site) {
-            this.$ga.event({
-                eventCategory: `Clicked ${site}`,
-                eventAction: 'click'
             });
         },
         *tagLineGenerator() {
