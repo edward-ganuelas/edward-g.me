@@ -57,15 +57,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-.bm-burger-button {
-    top: auto;
-    bottom: 35px;
-    z-index: 999;
-    position: fixed;
-    @media (min-width: 1024px) {
-        top: 35px;
-        bottom: auto;
-        position: absolute;
-    }
-}
 </style>

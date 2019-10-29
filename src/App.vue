@@ -157,4 +157,15 @@ span.ico {
     align-items: center;
     height: 100%;
 }
+:root:root:root .bm-burger-button {
+    top: auto;
+    bottom: 35px;
+    z-index: 999;
+    position: fixed;
+    @media (min-width: 1024px) {
+        top: 35px;
+        bottom: auto;
+        position: absolute;
+    }
+}
 </style>
