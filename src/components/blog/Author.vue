@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import axios from "axios";
-import { DIRECTUS, AUTHOR } from "../../api/apis";
+import axios from 'axios';
+import { DIRECTUS, AUTHOR } from '@/api/apis';
 export default {
-    name: "Author",
-    props: ["author"],
+    name: 'Author',
+    props: ['author'],
     data() {
         return {
-            name: ""
+            name: ''
         };
     },
     methods: {

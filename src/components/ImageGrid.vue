@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import _ from "lodash";
+import _ from 'lodash';
 export default {
-    name: "ImageGrid",
-    props: ["images", "title", "toggle", "activeClass"],
+    name: 'ImageGrid',
+    props: ['images', 'title', 'toggle', 'activeClass'],
     data() {
         return {
             gridSize: 8,
-            sort: "old"
+            sort: 'old'
         };
     },
     methods: {
@@ -42,7 +42,7 @@ export default {
             }
             this.$ga.event({
                 eventCategory: `Load More ${this.toggle}`,
-                eventAction: "click",
+                eventAction: 'click',
             });
         }
     },
@@ -78,7 +78,7 @@ export default {
         sort(newVal){
             this.$ga.event({
                 eventCategory: `Switch Sort to ${newVal} from ${this.title}`,
-                eventAction: "Switch",
+                eventAction: 'Switch',
             });
         }
     }

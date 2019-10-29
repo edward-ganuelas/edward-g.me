@@ -17,16 +17,16 @@
 </template>
 
 <script>
-import _ from "lodash";
+import _ from 'lodash';
 
 export default {
-    name: "BlogWidget",
+    name: 'BlogWidget',
     props: ['post'],
     methods: {
         tracking(site) {
             this.$ga.event({
                 eventCategory: `Clicked ${site}`,
-                eventAction: "click"
+                eventAction: 'click'
             });
         },
         kebabTitle(title) {
