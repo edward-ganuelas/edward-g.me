@@ -55,13 +55,13 @@
 </template>
 
 <script>
-import axios from "axios";
-import _ from "lodash";
-import TagLine from "@/components/TagLine";
-// import ThemeSelector from "./ThemeSelector";
+import axios from 'axios';
+import _ from 'lodash';
+import TagLine from '@/components/TagLine';
+// import ThemeSelector from './ThemeSelector';
 import { Slide } from 'vue-burger-menu';
 export default {
-    name: "HeaderNav",
+    name: 'HeaderNav',
     components:{
         // ThemeSelector,
         Slide,
@@ -69,30 +69,16 @@ export default {
     },
     data() {
         return {
-            content: "",
-            navigation: {
-                linkedin: {
-                    label: "",
-                    to: "/linkedin"
-                },
-                github: {
-                    label: "<span class='ico'><i class='fab fa-github'></i></span>Github",
-                    to: "/github"
-                },
-                eightray: {
-                    label: "EightRayedSun",
-                    to: "/eightray"
-                }
-            },
+            content: '',
             tagLines: [],
-            selectedTagLine: "",
+            selectedTagLine: '',
             isDrawerOpen: false,
             taglineIterator: null,
         };
     },
     methods: {
         async getContent() {
-            axios.get("static/json/header.json").then((x) => {
+            axios.get('static/json/header.json').then((x) => {
                 this.content = x.data.content;
                 this.tagLines = x.data.content.tagLines;
                 this.setTagLine();
@@ -101,7 +87,7 @@ export default {
         tracking(site) {
             this.$ga.event({
                 eventCategory: `Clicked ${site}`,
-                eventAction: "click"
+                eventAction: 'click'
             });
         },
         *tagLineGenerator() {
@@ -135,7 +121,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
 h1 {

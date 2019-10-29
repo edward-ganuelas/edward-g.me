@@ -14,8 +14,8 @@
 
 <script>
 export default {
-    name: "Spinner",
-    props: ["spin"],
+    name: 'Spinner',
+    props: ['spin'],
     data() {
         return {};
     }

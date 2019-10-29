@@ -18,7 +18,7 @@
 <script>
 import about from '@/copy/about';
 export default {
-    name: "Facts",
+    name: 'Facts',
     data() {
         return {
             content: about,
