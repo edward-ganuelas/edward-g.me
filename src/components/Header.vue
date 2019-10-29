@@ -36,7 +36,6 @@ export default {
             content: '',
             tagLines: [],
             selectedTagLine: '',
-            isDrawerOpen: false,
             taglineIterator: null,
         };
     },
@@ -65,9 +64,6 @@ export default {
             }
             this.selectedTagLine = iterator.value;
         },
-        toggleDrawer() {
-            this.isDrawerOpen = !this.isDrawerOpen;
-        }
     },
     beforeMount() {
         this.getContent();
@@ -83,7 +79,6 @@ export default {
 <style scoped lang="scss">
 @import "@/styles/variables.scss";
 h1 {
-     margin-top: 24px;
     a {
         text-decoration: none;
         color: #212529;
@@ -94,15 +89,18 @@ h1 {
         font-weight: normal;
         display: block;
     }
+    @media (min-width: 1024px) {
+        margin-top: 24px;
+    }
 }
 .header {
     background-color: #0066ff;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    padding-bottom: 18px;
     height: $headerMobileHeight;
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         height: $headerHeight;
+        padding-bottom: 18px;
     }
 }
 .change-theme{
@@ -122,10 +120,4 @@ h1 {
     }
 }
 
-</style>
-<style lang="scss">
-.bm-burger-button {
-    top: auto;
-    bottom: 35px;
-}
 </style>

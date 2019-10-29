@@ -36,31 +36,36 @@ export default {
     components: {
         Slide
     },
+    data() {
+        return {
+            isDrawerOpen: false,
+        }
+    },
     methods: {
         tracking(site) {
             this.$ga.event({
                 eventCategory: `Clicked ${site}`,
                 eventAction: 'click'
             });
+        },
+        toggleDrawer() {
+            this.isDrawerOpen = !this.isDrawerOpen;
         }
     }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-    font-weight: normal;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-a {
-    color: #42b983;
+<style lang="scss">
+.bm-burger-button {
+    top: auto;
+    bottom: 35px;
+    z-index: 999;
+    position: fixed;
+    @media (min-width: 1024px) {
+        top: 35px;
+        bottom: auto;
+        position: absolute;
+    }
 }
 </style>
