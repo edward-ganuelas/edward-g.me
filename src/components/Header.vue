@@ -100,7 +100,10 @@ h1 {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-bottom: 18px;
-    height: $headerHeight;
+    height: $headerMobileHeight;
+    @media (min-width: 768px) {
+        height: $headerHeight;
+    }
 }
 .change-theme{
     margin: 30px auto 30px auto;
@@ -117,5 +120,12 @@ h1 {
         color: #C0C0C0!important;
         }
     }
+}
+
+</style>
+<style lang="scss">
+.bm-burger-button {
+    top: auto;
+    bottom: 35px;
 }
 </style>
