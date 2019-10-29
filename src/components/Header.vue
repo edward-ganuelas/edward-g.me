@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6 col-lg-6">
+                        <div class="col-12 col-lg-6">
                             <h1>
                                 <router-link to="/">
                                     <svg width="200" height="60">
@@ -15,7 +15,7 @@
                             </h1>
                             <tag-line :tagLine=selectedTagLine />
                         </div>
-                        <div class="col-6 col-lg-2 offset-lg-4">
+                        <div class="col-12 col-lg-2 offset-lg-4">
                             <Slide right @closeMenu="toggleDrawer" @openMenu="toggleDrawer" :burgerIcon="!isDrawerOpen">
                                 <router-link to="/">
                                     <span class='ico'><i class='fas fa-home'></i></span>
@@ -142,7 +142,10 @@ h1 {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     padding-bottom: 18px;
-    height: $headerHeight;
+    height: $headerMobileHeight;
+    @media (min-width: 768px) {
+        height: $headerHeight;
+    }
 }
 .change-theme{
     margin: 30px auto 30px auto;
@@ -159,5 +162,12 @@ h1 {
         color: #C0C0C0!important;
         }
     }
+}
+
+</style>
+<style lang="scss">
+.bm-burger-button {
+    top: auto;
+    bottom: 35px;
 }
 </style>
