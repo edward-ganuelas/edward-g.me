@@ -16,13 +16,15 @@
 
 <script>
 import _ from 'lodash';
-import Quotes from '@/copy/quotes';
+import client from '@/directus';
+
 export default {
     name: 'QuotesWidget',
     data() {
         return {
             content: '',
             quoteIterator: '',
+            quotes: [],
         };
     },
     methods: {
@@ -38,7 +40,7 @@ export default {
             });
         },
         *quoteGenerator() {
-            const shuffledQuotes = _.shuffle(_.cloneDeep(Quotes));
+            const shuffledQuotes = _.shuffle(_.cloneDeep(this.quotes));
             for (let i = 0; i < shuffledQuotes.length; i++) {
                 yield shuffledQuotes[i];
             }
@@ -47,8 +49,13 @@ export default {
             this.quoteIterator = this.quoteGenerator();
             this.content = this.quoteIterator.next().value;
         },
+        async getQuotes() {
+            const response = await client.getItems('quotes');
+            this.quotes = response.data.map((quotes) => quotes.quote);
+        }
     },
-    mounted() {
+    async beforeMount() {
+        await this.getQuotes();
         if (!_.isObject(this.aboutIterator)) {
             this.initializeGenerator();
         }
