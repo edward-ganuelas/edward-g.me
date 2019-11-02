@@ -18,13 +18,15 @@
 
 <script>
 import _ from 'lodash';
-import About from '@/copy/about';
+import factsMixins from '@/mixins/facts';
+
 export default {
     name: 'AboutWidget',
+    mixins: [factsMixins],
     data() {
         return {
             content: '',
-            aboutIterator: '',       
+            aboutIterator: ''  
         };
     },
     methods: {
@@ -40,7 +42,7 @@ export default {
             });
         },
         *aboutGenerator() {
-            const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
+            const shuffledAboutFacts = _.shuffle(_.cloneDeep(this.facts));
             for (let i = 0; i < shuffledAboutFacts.length; i++) {
                 yield shuffledAboutFacts[i];
             }
@@ -48,9 +50,10 @@ export default {
         initializeGenerator() {
             this.aboutIterator = this.aboutGenerator();
             this.content = this.aboutIterator.next().value;
-        },
+        }
     },
-    mounted() {
+    async beforeMount() {
+        await this.getFacts();
         if (!_.isObject(this.aboutIterator)) {
             this.initializeGenerator();
         }
