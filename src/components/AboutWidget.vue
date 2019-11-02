@@ -18,15 +18,15 @@
 
 <script>
 import _ from 'lodash';
-import client from '@/directus';
+import factsMixins from '@/mixins/facts';
 
 export default {
     name: 'AboutWidget',
+    mixins: [factsMixins],
     data() {
         return {
             content: '',
-            aboutIterator: '',
-            facts: [],   
+            aboutIterator: ''  
         };
     },
     methods: {
@@ -50,10 +50,6 @@ export default {
         initializeGenerator() {
             this.aboutIterator = this.aboutGenerator();
             this.content = this.aboutIterator.next().value;
-        },
-        async getFacts() {
-            const response = await client.getItems('facts');
-            this.facts = response.data.map(fact => fact.fact);
         }
     },
     async beforeMount() {
