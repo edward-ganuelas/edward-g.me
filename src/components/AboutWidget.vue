@@ -18,13 +18,15 @@
 
 <script>
 import _ from 'lodash';
-import About from '@/copy/about';
+import client from '@/directus';
+
 export default {
     name: 'AboutWidget',
     data() {
         return {
             content: '',
-            aboutIterator: '',       
+            aboutIterator: '',
+            facts: [],   
         };
     },
     methods: {
@@ -40,7 +42,7 @@ export default {
             });
         },
         *aboutGenerator() {
-            const shuffledAboutFacts = _.shuffle(_.cloneDeep(About));
+            const shuffledAboutFacts = _.shuffle(_.cloneDeep(this.facts));
             for (let i = 0; i < shuffledAboutFacts.length; i++) {
                 yield shuffledAboutFacts[i];
             }
@@ -49,8 +51,13 @@ export default {
             this.aboutIterator = this.aboutGenerator();
             this.content = this.aboutIterator.next().value;
         },
+        async getFacts() {
+            const response = await client.getItems('facts');
+            this.facts = response.data.map(fact => fact.fact);
+        }
     },
-    mounted() {
+    async beforeMount() {
+        await this.getFacts();
         if (!_.isObject(this.aboutIterator)) {
             this.initializeGenerator();
         }
