@@ -7,7 +7,7 @@
             <div class="col-12 col-md-8 offset-md-2 card shadow">
                 <div class="card-body">
                     <ul>
-                        <li v-for="(copy, index) in content" v-bind:key="index">{{copy}}</li>
+                        <li v-for="(copy, index) in facts" v-bind:key="index">{{copy}}</li>
                     </ul>
                 </div>
             </div>
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import about from '@/copy/about';
+import factsMixin from '@/mixins/facts';
+
 export default {
     name: 'Facts',
-    data() {
-        return {
-            content: about,
-        };
+    mixins: [factsMixin],
+    beforeMount() {
+        this.getFacts();
     }
 };
 </script>
