@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-10 offset-1 col-md-8 offset-md-2 card shadow main-content">
+            <div class="col-10 offset-1 col-md-6 offset-md-3 card shadow main-content">
                 <div class="card-body" v-html="$t('home.content')">
                 </div>
             </div>
