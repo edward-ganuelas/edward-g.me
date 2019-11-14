@@ -11,6 +11,9 @@ COPY . .
 #     && yarn build \
 #     && apk del build-dependencies
 
+RUN yarn \
+    && yarn build
+
 # production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /dist/. /usr/share/nginx/html
