@@ -11,6 +11,9 @@
             <div class="col-12 col-md-8 offset-md-2">
                 <h4>{{$t('about.music.thumbsUp')}}</h4>
             </div>
+            <div class="col-12 col-md-8 offset-md-2">
+                <iframe src="https://open.spotify.com/embed/playlist/2x1J9ljH70wgHi1Amwezhj" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
             <div class="col-4 col-md-4 offset-md-4 toggle">
                 <p>Sort</p>
                 <div class="btn-group btn-group-toggle">
