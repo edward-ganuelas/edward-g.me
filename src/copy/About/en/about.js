@@ -2,7 +2,7 @@ export default {
     header: 'About',
     subHeader: 'A little something, something.',
     nav: {
-        aboutSite: 'About Stie',
+        aboutSite: 'About Site',
         bio: 'Bio',
         facts: 'Facts',
         music: 'Music'

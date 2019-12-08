@@ -28,12 +28,12 @@ export default new Router({
             component: About,
             children:[
                 {
-                    path: '',
+                    path: 'about-site',
                     name: 'AboutSite',
                     component: AboutSite
                 },
                 {
-                    path: 'bio',
+                    path: '',
                     name: 'Bio',
                     component: Bio
                 },
