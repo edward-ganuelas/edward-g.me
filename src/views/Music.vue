@@ -2,14 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h3 class="sr-only">{{$t('about.music.header')}}</h3>
+                <h3 class="sr-only">{{$t('music.header')}}</h3>
             </div>
             <div class="col-12 col-md-8 offset-md-2 card shadow">
-                <div class="card-body" v-html="$t('about.music.mainContent')">
+                <div class="card-body" v-html="$t('music.mainContent')">
                 </div>
             </div>
             <div class="col-12 col-md-8 offset-md-2">
-                <h4>{{$t('about.music.thumbsUp')}}</h4>
+                <h4>{{$t('music.thumbsUp')}}</h4>
             </div>
             <div class="col-12 col-md-8 offset-md-2">
                 <iframe src="https://open.spotify.com/embed/playlist/2x1J9ljH70wgHi1Amwezhj" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -18,19 +18,19 @@
                 <p>Sort</p>
                 <div class="btn-group btn-group-toggle">
                     <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
-                        <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> {{$t('about.music.clear')}}
+                        <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> {{$t('music.clear')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'title'}">
                         <input type="radio" name="options" id="title" autocomplete="off" v-model="filter" value="title"> 
-                        {{$t('about.music.title')}}
+                        {{$t('music.title')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'artist'}">
                         <input type="radio" name="options" id="artist" autocomplete="off" v-model="filter" value="artist"> 
-                        {{$t('about.music.artist')}}
+                        {{$t('music.artist')}}
                     </label>
                     <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'album'}">
                         <input type="radio" name="options" id="album" autocomplete="off" v-model="filter" value="album"> 
-                        {{$t('about.music.album')}}
+                        {{$t('music.album')}}
                     </label>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                     <table>
                         <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Artist</th>
-                            <th>Album</th>
+                            <th>{{$t('music.title')}}</th>
+                            <th>{{$t('music.artist')}}</th>
+                            <th>{{$t('music.album')}}</th>
                         </tr>
                         </thead>
                     <tbody>
