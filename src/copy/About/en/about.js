@@ -4,8 +4,7 @@ export default {
     nav: {
         aboutSite: 'About Site',
         bio: 'Bio',
-        facts: 'Facts',
-        music: 'Music'
+        facts: 'Facts'
     },
     aboutSite: {
         header: 'About The Site',

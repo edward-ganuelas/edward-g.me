@@ -29,12 +29,6 @@
                                 {{$t('about.nav.aboutSite')}}
                             </router-link>
                         </li>
-                        <li class="col">
-                            <router-link to="/about/music">
-                                <span class="ico"><i class="fas fa-music"></i></span>
-                                {{$t('about.nav.music')}}
-                            </router-link>
-                        </li>
                     </ul>
                 </nav>
             </div>

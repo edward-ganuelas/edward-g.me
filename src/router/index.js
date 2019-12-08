@@ -8,7 +8,7 @@ import BlogPost from '@/components/blog/BlogPost';
 import BlogPosts from '@/components/blog/BlogPosts';
 import Facts from '@/views/About/Facts';
 import Gear from '@/views/Photos/Gear';
-import Music from '@/views/About/Music';
+import Music from '@/views/Music';
 import Photography from '@/views/Photography';
 import Photos from '@/views/Photos/Photos';
 import Projects from '@/views/Photos/Projects';
@@ -75,6 +75,11 @@ export default new Router({
             name: 'Blog',
             component: BlogPosts
         },
+        {
+            path: '/music',
+            name: 'Music',
+            component: Music
+        }, 
         {
             path: '/post/:title',
             name: 'Post',

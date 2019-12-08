@@ -16,6 +16,10 @@
             <span class='ico'><i class="fas fa-camera-retro"></i></span>
             {{$t('nav.photography')}}
         </router-link>
+        <router-link to="/music">
+            <span class="ico"><i class="fas fa-music"></i></span>
+            {{$t('nav.music')}}
+        </router-link>
         <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
             <span class='ico'><i class='fab fa-linkedin'></i></span>
                 Linkedin

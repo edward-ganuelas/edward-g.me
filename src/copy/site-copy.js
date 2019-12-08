@@ -23,7 +23,8 @@ const messages = {
         nav: {
             home: 'Home',
             about: 'About',
-            photography: 'Photography'
+            photography: 'Photography',
+            music: 'Music'
         },
         imageGrid: {
             orderBy: 'Order By:',
