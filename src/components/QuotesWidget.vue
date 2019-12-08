@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                  <div class="col-12">
-                    <h2>{{$t('quotesWidget.header')}}</h2>
+                    <h2><span class='ico'><i class="fas fa-quote-left"></i></span> {{$t('quotesWidget.header')}}</h2>
                 </div>
                 <div class="col-12">
                     <blockquote><em>{{content}}</em></blockquote>

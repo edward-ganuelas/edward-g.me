@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2>{{$t('blogWidget.header')}}</h2>
+                    <h2><span class='ico'><i class="fas fa-file-alt"></i></span> {{$t('blogWidget.header')}}</h2>
                 </div>
                 <div class="col-12">
                     <h3>{{post.title}}</h3>
