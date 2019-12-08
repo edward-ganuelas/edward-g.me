@@ -24,7 +24,8 @@ const messages = {
             home: 'Home',
             about: 'About',
             photography: 'Photography',
-            music: 'Music'
+            music: 'Music',
+            gaming: 'Gaming'
         },
         imageGrid: {
             orderBy: 'Order By:',
@@ -54,6 +55,13 @@ const messages = {
             filters: 'Filters',
             clear: 'Clear',
             publishedOn: 'Published On'
+        },
+        gaming: {
+            header: 'gaming',
+            mainContent: `<p>Gaming has been one of my oldest hobbies. My first console was a Nintendo Famicom then the Nintendo Gameboy light, the Sony PlayStation, 
+            PlayStation 3, PlayStation 4', Nintendo DS, Nintendo Switch and PC games. My favorite genres to play are JRPGs, sport games, some shooters and adventure games. Below is a list
+            of what I'm currently playing.`,
+            currentlyPlaying: 'Currently Playing'
         }
     }
 }

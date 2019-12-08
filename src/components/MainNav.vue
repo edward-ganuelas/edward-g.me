@@ -20,6 +20,10 @@
             <span class="ico"><i class="fas fa-music"></i></span>
             {{$t('nav.music')}}
         </router-link>
+        <router-link to="/gaming">
+            <span class="ico"><i class="fas fa-gamepad"></i></span>
+            {{$t('nav.gaming')}}
+        </router-link>
         <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
             <span class='ico'><i class='fab fa-linkedin'></i></span>
                 Linkedin

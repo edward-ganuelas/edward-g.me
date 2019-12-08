@@ -12,6 +12,7 @@ import Music from '@/views/Music';
 import Photography from '@/views/Photography';
 import Photos from '@/views/Photos/Photos';
 import Projects from '@/views/Photos/Projects';
+import Gaming from '@/views/Gaming';
 
 
 Vue.use(Router)
@@ -79,6 +80,11 @@ export default new Router({
             path: '/music',
             name: 'Music',
             component: Music
+        }, 
+        {
+            path: '/gaming',
+            name: 'Gaming',
+            component: Gaming
         }, 
         {
             path: '/post/:title',
