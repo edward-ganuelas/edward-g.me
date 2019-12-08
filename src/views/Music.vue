@@ -113,4 +113,7 @@ tbody {
 .toggle {
     margin-bottom: 18px;
 }
+* > .container {
+    margin-top: 24px;
+}
 </style>
