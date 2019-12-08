@@ -23,7 +23,9 @@ const messages = {
         nav: {
             home: 'Home',
             about: 'About',
-            photography: 'Photography'
+            photography: 'Photography',
+            music: 'Music',
+            gaming: 'Gaming'
         },
         imageGrid: {
             orderBy: 'Order By:',
@@ -53,6 +55,27 @@ const messages = {
             filters: 'Filters',
             clear: 'Clear',
             publishedOn: 'Published On'
+        },
+        music: {
+            header: 'Music',
+            mainContent: `
+            <p>I like music, I listen to music everyday to switch modes or prepare for a certain mindset. If I'm working on a mundane tasks I keep it on to keep my head energized. I also listen to music to prepare myself so that I can focus and ususally when I reach that state then the music stops.</p>
+            <p>I listen to all kinds of music though I primarily listent to classic Rock and Rap. I sometimes listen to Disney music and I'm not particulary found of EDM or country. </p>
+            <p>Some of my favorite classic acts are AC/DC, Queen, Tupac, and Eminem</p>
+            <p>I'm one of the rare unicorns that uses Google Play Music and the following playlist is my auto 'Thumbs Up' playlist, a collection of random song from different genres and different artist. The way the playlist works is that songs in the top of the list is the newest one I liked.</p>
+            `,
+            thumbsUp: 'Thumbs Up',
+            clear: 'Clear',
+            title: 'Title',
+            artist: 'Artist',
+            album: 'Album'
+        },
+        gaming: {
+            header: 'gaming',
+            mainContent: `<p>Gaming has been one of my oldest hobbies. My first console was a Nintendo Famicom then the Nintendo Gameboy light, the Sony PlayStation, 
+            PlayStation 3, PlayStation 4', Nintendo DS, Nintendo Switch and PC games. My favorite genres to play are JRPGs, sport games, some shooters and adventure games. Below is a list
+            of what I'm currently playing.`,
+            currentlyPlaying: 'Currently Playing'
         }
     }
 }

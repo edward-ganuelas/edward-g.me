@@ -8,10 +8,11 @@ import BlogPost from '@/components/blog/BlogPost';
 import BlogPosts from '@/components/blog/BlogPosts';
 import Facts from '@/views/About/Facts';
 import Gear from '@/views/Photos/Gear';
-import Music from '@/views/About/Music';
+import Music from '@/views/Music';
 import Photography from '@/views/Photography';
 import Photos from '@/views/Photos/Photos';
 import Projects from '@/views/Photos/Projects';
+import Gaming from '@/views/Gaming';
 
 
 Vue.use(Router)
@@ -28,12 +29,12 @@ export default new Router({
             component: About,
             children:[
                 {
-                    path: '',
+                    path: 'about-site',
                     name: 'AboutSite',
                     component: AboutSite
                 },
                 {
-                    path: 'bio',
+                    path: '',
                     name: 'Bio',
                     component: Bio
                 },
@@ -75,6 +76,16 @@ export default new Router({
             name: 'Blog',
             component: BlogPosts
         },
+        {
+            path: '/music',
+            name: 'Music',
+            component: Music
+        }, 
+        {
+            path: '/gaming',
+            name: 'Gaming',
+            component: Gaming
+        }, 
         {
             path: '/post/:title',
             name: 'Post',

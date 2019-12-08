@@ -13,12 +13,6 @@
                     <ul class="row">
                         <li class="col">
                             <router-link to="/about/">
-                                <span class="ico"><i class="fas fa-asterisk"></i></span>
-                                {{$t('about.nav.aboutSite')}}
-                            </router-link>
-                        </li>
-                        <li class="col">
-                            <router-link to="/about/bio">
                                 <span class="ico"><i class="fas fa-user"></i></span>
                                 {{$t('about.nav.bio')}}
                             </router-link>
@@ -30,9 +24,9 @@
                             </router-link>
                         </li>
                         <li class="col">
-                            <router-link to="/about/music">
-                                <span class="ico"><i class="fas fa-music"></i></span>
-                                {{$t('about.nav.music')}}
+                            <router-link to="/about/about-site">
+                                <span class="ico"><i class="fas fa-asterisk"></i></span>
+                                {{$t('about.nav.aboutSite')}}
                             </router-link>
                         </li>
                     </ul>

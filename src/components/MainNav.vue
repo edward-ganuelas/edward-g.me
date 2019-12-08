@@ -8,14 +8,22 @@
             <span class='ico'><i class="fas fa-info-circle"></i></span>
             {{$t('nav.about')}}
         </router-link>
+        <router-link to="/blog">
+            <span class='ico'><i class="fas fa-file-alt"></i></span>
+                Blog
+        </router-link>
         <router-link to="/photography">
             <span class='ico'><i class="fas fa-camera-retro"></i></span>
             {{$t('nav.photography')}}
         </router-link>
-        <router-link to="/blog">
-            <span class='ico'><i class="fas fa-file-alt"></i></span>
-                Blog
-            </router-link>
+        <router-link to="/music">
+            <span class="ico"><i class="fas fa-music"></i></span>
+            {{$t('nav.music')}}
+        </router-link>
+        <router-link to="/gaming">
+            <span class="ico"><i class="fas fa-gamepad"></i></span>
+            {{$t('nav.gaming')}}
+        </router-link>
         <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
             <span class='ico'><i class='fab fa-linkedin'></i></span>
                 Linkedin
