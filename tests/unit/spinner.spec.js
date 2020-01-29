@@ -1,8 +1,6 @@
-import chai, { expect } from 'chai'
-import chaiDom from 'chai-dom';
+import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
 import Spinner from '@/components/Spinner';
-chai.use(chaiDom);
 
 describe('Spinner.vue', () => {
     it('renders Spinner if spin is true', () => {
