@@ -168,4 +168,7 @@ span.ico {
         position: absolute;
     }
 }
+.strike {
+    text-decoration: line-through;
+}
 </style>
