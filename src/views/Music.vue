@@ -14,51 +14,12 @@
             <div class="col-12 col-md-8 offset-md-2">
                 <iframe src="https://open.spotify.com/embed/playlist/2x1J9ljH70wgHi1Amwezhj" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             </div>
-            <div class="col-4 col-md-4 offset-md-4 toggle">
-                <p>Sort</p>
-                <div class="btn-group btn-group-toggle">
-                    <label class="btn bnw btn-secondary" v-bind:class="{active: filter === ''}">
-                        <input type="radio" name="options" id="clear" autocomplete="off" v-model="filter" value=""> {{$t('music.clear')}}
-                    </label>
-                    <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'title'}">
-                        <input type="radio" name="options" id="title" autocomplete="off" v-model="filter" value="title"> 
-                        {{$t('music.title')}}
-                    </label>
-                    <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'artist'}">
-                        <input type="radio" name="options" id="artist" autocomplete="off" v-model="filter" value="artist"> 
-                        {{$t('music.artist')}}
-                    </label>
-                    <label class="btn colour btn-secondary" v-bind:class="{active: filter === 'album'}">
-                        <input type="radio" name="options" id="album" autocomplete="off" v-model="filter" value="album"> 
-                        {{$t('music.album')}}
-                    </label>
-                </div>
-            </div>
-            <div class="col-12 col-md-8 offset-md-2 card shadow">
-                <div class="card-body">
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>{{$t('music.title')}}</th>
-                            <th>{{$t('music.artist')}}</th>
-                            <th>{{$t('music.album')}}</th>
-                        </tr>
-                        </thead>
-                    <tbody>
-                        <tr v-for="(music, index) in filteredContent" v-bind:key="index">
-                            <td v-for="(content, index2) in music" v-bind:key="index2">{{content}}</td>
-                        </tr>
-                    </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
-import music from '@/copy/music';
-import _ from 'lodash';
+
 export default {
     name: 'Music',
     data() {
@@ -66,15 +27,7 @@ export default {
             filter: '',
         };
     },
-    computed: {
-        filteredContent() {
-            if (this.filter === '') {
-                return music;
-            }else{
-                return _.sortBy(music, this.filter)
-            }
-        }
-    }
+    computed: {}
 };
 </script>
 
@@ -87,32 +40,7 @@ h3 {
 h4{
     margin-top: 18px;
 }
-table {
-    width: 100%;
-}
-th,
-td {
-    width: 33%;
-    text-align: center;
-}
-tbody {
-    tr:last-child {
-        td {
-            border: none;
-        }
-    }
-    td {
-        border-bottom: 1px solid #434b53;
-    }
-    tr:last-child {
-        td {
-            border: none;
-        }
-    }
-}
-.toggle {
-    margin-bottom: 18px;
-}
+
 * > .container {
     margin-top: 24px;
 }
