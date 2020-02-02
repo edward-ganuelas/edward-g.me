@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import _ from 'lodash';
 
 export default {
     name: 'DevelopmentNews',
@@ -31,10 +30,7 @@ export default {
     },
     computed: {
         blogLink() {
-            const title = _.kebabCase(this.post.title);
-            return `https://blog.eightrayedsun.com/#/post/${title}?id=${
-                this.post.id
-            }`;
+            return `https://eightrayedsun.com/blog/${this.post.id}`;
         }
     }
 };
