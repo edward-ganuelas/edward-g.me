@@ -796,9 +796,9 @@
     to-fast-properties "^2.0.0"
 
 "@directus/sdk-js@^6.0.0-alpha.6":
-  version "6.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/@directus/sdk-js/-/sdk-js-6.0.0-alpha.6.tgz#1b290a6bd07817494b12899c54604ca71c219988"
-  integrity sha512-nhp0RtuegeEXxfcWy244O5wg75AeMnMxOXpdO1fNUzPYvojv2YQpO7hF5j5olY/dwgPe3ApGqmbnsrCHYhFiNA==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@directus/sdk-js/-/sdk-js-6.0.1.tgz#ee5d7cd007c2a900495f9c285f6ae03a9d291a32"
+  integrity sha512-I9mDhIZwv2Nw6pxBfvWHXHhWSSxUWvIvQYlTGrL/0Fa5OdT55pc97xE/smGXyyCYx5VjCOp0XPPvi4QtUCGl5Q==
   dependencies:
     axios "0.19.0"
     base-64 "0.1.0"
