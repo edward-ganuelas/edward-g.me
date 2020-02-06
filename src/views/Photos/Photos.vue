@@ -27,8 +27,10 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import ImageGrid from '@/components/ImageGrid';
+import client from '@/directus';
+import _ from 'lodash';
 
 export default {
     name: 'Photos',
@@ -50,9 +52,10 @@ export default {
             });
         },
         async getImages() {
-            const images = await axios.get('https://eightray.sfo2.digitaloceanspaces.com/json/images.json');
-            this.bnw = images.data.content.bnw;
-            this.colour = images.data.content.colour;
+            const images = await client.getItems('photos');
+            const groupedImages = _.groupBy(images.data, image => image.category);
+            this.bnw = groupedImages.bnw
+            this.colour = groupedImages.colour;
         }
     },
     watch:{

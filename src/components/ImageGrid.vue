@@ -54,11 +54,12 @@ export default {
             return _.shuffle(this.images);
         },
         remainingImages() {
-            return this.numberOfImages - this.gridSize;
+            const remainingImages = this.numberOfImages - this.gridSize;
+            return remainingImages < 0 ? 0 : remainingImages;
         },
         sortedImages() {
             if(this.sort !== 'random'){
-                let images = this.images.slice();
+                let images = !_.isEmpty(this.images) ? this.images.slice() : [];
                 return images.sort((a,b) => {
                     if(this.sort === 'old'){
                         return a.id - b.id;
