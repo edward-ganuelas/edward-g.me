@@ -27,7 +27,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
 import ImageGrid from '@/components/ImageGrid';
 import client from '@/directus';
 import _ from 'lodash';
