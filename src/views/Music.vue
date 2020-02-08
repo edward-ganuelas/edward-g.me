@@ -21,13 +21,7 @@
 <script>
 
 export default {
-    name: 'Music',
-    data() {
-        return {
-            filter: '',
-        };
-    },
-    computed: {}
+    name: 'Music'
 };
 </script>
 
