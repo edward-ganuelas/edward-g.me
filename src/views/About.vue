@@ -20,7 +20,7 @@
                         <li class="col">
                             <router-link to="/about/facts">
                                 <span class="icon"><i class="fas fa-info-circle"></i></span>
-                                 {{$t('about.nav.facts')}}
+                                    {{$t('about.nav.facts')}}
                             </router-link>
                         </li>
                         <li class="col">
