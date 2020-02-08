@@ -86,40 +86,40 @@ export default {
     margin-top: 18px;
 }
 img {
-  &.profile {
-    width: 120px;
-    height: 120px;
-    border: 1px solid #fff;
-    border-radius: 8px;
-    margin-bottom: 16px;
-  }
+    &.profile {
+        width: 120px;
+        height: 120px;
+        border: 1px solid #fff;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
 }
 h2,
 h3 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 ul {
-  padding-left: 16px;
-  li {
-    margin-bottom: 8px;
-  }
+    padding-left: 16px;
+    li {
+        margin-bottom: 8px;
+    }
 }
 nav ul {
-  li {
+    li {
     list-style-type: none;
     border-right: 1px solid #0066ff;
     text-align: center;
     &:last-of-type {
-      border-right: none;
+        border-right: none;
     }
     a {
-      &.router-link-exact-active {
+        &.router-link-exact-active {
         text-decoration: none;
         color: #212529;
         cursor: default;
-      }
+        }
     }
     
-  }
+    }
 }
 </style>
