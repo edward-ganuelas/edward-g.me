@@ -17,7 +17,7 @@
                     <spinner :spin="spin" />
                 </div>
             </div>
-             <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
+            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
                 <div>
                     <about-widget />
                 </div>
