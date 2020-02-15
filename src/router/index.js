@@ -42,12 +42,7 @@ export default new Router({
                     path: 'facts',
                     name: 'Facts',
                     component: Facts
-                },
-                {
-                    path: 'music',
-                    name: 'Music',
-                    component: Music
-                },
+                }
             ]
         },
         {
