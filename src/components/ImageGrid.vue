@@ -1,33 +1,36 @@
 <template>
-    <transition name="fade" leave-active-class="dissapear">
-        <div class="row" v-show="toggle === activeClass">
-            <div class="col-12 col-md-8 offset-md-2">  
-                <h4>{{title}}</h4>
-                <label class="sort">{{$t('imageGrid.orderBy')}}
-                    <select v-model="sort">
-                        <option value="old">{{$t('imageGrid.old')}}</option>
-                        <option value="new">{{$t('imageGrid.new')}}</option>
-                        <option value="random">{{$t('imageGrid.random')}}</option>
-                    </select>
-                </label>
-                <masonry :cols="2" :gutter="0">
-                    <div v-for="image of grid" v-bind:key="image['index']">
-                        <img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
-                    </div>
-                </masonry>
-            </div>
-            <div class="col-12">
-                <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">{{$t('imageGrid.seeMore')}} ({{remainingImages}})</button>
-            </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">  
+            <h4>{{images.title}}</h4>
+            <label class="sort">{{$t('imageGrid.orderBy')}}
+                <select v-model="sort">
+                    <option value="old">{{$t('imageGrid.old')}}</option>
+                    <option value="new">{{$t('imageGrid.new')}}</option>
+                    <option value="random">{{$t('imageGrid.random')}}</option>
+                </select>
+            </label>
+            <masonry :cols="2" :gutter="0">
+                <div v-for="image of grid" v-bind:key="image['index']">
+                    <img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
+                </div>
+            </masonry>
         </div>
-    </transition>
+        <div class="col-12">
+            <button class="btn btn-primary" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">{{$t('imageGrid.seeMore')}} ({{remainingImages}})</button>
+        </div>
+    </div>
 </template>
 
 <script>
 import _ from 'lodash';
 export default {
     name: 'ImageGrid',
-    props: ['images', 'title', 'toggle', 'activeClass'],
+    props: {
+        images: {
+            type: Object,
+            required: true
+        }
+    },
     data() {
         return {
             gridSize: 8,
@@ -48,10 +51,10 @@ export default {
     },
     computed: {
         numberOfImages() {
-            return _.size(this.images);
+            return _.size(this.images.images);
         },
         shuffleImages() {
-            return _.shuffle(this.images);
+            return _.shuffle(this.images.images);
         },
         remainingImages() {
             const remainingImages = this.numberOfImages - this.gridSize;
@@ -59,7 +62,7 @@ export default {
         },
         sortedImages() {
             if(this.sort !== 'random'){
-                let images = !_.isEmpty(this.images) ? this.images.slice() : [];
+                let images = !_.isEmpty(this.images.images) ? this.images.images.slice() : [];
                 return images.sort((a,b) => {
                     if(this.sort === 'old'){
                         return a.id - b.id;
@@ -89,7 +92,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 img {
-     max-width: 100%;
+    max-width: 100%;
 }
 h4 {
     margin: 20px 0;

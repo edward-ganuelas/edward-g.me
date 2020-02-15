@@ -21,8 +21,10 @@
                 </div>
             </div>
         </div>
-        <image-grid :images="bnw" :toggle="toggle" :title="$t('photography.photos.bnw')" activeClass="bnw" />
-        <image-grid :images="colour" :toggle="toggle" :title="$t('photography.photos.colour')" activeClass="colour" />
+        <transition name="fade" leave-active-class="dissapear" appear>
+            <image-grid :images="bnw" v-if="toggle === DEFAULT_TOGGLE" activeClass="bnw" key="bnw" />
+            <image-grid :images="colour" v-else activeClass="colour" key="colour" />
+        </transition>
     </div>
 </template>
 
@@ -31,6 +33,8 @@ import ImageGrid from '@/components/ImageGrid';
 import client from '@/directus';
 import _ from 'lodash';
 
+const DEFAULT_TOGGLE = 'bnw';
+
 export default {
     name: 'Photos',
     components: {
@@ -38,9 +42,16 @@ export default {
     },
     data() {
         return {
-            bnw: [],
-            colour: [],
-            toggle: 'bnw'
+            bnw: {
+                images: [],
+                title: this.$t('photography.photos.bnw'),
+            },
+            colour: {
+                images: [],
+                title: this.$t('photography.photos.colour')
+            },
+            DEFAULT_TOGGLE,
+            toggle: DEFAULT_TOGGLE
         };
     },
     methods:{
@@ -53,8 +64,8 @@ export default {
         async getImages() {
             const images = await client.getItems('photos');
             const groupedImages = _.groupBy(images.data, image => image.category);
-            this.bnw = groupedImages.bnw
-            this.colour = groupedImages.colour;
+            this.bnw.images = groupedImages.bnw
+            this.colour.images = groupedImages.colour;
         }
     },
     watch:{
@@ -74,18 +85,18 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .btn.bnw {
-  &.active {
-    background-color: #000;
-    color: #fff;
-  }
+    &.active {
+        background-color: #000;
+        color: #fff;
+    }
 }
 .btn.colour {
-  &.active {
-    background-color: #0066ff;
-    color: #ff9900;
-  }
+    &.active {
+        background-color: #0066ff;
+        color: #ff9900;
+    }
 }
 .photos {
-  margin-bottom: 150px;
+    margin-bottom: 150px;
 }
 </style>
