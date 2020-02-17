@@ -18,7 +18,7 @@
                                     <ul v-if="getPostTags(post.id)" class="tags">
                                         <li>Tags:</li>
                                         <li v-for="tag in getPostTags(post.id)" :key="tag.id">
-                                            {{tag.tag}}
+                                            {{convertTagIdToTag(tag.tags_id)}}
                                         </li>
                                     </ul>
                                     <blockquote class="card-text">{{post.excerpt}}</blockquote>
@@ -49,7 +49,7 @@ export default {
     mixins: [mixin],
     data() {
         return {
-            spin: false
+            spin: false,
         };
     },
     components: {
@@ -73,7 +73,7 @@ export default {
             if (!tags) {
                 return;
             }
-            return tags.find(tag => tag.id === tagId)['tag'];
+            return _.startCase(tags.find(tag => tag.id === tagId)['tag']);
         },
         publishedDate(published_date) {
             return moment(published_date).format('MMM D YYYY');
@@ -82,7 +82,7 @@ export default {
             this.filter = data;
         },
         resetPosts() {
-            this.posts = this.originalPosts.slice();
+            Object.assign(this.posts, this.orderedPosts.slice());
         },
         kebabTitle(title) {
             return _.kebabCase(title);
@@ -90,8 +90,8 @@ export default {
     },
     computed: {
         orderedPosts() {
-            return _.sortBy(this.filteredPosts, (x) => {
-                return new Date(x.published_date);
+            return _.sortBy(this.filteredPosts, (post) => {
+                return new Date(post.published_date);
             }).reverse();
         },
         savedPost: sync('BlogPosts'),
@@ -106,28 +106,10 @@ export default {
             return _.cloneDeep(this.savedPost).filter(post => _.includes(filteredBlogTags, post.id));
         }
     },
-    watch: {
-        filtereas(value) {
-            this.resetPosts();
-            let filteredPosts = this.savedPost;
-            if (value !== 'clear') {
-                filteredPosts = filteredPosts.filter((x) => {
-                    let filterCheck = false;
-                    x['personal-tags'].data.forEach((element) => {
-                        if (element.tag === value) {
-                            filterCheck = true;
-                        }
-                    });
-                    return filterCheck;
-                });
-            }
-            this.posts = filteredPosts;
-        }
-    },
     async beforeMount() {
-        await this.getPosts();
-        await this.getBlogTags();
-        await this.getTags();
+        this.savedPost = await this.getPosts();
+        this.savedBlogTags = await this.getBlogTags();
+        this.savedTags = await this.getTags();
     }
 };
 </script>
