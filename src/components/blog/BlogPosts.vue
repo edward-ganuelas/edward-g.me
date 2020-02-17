@@ -125,9 +125,9 @@ export default {
         }
     },
     async beforeMount() {
-        await this.getPosts();
-        await this.getBlogTags();
-        await this.getTags();
+        this.savedPost = await this.getPosts();
+        this.savedBlogTags = await this.getBlogTags();
+        this.savedTags = await this.getTags();
     }
 };
 </script>

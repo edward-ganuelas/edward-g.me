@@ -13,14 +13,14 @@ export default {
                     blog_type: 'personal'
                 }
             });
-            this.savedPost = response.data;
+            return response.data;
         },
         async getBlogTags() {
             if (_.isObject(this.savedBlogTags)) {
                 return;
             }
             const response = await client.getItems('blog_tags');
-            this.savedBlogTags = response.data;
+            return response.data;
         },
         async getTags() {
             if (_.isObject(this.savedTags)) {
@@ -31,7 +31,7 @@ export default {
                     tag_type: 'personal',
                 }
             });
-            this.savedTags = response.data;
+            return response.data;
         },
     },
     computed: {
