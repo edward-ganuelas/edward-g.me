@@ -90,8 +90,8 @@ export default {
     },
     computed: {
         orderedPosts() {
-            return _.sortBy(this.filteredPosts, (x) => {
-                return new Date(x.published_date);
+            return _.sortBy(this.filteredPosts, (post) => {
+                return new Date(post.published_date);
             }).reverse();
         },
         savedPost: sync('BlogPosts'),
