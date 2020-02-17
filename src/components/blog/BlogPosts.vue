@@ -18,7 +18,7 @@
                                     <ul v-if="getPostTags(post.id)" class="tags">
                                         <li>Tags:</li>
                                         <li v-for="tag in getPostTags(post.id)" :key="tag.id">
-                                            {{tag.tag}}
+                                            {{convertTagIdToTag(tag.tags_id)}}
                                         </li>
                                     </ul>
                                     <blockquote class="card-text">{{post.excerpt}}</blockquote>
@@ -49,7 +49,7 @@ export default {
     mixins: [mixin],
     data() {
         return {
-            spin: false
+            spin: false,
         };
     },
     components: {
@@ -73,7 +73,7 @@ export default {
             if (!tags) {
                 return;
             }
-            return tags.find(tag => tag.id === tagId)['tag'];
+            return _.startCase(tags.find(tag => tag.id === tagId)['tag']);
         },
         publishedDate(published_date) {
             return moment(published_date).format('MMM D YYYY');
