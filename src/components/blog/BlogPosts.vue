@@ -82,7 +82,7 @@ export default {
             this.filter = data;
         },
         resetPosts() {
-            this.posts = this.originalPosts.slice();
+            Object.assign(this.posts, this.orderedPosts.slice());
         },
         kebabTitle(title) {
             return _.kebabCase(title);
@@ -104,24 +104,6 @@ export default {
             const filteredBlogTags = savedBlogTags.filter(blogTag => blogTag.tags_id === this.filter)
                 .map(blogTag => blogTag.blog_id);
             return _.cloneDeep(this.savedPost).filter(post => _.includes(filteredBlogTags, post.id));
-        }
-    },
-    watch: {
-        filtereas(value) {
-            this.resetPosts();
-            let filteredPosts = this.savedPost;
-            if (value !== 'clear') {
-                filteredPosts = filteredPosts.filter((x) => {
-                    let filterCheck = false;
-                    x['personal-tags'].data.forEach((element) => {
-                        if (element.tag === value) {
-                            filterCheck = true;
-                        }
-                    });
-                    return filterCheck;
-                });
-            }
-            this.posts = filteredPosts;
         }
     },
     async beforeMount() {
