@@ -5,7 +5,7 @@
                 <div class="col-12 col-md-8 offset-md-2 card shadow">
                     <div class="card-body">
                         <h2>{{post.title}}</h2>
-                        <p class="author">Edward Ganuelas</p>
+                        <author v-bind:authorId="post.created_by" v-if="post.created_by" />
                         <p v-if="post.publish_date">{{$t('blog.publishedOn')}} {{publishedDate(post.publish_date)}}</p>
                         <div v-html="post.post"></div>
                     </div>
@@ -25,6 +25,7 @@
 import mixin from '@/mixins/mixin';
 import moment from 'moment';
 import client from '@/directus';
+import Author from '@/components/blog/Author';
 import _ from 'lodash';
 
 export default {
@@ -38,6 +39,9 @@ export default {
             title: '',
             description: ''
         };
+    },
+    components: {
+        Author
     },
     methods: {
         async getPost() {
@@ -95,7 +99,7 @@ export default {
     margin-top: 18px;
 }
 .blog-post {
-     width: 100%;
+    width: 100%;
 }
 .dark-theme{
     .blog-post{
