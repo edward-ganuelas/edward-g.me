@@ -5,7 +5,7 @@
                 <div class="col-12 col-md-8 offset-md-2 card shadow">
                     <div class="card-body">
                         <h2>{{post.title}}</h2>
-                        <author v-bind:authorId="post.created_by" />
+                        <author v-bind:authorId="post.created_by" v-if="post.created_by" />
                         <p v-if="post.publish_date">{{$t('blog.publishedOn')}} {{publishedDate(post.publish_date)}}</p>
                         <div v-html="post.post"></div>
                     </div>
