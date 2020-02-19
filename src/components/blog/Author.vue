@@ -1,31 +1,29 @@
 <template>
-    <p class="author card-subtitle">{{name}}</p>
+    <p class="author card-subtitle" v-if="author">{{author.name}}</p>
 </template>
 
 <script>
-import axios from 'axios';
-import { DIRECTUS, AUTHOR } from '@/api/apis';
+import client from '@/directus';
+import Author from '@/classes/author';
+
 export default {
     name: 'Author',
-    props: ['author'],
+    props: ['authorId'],
     data() {
         return {
-            name: ''
+            author: null
         };
     },
     methods: {
-        async getAuthor() {
-            let response = await axios.get(`${DIRECTUS}${AUTHOR}${this.author}`);
-            this.name = `${response.data.data.first_name} ${response.data.data.last_name}`;
-            localStorage.setItem(`edward-g_author_${this.author}`, this.name);
+        getAuthor() {
+            return client.getUser(this.authorId, {
+                fields: ['first_name', 'last_name']
+            });
         }
     },
-    beforeMount() {
-        if (localStorage.getItem(`edward-g_author_${this.author}`) === null) {
-            this.getAuthor();
-        } else {
-            this.name = localStorage.getItem(`edward-g_author_${this.author}`);
-        }
+    async beforeMount() {
+        const author = await this.getAuthor();
+        this.author = new Author(author.data.first_name, author.data.last_name);
     }
 };
 </script>
