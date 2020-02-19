@@ -11,7 +11,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="headline card-title">{{post.title}}</h2>
-                                    <author v-bind:author="post.author" v-if="post.author" />
+                                    <author v-bind:authorId="post.created_by" v-if="post.created_by" />
                                     <p v-if="post.published_date">
                                         Published on {{publishedDate(post.published_date)}}
                                     </p>
