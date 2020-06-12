@@ -17,24 +17,12 @@
                     <spinner :spin="spin" />
                 </div>
             </div>
-            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
-                <div>
-                    <about-widget />
-                </div>
-            </div>
-            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
-                <div>
-                    <quotes-widget />
-                </div>
-            </div>
         </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import AboutWidget from '@/components/AboutWidget';
-import QuotesWidget from '@/components/QuotesWidget';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
 import Spinner from '@/components/Spinner';
@@ -50,8 +38,6 @@ const BLOG_TYPES = Object.freeze({
 export default {
     name: 'Home',
     components: {
-        AboutWidget,
-        QuotesWidget,
         DevelopmentNews,
         BlogWidget,
         Spinner
