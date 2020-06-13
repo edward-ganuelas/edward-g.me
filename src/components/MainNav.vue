@@ -1,49 +1,64 @@
 <template>
-    <Slide right @closeMenu="toggleDrawer" @openMenu="toggleDrawer" :burgerIcon="!isDrawerOpen">
-        <router-link to="/">
-            <span class='ico'><i class='fas fa-home'></i></span>
-            {{$t('nav.home')}}
-        </router-link>
-        <router-link to="/about">
-            <span class='ico'><i class="fas fa-info-circle"></i></span>
-            {{$t('nav.about')}}
-        </router-link>
-        <router-link to="/blog">
-            <span class='ico'><i class="fas fa-file-alt"></i></span>
-                Blog
-        </router-link>
-        <router-link to="/photography">
-            <span class='ico'><i class="fas fa-camera-retro"></i></span>
-            {{$t('nav.photography')}}
-        </router-link>
-        <router-link to="/music">
-            <span class="ico"><i class="fas fa-music"></i></span>
-            {{$t('nav.music')}}
-        </router-link>
-        <router-link to="/gaming">
-            <span class="ico"><i class="fas fa-gamepad"></i></span>
-            {{$t('nav.gaming')}}
-        </router-link>
-        <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
+    <ul>
+        <li>
+            <router-link to="/">
+                <span class='ico'><i class='fas fa-home'></i></span>
+                {{$t('nav.home')}}
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/about">
+                <span class='ico'><i class="fas fa-info-circle"></i></span>
+                {{$t('nav.about')}}
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/blog">
+                <span class='ico'><i class="fas fa-file-alt"></i></span>
+                    Blog
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/photography">
+                <span class='ico'><i class="fas fa-camera-retro"></i></span>
+                {{$t('nav.photography')}}
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/music">
+                <span class="ico"><i class="fas fa-music"></i></span>
+                {{$t('nav.music')}}
+            </router-link>
+        </li>
+        <li>
+            <router-link to="/gaming">
+                <span class="ico"><i class="fas fa-gamepad"></i></span>
+                {{$t('nav.gaming')}}
+            </router-link>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
             <span class='ico'><i class='fab fa-linkedin'></i></span>
                 Linkedin
             </a>
-        <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')">
-            <span class='ico'><i class='fab fa-github'></i></span>
-            Github
-        </a>
-        <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">
-            EightRayedSun
-        </a>
-    </Slide>
+        </li>
+        <li>
+            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')">
+                <span class='ico'><i class='fab fa-github'></i></span>
+                Github
+            </a>
+        </li>
+        <li>
+            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">
+                EightRayedSun
+            </a>
+        </li>
+    </ul>
 </template>
 
 <script>
-import { Slide } from 'vue-burger-menu';
 export default {
-    components: {
-        Slide
-    },
+
     data() {
         return {
             isDrawerOpen: false,
