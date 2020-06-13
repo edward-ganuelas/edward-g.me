@@ -131,7 +131,7 @@ span.ico {
     }
 }
 .subIntro {
-     margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 .sub-nav{
     background-color: $orange;
@@ -148,6 +148,8 @@ span.ico {
     @media (min-width: 1024px) {
         max-height: calc(100vh - #{$headerHeight + 5px});
         overflow-y: auto;
+        height: 100vh;
+        display: flex;
     }
 }
 .widget {

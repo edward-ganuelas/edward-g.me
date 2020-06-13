@@ -1,13 +1,15 @@
 <template>
-    <div class="container">
+    <div class="container main-content">
         <div class="row">
-            <div class="col-10 offset-1 offset-md-0 col-md-6 card sub-card shadow">
+            <div class="col-12 card col-lg-9 offset-lg-2 sub-card shadow">
                 <div v-if="latestPersonalPost">
                     <blog-widget :post="latestPersonalPost" />
                     <spinner :spin="spin" />
                 </div>
             </div>
-            <div class="col-10 offset-1 col-md-6 offset-md-0 card sub-card shadow">
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-9 offset-lg-2 card sub-card shadow">
                 <div v-if="latestTechPost">
                     <development-news :post="latestTechPost" />
                     <spinner :spin="spin" />
@@ -103,23 +105,37 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .main-content {
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin-top: 32px;
+    flex: 0 1 auto;
+    align-self: center;
+    > .row {
+        margin-bottom: 18px;
+    }
+    @media (min-width: 1024px) {
+        margin-top: 0;
+    }
 }
 .sub-card{
     padding: 0;
-    height: 100vh;
-    max-height: 50vh;
     margin-bottom: 2px;     
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
     & > * {
-        height: 100%;
-        width: 90%;
-        margin: 0 auto;
+        flex: 0 1 auto;
+        width: 100%;
+        padding: 15px;
+        align-self: center;
+        @media (min-width: 768px) {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
     margin-bottom: 18px;
     @media (min-width: 768px) {
         margin-bottom: 0;
         max-height: 400px;
+        height: 100vh;
     }
 }
 </style>
