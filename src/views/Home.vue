@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import DevelopmentNews from '@/components/DevelopmentNews';
 import BlogWidget from '@/components/BlogWidget';
 import Spinner from '@/components/Spinner';
@@ -51,11 +50,6 @@ export default {
         };
     },
     methods: {
-        getContent() {
-            axios.get('static/json/main.json').then((x) => {
-                this.content = x.data.content;
-            });
-        },
         async getAllPosts() {
             this.spin = true;
             const response = await client.getItems('blog');
