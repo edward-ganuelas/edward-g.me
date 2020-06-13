@@ -119,19 +119,21 @@ span.ico {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     &:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(255,153,0,0.25), 0 10px 10px rgba(255,153,0,0.22);
     }
 }
 .card{
     padding: 25px 0;
     background-color: $cardBackgroundColor;
+    border-color: #0066FF;
+
     button {
         background-color: $buttonGrey;
         border-color: $buttonGrey;
     }
 }
 .subIntro {
-     margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 .sub-nav{
     background-color: $orange;
@@ -148,6 +150,8 @@ span.ico {
     @media (min-width: 1024px) {
         max-height: calc(100vh - #{$headerHeight + 5px});
         overflow-y: auto;
+        height: 100vh;
+        display: flex;
     }
 }
 .widget {
