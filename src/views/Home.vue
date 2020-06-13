@@ -1,18 +1,30 @@
 <template>
     <div class="container main-content">
         <div class="row">
-            <div class="col-12 card col-lg-9 offset-lg-2 sub-card shadow">
-                <div v-if="latestPersonalPost">
-                    <blog-widget :post="latestPersonalPost" />
-                    <spinner :spin="spin" />
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 card col-lg-9 offset-lg-2 sub-card shadow">
+                            <div v-if="latestPersonalPost">
+                                <blog-widget :post="latestPersonalPost" />
+                                <spinner :spin="spin" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-9 offset-lg-2 card sub-card shadow">
-                <div v-if="latestTechPost">
-                    <development-news :post="latestTechPost" />
-                    <spinner :spin="spin" />
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-9 offset-lg-2 card sub-card shadow">
+                            <div v-if="latestTechPost">
+                                <development-news :post="latestTechPost" />
+                                <spinner :spin="spin" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
