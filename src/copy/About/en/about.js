@@ -17,6 +17,7 @@ export default {
         <p>Currently, I'm a web developer. My hobbies include video games, photography (mostly on film), working out, basketball, listening to music and watching pro wrestling. </p>
 
         <p>On social media, you can find me on twitter <a href="https://twitter.com/edward_pau" target="_blank"  rel="noopener noreferrer"><i class="fab fa-twitter"></i>@edward_pau</a>, on <a href="https://www.instagram.com/edward.g.me/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> instagram</a> and on <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer"><span class='ico'><i class='fab fa-linkedin'></i></span>Linkedin</a></p>
+        <p>Also please checkout my other site <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer">EightRayedSun</a> which is more focused on programming/web-development.</p>
         `,
     },
     facts: {
