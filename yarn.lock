@@ -8566,13 +8566,6 @@ vue-analytics@^5.12.3:
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
-vue-burger-menu@^2.0.2:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/vue-burger-menu/-/vue-burger-menu-2.0.5.tgz#a535e178e327302d41d129da5db773d8c140ac94"
-  integrity sha512-j0zM3gOTNv5rtIfVGIc0F0Ff5iUGQk7vLRBRkHLC2Jsv+4WL8BFqSBii+VzfIlqIQed7v0zqWueJLYxe9YwjmQ==
-  dependencies:
-    vue "^2.5.17"
-
 vue-carousel-3d@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/vue-carousel-3d/-/vue-carousel-3d-0.2.0.tgz#5bd2afde5ad2f1c29a7387e1649ea796b6c1da37"
@@ -8664,7 +8657,7 @@ vue2-animate@^1.0.4:
   resolved "https://registry.yarnpkg.com/vue2-animate/-/vue2-animate-1.0.4.tgz#23fd1ee4ef2e25672f6a84a3363f306160f38032"
   integrity sha1-I/0e5O8uJWcvaoSjNj8wYWDzgDI=
 
-vue@^2.2.1, vue@^2.5.17, vue@^2.6.10:
+vue@^2.2.1, vue@^2.6.10:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
