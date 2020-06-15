@@ -3,7 +3,7 @@
         <header-component ref="header" />
         <main-nav />
         <div id="page-wrap" class="content-wrapper">
-             <transition :name="transition" leave-active-class="dissapear">
+            <transition :name="transition" leave-active-class="dissapear">
                 <router-view></router-view>
             </transition>
         </div>
