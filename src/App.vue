@@ -109,9 +109,7 @@ a {
 .dissapear {
     display: none;
 }
-span.ico {
-     margin-right: 8px;
-}
+
 .btn {
     border-radius: 15px;
 }
