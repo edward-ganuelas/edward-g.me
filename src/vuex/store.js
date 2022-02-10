@@ -1,10 +1,8 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import createdPersistedState from 'vuex-persistedstate'
+import { createStore } from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 import pathify from './pathify'
 import { make } from 'vuex-pathify'
 
-Vue.use(Vuex)
 
 const state = {
     BlogPosts: '',
@@ -23,9 +21,26 @@ const mutations = {
     ...make.mutations(state)
 }
 
-export default new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    plugins: [createdPersistedState, pathify.plugin]
-})
+const store = createStore({
+    state() {
+        return {
+            ...state
+        }
+    },
+    getters: {
+        ...getters
+    },
+    mutations: {
+        ...mutations
+    },
+    plugins: [createPersistedState(), pathify.plugin]
+});
+
+export default store;
+
+// export default new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     plugins: [createdPersistedState, pathify.plugin]
+// })

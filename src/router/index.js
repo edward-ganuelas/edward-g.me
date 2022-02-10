@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home';
 import About from '@/views/About';
 import AboutSite from '@/views/About/AboutSite';
@@ -15,9 +14,9 @@ import Projects from '@/views/Photos/Projects';
 import Gaming from '@/views/Gaming';
 
 
-Vue.use(Router)
 
-export default new Router({
+const router = createRouter({
+    history: createWebHashHistory(),
     routes: [
         {
             path: '/',
@@ -92,3 +91,5 @@ export default new Router({
         },
     ]
 })
+
+export default router;
