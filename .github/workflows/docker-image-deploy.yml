@@ -22,4 +22,4 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        push: false
+        push: true
