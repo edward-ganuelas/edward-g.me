@@ -3,9 +3,14 @@
         <header-component ref="header" />
         <main-nav />
         <div id="page-wrap" class="content-wrapper">
-            <transition :name="transition" leave-active-class="dissapear">
-                <router-view></router-view>
-            </transition>
+            <router-view  v-slot="{ Component }">
+                <keep-alive>
+                    <transition :name="transition" leave-active-class="dissapear">
+                        <component :is="Component" />
+                    </transition>
+                </keep-alive>
+            </router-view>
+            
         </div>
     </div>
 </template>

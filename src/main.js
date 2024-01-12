@@ -13,9 +13,7 @@ import Ripple from 'vue-ripple-directive';
 
 Ripple.color = 'rgba(0, 102, 255, 0.9)';
 
-const app = createApp({
-    ...App
-})
+const app = createApp(App)
 
 app.use(VueHead);
 app.use(VueMasonry);

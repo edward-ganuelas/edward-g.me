@@ -35,9 +35,13 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <transition name="slideUp" leave-active-class="dissapear">
-                    <router-view></router-view>
-                </transition>
+                <router-view  v-slot="{ Component }">
+                    <keep-alive>
+                        <transition :name="slideUp" leave-active-class="dissapear">
+                            <component :is="Component" />
+                        </transition>
+                    </keep-alive>
+                </router-view>
             </div>
         </div>
     </div>

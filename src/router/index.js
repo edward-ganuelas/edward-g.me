@@ -15,9 +15,6 @@ import Photos from '@/views/Photos/Photos.vue';
 import Projects from '@/views/Photos/Projects.vue';
 import Gaming from '@/views/Gaming.vue';
 
-
-// Vue.use(Router)
-
 export default createRouter({
     history: createWebHistory(),
     routes: [
