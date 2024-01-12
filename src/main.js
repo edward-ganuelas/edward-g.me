@@ -5,7 +5,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueHead from 'vue-head'
-import VueMasonry from 'vue-masonry-css';
 import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
 import i18n from '@/copy/site-copy';
@@ -16,7 +15,6 @@ Ripple.color = 'rgba(0, 102, 255, 0.9)';
 const app = createApp(App)
 
 app.use(VueHead);
-app.use(VueMasonry);
 app.use(store);
 app.use(router);
 app.use(i18n)
