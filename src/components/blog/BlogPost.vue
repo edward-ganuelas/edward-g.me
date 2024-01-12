@@ -25,7 +25,7 @@
 import mixin from '@/mixins/mixin';
 import moment from 'moment';
 import client from '@/directus';
-import Author from '@/components/blog/Author';
+import Author from '@/components/blog/Author.vue';
 import _ from 'lodash';
 
 export default {

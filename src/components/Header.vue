@@ -25,7 +25,7 @@
 <script>
 import axios from 'axios';
 import _ from 'lodash';
-import TagLine from '@/components/TagLine';
+import TagLine from '@/components/TagLine.vue';
 export default {
     name: 'HeaderNav',
     components:{

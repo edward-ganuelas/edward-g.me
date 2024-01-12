@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
-                <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
+                <!-- <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" /> -->
                 <h2>{{$t('about.header')}}</h2>
                 <p>A little something, something</p>
             </div>
