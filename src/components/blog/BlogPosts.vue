@@ -37,12 +37,12 @@
 <script>
 import mixin from '@/mixins/mixin';
 import { Carousel3d, Slide } from 'vue-carousel-3d';
-import BlogFilters from './BlogFilters';
-import Author from './Author';
+import BlogFilters from '@/components/blog/BlogFilters.vue';
+import Author from '@/components/blog/Author.vue';
 import _ from 'lodash';
 import moment from 'moment';
 import { get, sync } from 'vuex-pathify';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/Spinner.vue';
 
 export default {
     name: 'blog-posts',

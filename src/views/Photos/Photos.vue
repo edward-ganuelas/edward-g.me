@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import ImageGrid from '@/components/ImageGrid';
+import ImageGrid from '@/components/ImageGrid.vue';
 import client from '@/directus';
 import _ from 'lodash';
 

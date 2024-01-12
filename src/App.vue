@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import HeaderComponent from '@/components/Header';
-import MainNav from '@/components/MainNav';
+import HeaderComponent from '@/components/Header.vue';
+import MainNav from '@/components/MainNav.vue';
 import _ from 'lodash';
 import {sync} from 'vuex-pathify';
 export default {

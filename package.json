@@ -5,8 +5,9 @@
   "description": "SPA for edward-g.me",
   "author": "Edward Ganuelas <epganuelas@gmail.com>",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

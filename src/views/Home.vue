@@ -32,9 +32,9 @@
 </template>
 
 <script>
-import DevelopmentNews from '@/components/DevelopmentNews';
-import BlogWidget from '@/components/BlogWidget';
-import Spinner from '@/components/Spinner';
+import DevelopmentNews from '@/components/DevelopmentNews.vue';
+import BlogWidget from '@/components/BlogWidget.vue';
+import Spinner from '@/components/Spinner.vue';
 import moment from 'moment';
 import _ from 'lodash';
 import client from '@/directus';
