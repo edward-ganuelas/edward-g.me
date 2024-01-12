@@ -1,5 +1,6 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+// import Vue from 'vue';
+// import Router from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import AboutSite from '@/views/About/AboutSite.vue';
@@ -15,9 +16,10 @@ import Projects from '@/views/Photos/Projects.vue';
 import Gaming from '@/views/Gaming.vue';
 
 
-Vue.use(Router)
+// Vue.use(Router)
 
-export default new Router({
+export default createRouter({
+    history: createWebHistory(),
     routes: [
         {
             path: '/',

@@ -8,7 +8,7 @@
             <button class="btn btn-primary sort" @click="setSort(sortChoices.random)"><i class="fas fa-random"></i> {{$t('imageGrid.random')}}</button>
             <masonry :cols="2" :gutter="0">
                 <div v-for="image of grid" v-bind:key="image['index']">
-                    <img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
+                    <img :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
                 </div>
             </masonry>
         </div>
