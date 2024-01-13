@@ -1,9 +1,6 @@
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
+import { createI18n } from 'vue-i18n'
 import about from '@/copy/About/en/about';
 import photography from '@/copy/Photography/en/photography';
-
-Vue.use(VueI18n);
 
 const messages = {
     en: {
@@ -74,7 +71,7 @@ const messages = {
     }
 }
 
-export default new VueI18n({
+export default createI18n({
     locale: 'en',
     messages
 });
