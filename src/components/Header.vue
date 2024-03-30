@@ -1,11 +1,11 @@
 <template>
-    <div class="container-fluid header">
-        <div class="row">
-            <div class="col-12">
+    <div class="header bg-blue rounded-bl-md rounded-br-md lg:h-48 lg:pb-18px">
+        <div class="container mx-auto">
+            <div class="grid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <h1>
+                        <div class="grid">
+                            <h1 class="text-3xl">
                                 <router-link to="/">
                                     <svg width="200" height="60">
                                         <text x="0" y="40">edward-g.me</text>
@@ -94,13 +94,13 @@ h1 {
     }
 }
 .header {
-    background-color: #0066ff;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    height: $headerMobileHeight;
+    // background-color: #0066ff;
+    // border-bottom-right-radius: 5px;
+    // border-bottom-left-radius: 5px;
+    // height: $headerMobileHeight;
     @media (min-width: 1024px) {
-        height: $headerHeight;
-        padding-bottom: 18px;
+        // height: $headerHeight;
+        // padding-bottom: 18px;
     }
 }
 .change-theme{

@@ -9,6 +9,7 @@ import VueAnalytics from 'vue-analytics';
 import store from './vuex/store';
 import i18n from '@/copy/site-copy';
 import Ripple from 'vue-ripple-directive';
+import './index.css';
 
 Ripple.color = 'rgba(0, 102, 255, 0.9)';
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="container nav">
+    <div class="container mx-auto nav bg-orange">
         <div v-if="shouldShowHamburgerMenu" class="row">
             <div class="col-6 offset-6 hamburger">
                 <button @click="toggleDrawer">
@@ -120,7 +120,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 nav {
-    background-color: #ff9900;
+    // background-color: #ff9900;
     margin-top: 8px;
     margin-bottom: 8px;
     border-radius: 15px;
