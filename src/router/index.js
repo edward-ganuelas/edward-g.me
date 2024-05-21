@@ -4,8 +4,8 @@ import Home from '@/views/Home';
 import About from '@/views/About';
 import AboutSite from '@/views/About/AboutSite';
 import Bio from '@/views/About/Bio';
-import BlogPost from '@/components/blog/BlogPost';
-import BlogPosts from '@/components/blog/BlogPosts';
+// import BlogPost from '@/components/blog/BlogPost';
+// import BlogPosts from '@/components/blog/BlogPosts';
 import Facts from '@/views/About/Facts';
 import Gear from '@/views/Photos/Gear';
 import Music from '@/views/Music';
@@ -66,11 +66,11 @@ export default new Router({
                 }
             ]
         },
-        {
-            path: '/blog',
-            name: 'Blog',
-            component: BlogPosts
-        },
+        // {
+        //     path: '/blog',
+        //     name: 'Blog',
+        //     component: BlogPosts
+        // },
         {
             path: '/music',
             name: 'Music',
@@ -81,14 +81,14 @@ export default new Router({
             name: 'Gaming',
             component: Gaming
         }, 
-        {
-            path: '/post/:title',
-            name: 'Post',
-            component: BlogPost,
-            props: (route) => ({
-                id: route.query.id,
-                title: route.params.title
-            })
-        },
+        // {
+        //     path: '/post/:title',
+        //     name: 'Post',
+        //     component: BlogPost,
+        //     props: (route) => ({
+        //         id: route.query.id,
+        //         title: route.params.title
+        //     })
+        // },
     ]
 })
