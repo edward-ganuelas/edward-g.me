@@ -1,6 +1,6 @@
 <template>
     <div class="container main-content">
-        <div class="row">
+        <div class="row" v-if="latestPersonalPost">
             <div class="col-12">
                 <div class="container">
                     <div class="row">
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-if="latestTechPost">
             <div class="col-12">
                 <div class="container">
                     <div class="row">
@@ -26,6 +26,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row" v-if="disableBlog === true">
+            <div class="col-12 blog-disabled">
+                <p>The blog is currently disabled</p>
             </div>
         </div>
     </div>
@@ -60,11 +65,16 @@ export default {
                 keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
             },
             blogPosts: undefined,
-            spin: false
+            spin: false,
+            disableBlog: true,
+            disableTechPost: true
         };
     },
     methods: {
         async getAllPosts() {
+            if (this.disableBlog) {
+                return
+            }
             this.spin = true;
             const response = await client.getItems('blog');
             this.blogPosts = Object.freeze(response.data);
@@ -87,10 +97,16 @@ export default {
             return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
         },
         latestPersonalPost() {
+            if (this.disableBlog) {
+                return null
+            }
             const personalPosts = this.personalPosts;
             return _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
         },
         latestTechPost() {
+            if (this.disableTechPost) {
+                return null
+            }
             const techPosts = this.techPosts;
             return _.orderBy(techPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
         }
@@ -149,5 +165,8 @@ export default {
         max-height: 400px;
         height: 100vh;
     }
+}
+.blog-disabled {
+    text-align: center;
 }
 </style>
