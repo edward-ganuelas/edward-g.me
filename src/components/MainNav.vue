@@ -24,12 +24,12 @@
                                 {{$t('nav.about')}}
                             </router-link>
                         </li>
-                        <li>
+                        <!-- <li>
                             <router-link to="/blog">
                                 <span class='ico'><i class="fas fa-file-alt"></i></span>
                                     Blog
                             </router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <router-link to="/photography">
                                 <span class='ico'><i class="fas fa-camera-retro"></i></span>
