@@ -1,62 +1,21 @@
 <template>
-    <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
+    <div v-bind:class="[{'dark-theme': darkTheme}]">
         <header-component ref="header" />
         <main-nav />
         <div id="page-wrap" class="content-wrapper">
-            <router-view  v-slot="{ Component }">
-                <keep-alive>
-                    <transition :name="transition" leave-active-class="dissapear">
-                        <component :is="Component" />
-                    </transition>
-                </keep-alive>
-            </router-view>
-            
+            <router-view />
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 import HeaderComponent from '@/components/Header.vue';
 import MainNav from '@/components/MainNav.vue';
 import _ from 'lodash';
-import {sync} from 'vuex-pathify';
-export default {
-    name: 'app',
-    components: {
-        HeaderComponent,
-        MainNav
-    },
-    data() {
-        return {
-            transitions: ['slideLeft', 'fadeRight', 'bounceDown', 'zoom', 'fadeUp'],
-            transition: '',
-            contentWrapperStyle: null
-        };
-    },
-    computed: {
-        darkTheme: sync('DarkTheme')
-    },
-    methods: {
-        changeTransition() {
-            this.transition = this.transitions[this.getRandomNumber()];
-        },
-        getRandomNumber() {
-            return _.random(0, 4);
-        }
-    },
-    mounted() {
-        this.changeTransition();
-        
-        this.$nextTick(()=> {
-            this.contentWrapperStyle = {
-                maxHeight: `calc(100vh - ${this.$refs.header.$el.offsetHeight}px)`
-            }
-        });
-        this.$router.afterEach(() => {
-            this.changeTransition();
-        });
-    }
-};
+// import {sync} from 'vuex-pathify';
+import { ref } from 'vue';
+
+const darkTheme = ref(false);
 </script>
 
 <style lang="scss">
