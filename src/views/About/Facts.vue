@@ -15,16 +15,16 @@
     </div>
 </template>
 
-<script>
-import factsMixin from '@/mixins/facts';
+<script setup>
+import { useFacts } from '@/composables/useFacts';
+import { onBeforeMount } from 'vue';
 
-export default {
-    name: 'Facts',
-    mixins: [factsMixin],
-    beforeMount() {
-        this.getFacts();
-    }
-};
+const { facts, getFacts } = useFacts();
+
+onBeforeMount(() => {
+    getFacts();
+})
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
