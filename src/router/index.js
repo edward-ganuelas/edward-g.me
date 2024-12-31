@@ -44,27 +44,27 @@ export default createRouter({
                 }
             ]
         },
-        {
-            path: '/photography',
-            component: Photography,
-            children:[
-                {
-                    path: '',
-                    name: 'Photos',
-                    component: Photos
-                },
-                {
-                    path: 'gear',
-                    name: 'Gear',
-                    component: Gear
-                },
-                {
-                    path: 'projects',
-                    name: 'Projects',
-                    component: Projects
-                }
-            ]
-        },
+        // {
+        //     path: '/photography',
+        //     component: Photography,
+        //     children:[
+        //         {
+        //             path: '',
+        //             name: 'Photos',
+        //             component: Photos
+        //         },
+        //         {
+        //             path: 'gear',
+        //             name: 'Gear',
+        //             component: Gear
+        //         },
+        //         {
+        //             path: 'projects',
+        //             name: 'Projects',
+        //             component: Projects
+        //         }
+        //     ]
+        // },
         // {
         //     path: '/blog',
         //     name: 'Blog',

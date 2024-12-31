@@ -30,12 +30,12 @@
                                     Blog
                             </router-link>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <router-link to="/photography">
                                 <span class='ico'><i class="fas fa-camera-retro"></i></span>
                                 {{$t('nav.photography')}}
                             </router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <router-link to="/music">
                                 <span class="ico"><i class="fas fa-music"></i></span>

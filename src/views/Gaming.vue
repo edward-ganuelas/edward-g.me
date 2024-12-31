@@ -8,7 +8,7 @@
                 <div class="card-body" v-html="$t('gaming.mainContent')">
                 </div>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <h3>{{$t('gaming.currentlyPlaying')}}</h3>
             </div>
             <div class="col-12 col-md-8 offset-md-2 card shadow">
@@ -17,7 +17,7 @@
                         {{games}}
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

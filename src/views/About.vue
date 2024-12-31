@@ -17,12 +17,12 @@
                                 {{$t('about.nav.bio')}}
                             </router-link>
                         </li>
-                        <li class="col">
+                        <!-- <li class="col">
                             <router-link to="/about/facts">
                                 <span class="icon"><i class="fas fa-info-circle"></i></span>
                                     {{$t('about.nav.facts')}}
                             </router-link>
-                        </li>
+                        </li> -->
                         <li class="col">
                             <router-link to="/about/about-site">
                                 <span class="ico"><i class="fas fa-asterisk"></i></span>

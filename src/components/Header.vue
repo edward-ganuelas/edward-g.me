@@ -13,7 +13,7 @@
                                 </router-link>
                                 <span>{{content.subHero}}</span>
                             </h1>
-                            <tag-line :tagLine=selectedTagLine />
+                            <!-- <tag-line :tagLine=selectedTagLine /> -->
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export default {
         this.getContent();
         this.initializeGenerator();
         this.$router.afterEach(()=>{
-            this.setTagLine();
+            // this.setTagLine();
         });
     }
 };
