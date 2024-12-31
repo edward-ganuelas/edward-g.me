@@ -9,9 +9,9 @@
             <div class="col-12 col-md-8 offset-md-2 card shadow">
                 <!-- <div class="card-body" v-html="$t('about.bio.content')"></div> -->
                 <div class="card-body">
-                    <i18n-t keypath="about.bio.paragraph1" tag="p"></i18n-t>
-                    <i18n-t keypath="about.bio.paragraph2" tag="p"></i18n-t>
-                    <i18n-t keypath="about.bio.paragraph3" tag="p">
+                    <i18n-t keypath="about.bio.content.paragraph1" tag="p"></i18n-t>
+                    <i18n-t keypath="about.bio.content.paragraph2" tag="p"></i18n-t>
+                    <i18n-t keypath="about.bio.content.paragraph3" tag="p">
                         <template v-slot:twitter>
                             <a href="https://twitter.com/edward_pau" target="_blank"  rel="noopener noreferrer"><i class="fab fa-twitter"></i>@edward_pau</a>
                         </template>
