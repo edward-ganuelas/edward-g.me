@@ -51,6 +51,36 @@
 
 </template>
 
+<script setup>
+const meta = {
+    title: 'About the Site',
+    description: 'Personal Site of Edward Ganuelas - About the Site',
+    keywords: 'developer, javascript, gaming, basketball, raptors, nba' 
+};
+
+const head =  {
+    title() {
+        return {
+            inner: meta.title
+        };
+    },
+    meta() {
+        return [
+            {
+                name: 'description',
+                content: meta.description,
+                id: 'description'
+            },
+            {
+                name: 'keywords', 
+                content: meta.keywords, 
+                id: 'keywords' 
+            }
+        ]
+    }
+}
+</script>
+
 <script>
 export default {
     name: 'AboutSite',
