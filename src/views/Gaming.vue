@@ -22,26 +22,21 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import client from '@/directus';
-export default {
-    name: 'Gaming',
-    data() {
-        return {
-            currentlyPlaying: ''
-        }
-    },
-    methods: {
-        async getGames() {
-            const response = await client.getItems('games');
-            this.currentlyPlaying = response.data.map(games => games.currently_playing);
-        }
-    },
-    async beforeMount() {
-        await this.getGames();
-    }
+import { ref, onBeforeMount } from 'vue';
+
+const currentlyPlaying = ref('');
+async function getGames() {
+    const response = await client.getItems('games');
+    currentlyPlaying.value = response.data.map(games => games.currently_playing);
 }
+
+onBeforeMount(async () => {
+    // await getGames()
+})
 </script>
+
 
 <style lang="scss" scoped>
 .gaming {
