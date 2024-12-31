@@ -1705,24 +1705,12 @@ vue-i18n@^9.0.0:
     "@intlify/shared" "9.9.0"
     "@vue/devtools-api" "^6.5.0"
 
-vue-ripple-directive@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-ripple-directive/-/vue-ripple-directive-2.0.1.tgz#817ae4bc2874cbf01d8a018c8e8d97c8cadb6355"
-  integrity sha512-jXZEX6uZpo89wxmdcw02uFpsMBpm1pxjQ60uqghNLQ8H8ju9eon2vE0+vvSWJ1WGCOTEfxGDR4InabJJu5f1GA==
-  dependencies:
-    vue "^2.2.1"
-
 vue-router@^4.0.0:
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.2.5.tgz#b9e3e08f1bd9ea363fdd173032620bc50cf0e98a"
   integrity sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
-
-vue@^2.2.1:
-  version "2.6.12"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
-  integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
 
 vue@^3.1:
   version "3.4.11"

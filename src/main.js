@@ -21,6 +21,5 @@ app.use(VueGtagPlugin, {
         id: 'UA-112626956-1'
     }
 }, router)
-app.directive('ripple', Ripple);
 
 app.mount('#app');
