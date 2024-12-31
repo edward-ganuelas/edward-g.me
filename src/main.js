@@ -6,9 +6,11 @@ import router from './router'
 import store from './vuex/store';
 import i18n from '@/copy/site-copy';
 import VueGtagPlugin from 'vue-gtag';
+import { createPinia } from 'pinia';
 
 
 const app = createApp(App)
+const pinia = createPinia()
 
 app.use(store);
 app.use(router);
@@ -18,5 +20,6 @@ app.use(VueGtagPlugin, {
         id: 'UA-112626956-1'
     }
 }, router)
+app.use(pinia)
 
 app.mount('#app');
