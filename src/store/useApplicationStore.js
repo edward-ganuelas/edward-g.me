@@ -6,7 +6,7 @@ export const useApplicationStore = defineStore('application', () => {
     const blogTags = ref('');
     const tags = ref('');
     const filter = ref('');
-    const isDarkTheme = ref(true);
+    const isDarkTheme = ref(false);
 
     return { blogPosts, blogTags, tags, filter, isDarkTheme }
 })
