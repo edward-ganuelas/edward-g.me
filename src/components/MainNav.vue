@@ -74,6 +74,7 @@
 </template>
 
 <script>
+import { event } from 'vue-gtag';
 export default {
 
     data() {
@@ -84,7 +85,7 @@ export default {
     },
     methods: {
         tracking(site) {
-            this.$ga.event({
+            event('click', {
                 eventCategory: `Clicked ${site}`,
                 eventAction: 'click'
             });

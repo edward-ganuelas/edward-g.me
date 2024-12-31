@@ -20,6 +20,7 @@
 
 <script>
 import { sync } from 'vuex-pathify';
+import { event } from 'vue-gtag';
 
 export default {
     name: 'BlogFilters',
@@ -31,7 +32,7 @@ export default {
             } else {
                 this.filter = tagId;
             }
-            this.$ga.event({ eventCategory: `Filter ${filter}`, eventAction: 'click' });
+            event('click', { eventCategory: `Filter ${filter}`, eventAction: 'click' });
         }
     },
     computed: {

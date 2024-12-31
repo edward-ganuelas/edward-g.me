@@ -27,6 +27,7 @@ import moment from 'moment';
 import client from '@/directus';
 import Author from '@/components/blog/Author.vue';
 import _ from 'lodash';
+import { pageview } from 'vue-gtag';
 
 export default {
     name: 'BlogPost',
@@ -71,7 +72,7 @@ export default {
         await this.getPost();
         await this.getBlogTags();
         await this.getTags();
-        this.$ga.page({
+        pageview({
             page: '/post',
             title: this.post.title,
             location: window.location.href

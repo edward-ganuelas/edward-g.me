@@ -18,6 +18,7 @@
 
 <script>
 import _ from 'lodash';
+import { event } from 'vue-gtag';
 
 const DEFAULT_SORT = 'old';
 
@@ -47,7 +48,7 @@ export default {
             if (this.gridSize > this.numberOfImages) {
                 this.gridSize = this.numberOfImages;
             }
-            this.$ga.event({
+            event('click', {
                 eventCategory: `Load More ${this.toggle}`,
                 eventAction: 'click',
             });
@@ -84,7 +85,7 @@ export default {
     },
     watch: {
         sort(newVal){
-            this.$ga.event({
+            event('switch', {
                 eventCategory: `Switch Sort to ${newVal} from ${this.title}`,
                 eventAction: 'Switch',
             });
