@@ -5,8 +5,8 @@ import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import AboutSite from '@/views/About/AboutSite.vue';
 import Bio from '@/views/About/Bio.vue';
-// import BlogPost from '@/components/blog/BlogPost.vue';
-// import BlogPosts from '@/components/blog/BlogPosts.vue';
+import BlogPost from '@/components/blog/BlogPost.vue';
+import BlogPosts from '@/components/blog/BlogPosts.vue';
 import Facts from '@/views/About/Facts.vue';
 import Gear from '@/views/Photos/Gear.vue';
 import Music from '@/views/Music.vue';
@@ -44,32 +44,38 @@ export default createRouter({
                 }
             ]
         },
-        // {
-        //     path: '/photography',
-        //     component: Photography,
-        //     children:[
-        //         {
-        //             path: '',
-        //             name: 'Photos',
-        //             component: Photos
-        //         },
-        //         {
-        //             path: 'gear',
-        //             name: 'Gear',
-        //             component: Gear
-        //         },
-        //         {
-        //             path: 'projects',
-        //             name: 'Projects',
-        //             component: Projects
-        //         }
-        //     ]
-        // },
-        // {
-        //     path: '/blog',
-        //     name: 'Blog',
-        //     component: BlogPosts
-        // },
+        {
+            path: '/photography',
+            component: Photography,
+            children:[
+                {
+                    path: '',
+                    name: 'Photos',
+                    component: Photos
+                },
+                {
+                    path: 'gear',
+                    name: 'Gear',
+                    component: Gear
+                },
+                {
+                    path: 'projects',
+                    name: 'Projects',
+                    component: Projects
+                }
+            ],
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
+        },
+        {
+            path: '/blog',
+            name: 'Blog',
+            component: BlogPosts,
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
+        },
         {
             path: '/music',
             name: 'Music',
@@ -80,14 +86,17 @@ export default createRouter({
             name: 'Gaming',
             component: Gaming
         }, 
-        // {
-        //     path: '/post/:title',
-        //     name: 'Post',
-        //     component: BlogPost,
-        //     props: (route) => ({
-        //         id: route.query.id,
-        //         title: route.params.title
-        //     })
-        // },
+        {
+            path: '/post/:title',
+            name: 'Post',
+            component: BlogPost,
+            props: (route) => ({
+                id: route.query.id,
+                title: route.params.title
+            }),
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
+        },
     ]
 })
