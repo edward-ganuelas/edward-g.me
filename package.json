@@ -36,7 +36,6 @@
     "chai": "^4.3.6",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "fibers": "^5.0.1",
     "sass": "^1.52.3"
   }
 }
