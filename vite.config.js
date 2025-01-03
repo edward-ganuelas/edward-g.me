@@ -4,19 +4,10 @@ import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
-    plugins: [vue({
-        template: {
-            compilerOptions: {
-                compatConfig: {
-                    MODE: 3
-                }
-            }
-        }
-    })],
+    plugins: [vue()],
     resolve: {
         alias: {
-            "@": fileURLToPath(new URL("./src", import.meta.url)),
-            vue: '@vue/compat'
+            "@": fileURLToPath(new URL("./src", import.meta.url))
         },
     },
 })

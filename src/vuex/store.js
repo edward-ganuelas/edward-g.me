@@ -1,6 +1,4 @@
 import { createStore } from 'vuex'
-import pathify from './pathify'
-import { make } from 'vuex-pathify'
 
 const state = {
     BlogPosts: '',
@@ -23,5 +21,5 @@ export default createStore({
     state,
     getters,
     mutations,
-    plugins: [pathify.plugin]
+    plugins: []
 })
