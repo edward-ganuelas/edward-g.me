@@ -12,9 +12,8 @@
 import HeaderComponent from '@/components/Header.vue';
 import MainNav from '@/components/MainNav.vue';
 import _ from 'lodash';
-// import {sync} from 'vuex-pathify';
 import { ref, computed } from 'vue';
-import { useApplicationStore } from './store/useApplicationStore';
+import { useApplicationStore } from '@/store/useApplicationStore';
 
 const store = useApplicationStore()
 
