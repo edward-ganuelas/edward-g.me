@@ -18,28 +18,32 @@
     </div>
 </template>
 
-<script>
-import { sync } from 'vuex-pathify';
+<script setup>
 import { event } from 'vue-gtag';
+import { useApplicationStore } from '@/store/useApplicationStore';
+const store = useApplicationStore()
+import { computed } from 'vue';
 
-export default {
-    name: 'BlogFilters',
-    props: ['savedTags'],
-    methods: {
-        onFilterClick(filter, tagId) {
-            if (filter === 'clear') {
-                this.filter = '';
-            } else {
-                this.filter = tagId;
-            }
-            event('click', { eventCategory: `Filter ${filter}`, eventAction: 'click' });
-        }
-    },
-    computed: {
-        filter: sync('Filter')
+defineProps({
+    savedTags: {
+        type: Array,
+        required: true
     }
-};
+})
+
+const filter = computed(() => store.filter);
+
+function onFilterClick(filter, tagId) {
+    if (filter.value === 'clear') {
+        store.filter = '';
+    } else {
+        store.filter = tagId;
+    }
+    event('click', { eventCategory: `Filter ${filter.value}`, eventAction: 'click' });
+}
+
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

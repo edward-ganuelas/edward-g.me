@@ -9,7 +9,6 @@
                         <p v-if="post.publish_date">{{$t('blog.publishedOn')}} {{publishedDate(post.publish_date)}}</p>
                         <div v-html="post.post"></div>
                     </div>
-                    
                 </div>
             </div>
             <div class="row">
@@ -21,77 +20,81 @@
     </div>
 </template>
 
-<script>
-import mixin from '@/mixins/mixin';
+<script setup>
 import moment from 'moment';
 import client from '@/directus';
 import Author from '@/components/blog/Author.vue';
 import _ from 'lodash';
 import { pageview } from 'vue-gtag';
+import { useBlog } from '@/composables/useBlog'
 
-export default {
-    name: 'BlogPost',
-    props: ['id'],
-    mixins: [mixin],
-    data() {
+const { blogPosts, blogTags, tags, getPosts, getBlogTags, getTags } = useBlog();
+import { ref, computed, onBeforeMount } from 'vue';
+
+const props = defineProps({
+    id: {
+        type: String,
+        required: true,
+        default: ''
+    }
+});
+
+const post = ref('');
+const keywords = ref('');
+const title = ref('');
+const description = ref('');
+
+
+function getKeyWords() {
+    if (!blogTags.value) {
+        return [];
+    }
+    const blogTags = _.cloneDeep(blogTags.value);
+    const savedTags = _.cloneDeep(tags.value);
+    const tagIds = blogTags.filter(blogTag => blogTag.blog_id === parseInt(props.id)).map(blogTag => blogTag.tags_id);
+    return savedTags.filter(tag=> _.includes(tagIds, tag.id)).map(tag=> tag.tag).join(',');
+}
+
+function updateMetaData() {
+    title.value = post.value.title;
+    keywords.value = getKeyWords();
+    description.value = post.value.excerpt;
+}
+
+function publishedDate(published_date) {
+    return moment(published_date).format('MMM D YYYY');
+}
+
+async function getPost() {
+    const response = await client.getItem('blog', props.id);
+    post.value = response.data;
+    updateMetaData();
+}
+
+const head = {
+    title() {
         return {
-            post: '',
-            keywords: '',
-            title: '',
-            description: ''
+            inner: title.value
         };
     },
-    components: {
-        Author
-    },
-    methods: {
-        async getPost() {
-            const response = await client.getItem('blog', this.id);
-            this.post = response.data;
-            this.updateMetaData();
-        },
-        publishedDate(published_date) {
-            return moment(published_date).format('MMM D YYYY');
-        },
-        updateMetaData() {
-            this.title = this.post.title;
-            this.keywords = this.getKeyWords();
-            this.description = this.post.excerpt;
-        },
-        getKeyWords() {
-            if (!this.savedBlogTags) {
-                return [];
-            }
-            const blogTags = _.cloneDeep(this.savedBlogTags);
-            const savedTags = _.cloneDeep(this.savedTags);
-            const tagIds = blogTags.filter(blogTag => blogTag.blog_id === parseInt(this.id)).map(blogTag => blogTag.tags_id);
-            return savedTags.filter(tag=> _.includes(tagIds, tag.id)).map(tag=> tag.tag).join(',');
-        }
-    },
-    async beforeMount() {
-        await this.getPost();
-        await this.getBlogTags();
-        await this.getTags();
-        pageview({
-            page: '/post',
-            title: this.post.title,
-            location: window.location.href
-        });
-    },
-    head: {
-        title() {
-            return {
-                inner: this.title
-            };
-        },
-        meta() {
-            return [
-                { name: 'description', content: this.description },
-                { name: 'keywords', content: this.keywords }
-            ];
-        }
+    meta() {
+        return [
+            { name: 'description', content: description.value },
+            { name: 'keywords', content: keywords.value }
+        ];
     }
-};
+}
+
+onBeforeMount(async () => {
+    await getPost();
+    await getBlogTags();
+    await getTags();
+    pageview({
+        page: '/post',
+        title: post.value.title,
+        location: window.location.href
+    });
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
