@@ -13,7 +13,7 @@
                                 </router-link>
                                 <span>{{content.subHero}}</span>
                             </h1>
-                            <!-- <tag-line :tagLine=selectedTagLine /> -->
+                            <tag-line :tagLine=selectedTagLine />
                         </div>
                     </div>
                 </div>
@@ -22,58 +22,57 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import axios from 'axios';
 import _ from 'lodash';
 import TagLine from '@/components/TagLine.vue';
-export default {
-    name: 'HeaderNav',
-    components:{
-        TagLine
-    },
-    data() {
-        return {
-            content: '',
-            tagLines: [],
-            selectedTagLine: '',
-            taglineIterator: null,
-        };
-    },
-    methods: {
-        async getContent() {
-            axios.get('static/json/header.json').then((x) => {
-                this.content = x.data.content;
-                this.tagLines = x.data.content.tagLines;
-                this.setTagLine();
-            });
-        },
-        *tagLineGenerator() {
-            const tagLines = _.shuffle(_.cloneDeep(this.tagLines));
-            for (let i = 0; i < tagLines.length; i++) {
-                yield tagLines[i];
-            }
-        },
-        initializeGenerator() {
-            this.taglineIterator = this.tagLineGenerator();
-            this.selectedTagLine = this.taglineIterator.next().value;
-        },
-        setTagLine() {
-            const iterator = this.taglineIterator.next();
-            if (iterator.done) {
-                return this.initializeGenerator();
-            }
-            this.selectedTagLine = iterator.value;
-        },
-    },
-    beforeMount() {
-        this.getContent();
-        this.initializeGenerator();
-        this.$router.afterEach(()=>{
-            // this.setTagLine();
-        });
+import { ref, onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const content = ref('');
+const tagLines = ref([]);
+const selectedTagLine = ref('');
+const taglineIterator = ref({});
+
+async function getContent() {
+    axios.get('static/json/header.json').then((x) => {
+        content.value = x.data.content;
+        tagLines.value = x.data.content.tagLines;
+        setTagLine();
+    });
+}
+
+function *tagLineGenerator() {
+    const _tagLines = _.shuffle(_.cloneDeep(tagLines.value));
+    for (let i = 0; i < _tagLines.length; i++) {
+        yield _tagLines[i];
     }
-};
+}
+
+function initializeGenerator() {
+    taglineIterator.value = tagLineGenerator();
+    selectedTagLine.value = taglineIterator.value.next().value;
+}
+
+function setTagLine() {
+    const iterator = taglineIterator.value.next();
+    if (iterator.done) {
+        return initializeGenerator();
+    }
+    selectedTagLine.value = iterator.value;
+}
+
+onBeforeMount(() => {
+    getContent();
+    initializeGenerator();
+})
+router.afterEach(()=>{
+    setTagLine();
+});
 </script>
+
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style scoped lang="scss">
