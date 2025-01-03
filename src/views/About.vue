@@ -17,12 +17,12 @@
                                 {{$t('about.nav.bio')}}
                             </router-link>
                         </li>
-                        <li class="col">
+                        <!-- <li class="col">
                             <router-link to="/about/facts">
                                 <span class="icon"><i class="fas fa-info-circle"></i></span>
                                     {{$t('about.nav.facts')}}
                             </router-link>
-                        </li>
+                        </li> -->
                         <li class="col">
                             <router-link to="/about/about-site">
                                 <span class="ico"><i class="fas fa-asterisk"></i></span>
@@ -35,51 +35,39 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <router-view  v-slot="{ Component }">
-                    <keep-alive>
-                        <transition :name="slideUp" leave-active-class="dissapear">
-                            <component :is="Component" />
-                        </transition>
-                    </keep-alive>
-                </router-view>
+                <router-view />
             </div>
         </div>
     </div>
 </template>
 
-<script>
-export default {
-    name: 'About',
-    data() {
+<script setup>
+const meta =  {
+    title: 'About',
+    description: 'Personal Site of Edward Ganuelas',
+    keywords:
+        'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe'
+};
+
+const head = {
+    title() {
         return {
-            meta: {
-                title: 'About',
-                description: 'Personal Site of Edward Ganuelas',
-                keywords:
-                    'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe'
-            }
+            inner: meta.title
         };
     },
-    head: {
-        title() {
-            return {
-                inner: this.meta.title
-            };
-        },
-        meta() {
-            return [
-                {
-                    name: 'description',
-                    content: this.meta.description,
-                    id: 'description'
-                },
-                { 
-                    name: 'keywords', 
-                    content: this.meta.keywords, 
-                    id: 'keywords' 
-                }
-            ];
-        }
+    meta() {
+        return [
+            {
+                name: 'description',
+                content: meta.description,
+                id: 'description'
+            },
+            { 
+                name: 'keywords', 
+                content: meta.keywords, 
+                id: 'keywords' 
+            }
+        ];
     }
 };
 </script>

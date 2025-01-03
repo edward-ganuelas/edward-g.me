@@ -1,6 +1,6 @@
 // import Vue from 'vue';
 // import Router from 'vue-router';
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import AboutSite from '@/views/About/AboutSite.vue';
@@ -16,7 +16,7 @@ import Projects from '@/views/Photos/Projects.vue';
 import Gaming from '@/views/Gaming.vue';
 
 export default createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes: [
         {
             path: '/',
@@ -63,12 +63,18 @@ export default createRouter({
                     name: 'Projects',
                     component: Projects
                 }
-            ]
+            ],
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
         },
         {
             path: '/blog',
             name: 'Blog',
-            component: BlogPosts
+            component: BlogPosts,
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
         },
         {
             path: '/music',
@@ -87,7 +93,10 @@ export default createRouter({
             props: (route) => ({
                 id: route.query.id,
                 title: route.params.title
-            })
+            }),
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
         },
     ]
 })

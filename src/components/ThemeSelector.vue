@@ -7,29 +7,25 @@
     </div>
 </template>
 
-<script>
-import {sync} from 'vuex-pathify';
-export default {
-    name: 'ThemeSelector',
-    computed:{
-        darkTheme: sync('DarkTheme')
-    },
-    methods: {
-        changeTheme(theme){
-            const body = document.querySelector('body');
-            switch(theme){
-            case 'light':
-                this.darkTheme = false;
-                body.classList.replace('dark', 'light');
-                break;
-            case 'dark':
-                this.darkTheme = true;
-                body.classList.replace('light', 'dark');
-                break;
-            }
-            this.$emit('clicked');
-        }
+<script setup>
+import { useApplicationStore } from '@/store/useApplicationStore';
+const store = useApplicationStore()
+
+const emits = defineEmits(['clicked'])
+
+function changeTheme(theme){
+    const body = document.querySelector('body');
+    switch(theme){
+    case 'light':
+        store.isDarkTheme = false;
+        body.classList.replace('dark', 'light');
+        break;
+    case 'dark':
+        store.isDarkTheme = true;
+        body.classList.replace('light', 'dark');
+        break;
     }
+    emits('clicked');
 }
 </script>
 

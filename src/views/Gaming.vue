@@ -8,7 +8,7 @@
                 <div class="card-body" v-html="$t('gaming.mainContent')">
                 </div>
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <h3>{{$t('gaming.currentlyPlaying')}}</h3>
             </div>
             <div class="col-12 col-md-8 offset-md-2 card shadow">
@@ -17,31 +17,26 @@
                         {{games}}
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 import client from '@/directus';
-export default {
-    name: 'Gaming',
-    data() {
-        return {
-            currentlyPlaying: ''
-        }
-    },
-    methods: {
-        async getGames() {
-            const response = await client.getItems('games');
-            this.currentlyPlaying = response.data.map(games => games.currently_playing);
-        }
-    },
-    async beforeMount() {
-        await this.getGames();
-    }
+import { ref, onBeforeMount } from 'vue';
+
+const currentlyPlaying = ref('');
+async function getGames() {
+    const response = await client.getItems('games');
+    currentlyPlaying.value = response.data.map(games => games.currently_playing);
 }
+
+onBeforeMount(async () => {
+    // await getGames()
+})
 </script>
+
 
 <style lang="scss" scoped>
 .gaming {
