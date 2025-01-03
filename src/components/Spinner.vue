@@ -12,14 +12,14 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'Spinner',
-    props: ['spin'],
-    data() {
-        return {};
+<script setup>
+defineProps({
+    spin: {
+        type: Boolean,
+        required: true,
+        default: false
     }
-};
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
