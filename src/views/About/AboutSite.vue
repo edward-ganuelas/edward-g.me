@@ -22,7 +22,6 @@
                     </li>
                     <li><a href="https://lodash.com/" target="_blank" rel="noopener">Lodash</a></li>
                     <li><a href="https://sass-lang.com/" target="_blank" rel="noopener">Sass</a></li>
-                    <li><a href="https://github.com/crowdbotics/v-img" target="_blank" rel="noopener">v-img</a></li>
                     <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a></li>
                     <li>
                         <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a>
@@ -30,18 +29,12 @@
                             <li>Vetur</li>
                             <li>Vuex</li>
                             <li>vue-router</li>
-                            <li>vue-cli</li>
+                            <li>vite</li>
+                            <li>pinia</li>
                         </ul>
                     </li>
-                    <li><a href="https://github.com/MatteoGabriele/vue-analytics" target="_blank" rel="noopener">vue-analytics</a></li>
+                    <li><a href="https://github.com/MatteoGabriele/vue-gtag" target="_blank" rel="noopener">vue-gtag</a></li>
                     <li><a href="https://wlada.github.io/vue-carousel-3d/" target="_blank" rel="noopener">vue-carousel-3d</a></li>
-                    <li><a href="https://github.com/ktquez/vue-head" target="_blank" rel="noopener">vue-head</a></li>
-                    <li><a href="https://github.com/paulcollett/vue-masonry-css" target="_blank" rel="noopener">vue-masonry-css</a></li>
-
-                    <li><a href="https://github.com/PygmySlowLoris/vue-ripple-directive" target="_blank" rel="noopener">vue-ripple-directive</a></li>
-                    <li><a href="https://github.com/asika32764/vue2-animate" target="_blank" rel="noopener">vue2-animate</a></li>
-                    <li><a href="https://github.com/robinvdvleuten/vuex-persistedstate" target="_blank" rel="noopener">vuex-persistedstate</a></li>
-                    <li><a href="https://webpack.js.org/" target="_blank" rel="noopener">Webpack</a></li>
                 </ul>
             </div>
         </div>
