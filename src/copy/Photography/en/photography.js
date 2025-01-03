@@ -16,7 +16,7 @@ export default {
     photos: {
         header: 'Photos',
         content: `
-        <p>Here's a sample of my photos. These were primarily shot in film and I will keep adding to this list. To see more checkout my <a href="https://www.instagram.com/mustadio98/" target="_blank" rel="noopener noreferrer" @click="instagram"><i class="fab fa-instagram"></i> Instagram</a>.</p>
+        <p>Here's a sample of my photos. These were primarily shot in film and I will keep adding to this list. To see more checkout my <a href="https://www.instagram.com/edward.g.me" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>.</p>
         `,
         bnw: 'Black and White',
         colour: 'Colour'

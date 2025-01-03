@@ -16,13 +16,14 @@
 </template>
 
 <script>
+import { event } from 'vue-gtag';
 
 export default {
     name: 'DevelopmentNews',
     props: ['post'],
     methods: {
         tracking(site) {
-            this.$ga.event({
+            event('click', {
                 eventCategory: `Clicked ${site}`,
                 eventAction: 'click'
             });

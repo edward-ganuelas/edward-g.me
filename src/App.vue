@@ -1,57 +1,23 @@
 <template>
-    <div id="app" v-bind:class="[{'dark-theme': darkTheme}]">
+    <div v-bind:class="[{'dark-theme': darkTheme}]">
         <header-component ref="header" />
         <main-nav />
         <div id="page-wrap" class="content-wrapper">
-            <transition :name="transition" leave-active-class="dissapear">
-                <router-view></router-view>
-            </transition>
+            <router-view />
         </div>
     </div>
 </template>
 
-<script>
-import HeaderComponent from '@/components/Header';
-import MainNav from '@/components/MainNav';
+<script setup>
+import HeaderComponent from '@/components/Header.vue';
+import MainNav from '@/components/MainNav.vue';
 import _ from 'lodash';
-import {sync} from 'vuex-pathify';
-export default {
-    name: 'app',
-    components: {
-        HeaderComponent,
-        MainNav
-    },
-    data() {
-        return {
-            transitions: ['slideLeft', 'fadeRight', 'bounceDown', 'zoom', 'fadeUp'],
-            transition: '',
-            contentWrapperStyle: null
-        };
-    },
-    computed: {
-        darkTheme: sync('DarkTheme')
-    },
-    methods: {
-        changeTransition() {
-            this.transition = this.transitions[this.getRandomNumber()];
-        },
-        getRandomNumber() {
-            return _.random(0, 4);
-        }
-    },
-    mounted() {
-        this.changeTransition();
-        
-        this.$nextTick(()=> {
-            this.contentWrapperStyle = {
-                maxHeight: `calc(100vh - ${this.$refs.header.$el.offsetHeight}px)`
-            }
-        });
-        this.$router.afterEach(() => {
-            this.changeTransition();
-        });
-    }
-};
+import { ref, computed } from 'vue';
+import { useApplicationStore } from '@/store/useApplicationStore';
+
+const store = useApplicationStore()
+
+const darkTheme = computed(() => store.isDarkTheme )
 </script>
 
 <style lang="scss">
@@ -75,7 +41,7 @@ body {
     }
 }
 body, #app{
-    &.dark-theme, &.dark{
+    .dark-theme, .dark{
         background-color: #010617;
         color: #e6e4e4;
         a{

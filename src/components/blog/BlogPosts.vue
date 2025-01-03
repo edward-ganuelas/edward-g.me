@@ -34,84 +34,78 @@
     </div>
 </template>
 
-<script>
-import mixin from '@/mixins/mixin';
+<script setup>
 import { Carousel3d, Slide } from 'vue-carousel-3d';
-import BlogFilters from './BlogFilters';
-import Author from './Author';
+import BlogFilters from '@/components/blog/BlogFilters.vue';
+import Author from '@/components/blog/Author.vue';
 import _ from 'lodash';
 import moment from 'moment';
-import { get, sync } from 'vuex-pathify';
-import Spinner from '@/components/Spinner';
+import Spinner from '@/components/Spinner.vue';
+import { useBlog } from '@/composables/useBlog'
+import { useApplicationStore } from '@/store/useApplicationStore';
 
-export default {
-    name: 'blog-posts',
-    mixins: [mixin],
-    data() {
-        return {
-            spin: false,
-        };
-    },
-    components: {
-        Author,
-        BlogFilters,
-        Spinner,
-        Carousel3d,
-        Slide
-    },
-    methods: {
-        getPostTags(postId) {
-            if (!this.savedBlogTags) {
-                return;
-            }
-            const blogTags = _.cloneDeep(this.savedBlogTags);
-            
-            return blogTags.filter(blogTag => blogTag.blog_id === postId);
-        },
-        convertTagIdToTag(tagId) {
-            const tags = _.cloneDeep(this.savedTags);
-            if (!tags) {
-                return;
-            }
-            return _.startCase(tags.find(tag => tag.id === tagId)['tag']);
-        },
-        publishedDate(published_date) {
-            return moment(published_date).format('MMM D YYYY');
-        },
-        filterClicked(data) {
-            this.filter = data;
-        },
-        resetPosts() {
-            Object.assign(this.posts, this.orderedPosts.slice());
-        },
-        kebabTitle(title) {
-            return _.kebabCase(title);
-        }
-    },
-    computed: {
-        orderedPosts() {
-            return _.sortBy(this.filteredPosts, (post) => {
-                return new Date(post.published_date);
-            }).reverse();
-        },
-        savedPost: sync('BlogPosts'),
-        filter: get('Filter'),
-        filteredPosts() {
-            if (this.filter === '') {
-                return this.savedPost;
-            }
-            const savedBlogTags = _.cloneDeep(this.savedBlogTags);
-            const filteredBlogTags = savedBlogTags.filter(blogTag => blogTag.tags_id === this.filter)
-                .map(blogTag => blogTag.blog_id);
-            return _.cloneDeep(this.savedPost).filter(post => _.includes(filteredBlogTags, post.id));
-        }
-    },
-    async beforeMount() {
-        this.savedPost = await this.getPosts();
-        this.savedBlogTags = await this.getBlogTags();
-        this.savedTags = await this.getTags();
+import { ref, computed, onBeforeMount } from 'vue';
+
+const { blogPosts, blogTags, tags, getPosts, getBlogTags, getTags } = useBlog();
+const store = useApplicationStore()
+
+const spin = ref(false);
+
+function getPostTags(postId) {
+    if (!blogTags._.value()) {
+        return;
     }
-};
+    const blogTags = _.cloneDeep(blogTags.value);
+
+    return blogTags.filter(blogTag => blogTag.blog_id === postId);
+}
+
+function convertTagIdToTag(tagId) {
+    const tags = _.cloneDeep(tags.value);
+    if (!tags) {
+        return;
+    }
+    return _.startCase(tags.find(tag => tag.id === tagId)['tag']);
+}
+
+function publishedDate(published_date) {
+    return moment(published_date).format('MMM D YYYY');
+}
+function filterClicked(data) {
+    store.filter = data;
+}
+
+// function resetPosts() {
+//     Object.assign(this.posts, this.orderedPosts.slice());
+// }
+
+function kebabTitle(title) {
+    return _.kebabCase(title);
+}
+
+const filter = computed(() => store.filter);
+
+const filteredPosts = computed(() => {
+    if (filter.value === '') {
+        return blogPosts;
+    }
+    const savedBlogTags = _.cloneDeep(blogTags.value);
+    const filteredBlogTags = savedBlogTags.filter(blogTag => blogTag.tags_id === filter.value)
+        .map(blogTag => blogTag.blog_id);
+    return _.cloneDeep(blogPosts).filter(post => _.includes(filteredBlogTags, post.id));
+});
+
+const orderedPosts = computed(() => {
+    return _.sortBy(filteredPosts.value, (post) => {
+        return new Date(post.published_date);
+    }).reverse();
+});
+
+onBeforeMount(async () => {
+    blogPosts.value = await getPosts();
+    blogTags.value = await getBlogTags();
+    savedTags.value = await getTags();
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
