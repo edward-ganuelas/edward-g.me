@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import DevelopmentNews from '@/components/DevelopmentNews.vue';
 import BlogWidget from '@/components/BlogWidget.vue';
 import Spinner from '@/components/Spinner.vue';
@@ -44,91 +44,84 @@ import moment from 'moment';
 import _ from 'lodash';
 import client from '@/directus';
 
+import { ref, computed, onBeforeMount } from 'vue';
+
 const BLOG_TYPES = Object.freeze({
     TECH: 'tech',
     PERSONAL: 'personal'
 });
 
-export default {
-    name: 'Home',
-    components: {
-        DevelopmentNews,
-        BlogWidget,
-        Spinner
-    },
-    data() {
-        return {
-            content: '',
-            meta: {
-                title: 'Home',
-                description: 'Personal Site of Edward Ganuelas',
-                keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
-            },
-            blogPosts: undefined,
-            spin: false,
-            disableBlog: true,
-            disableTechPost: true
-        };
-    },
-    methods: {
-        async getAllPosts() {
-            if (this.disableBlog) {
-                return
-            }
-            this.spin = true;
-            const response = await client.getItems('blog');
-            this.blogPosts = Object.freeze(response.data);
-            this.spin = false;
-        }
-    },
-    computed: {
-        personalPosts() {
-            if (!_.isObject(this.blogPosts)){
-                return;
-            }
-            const blogPosts = _.cloneDeep(this.blogPosts);
-            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.PERSONAL);
-        },
-        techPosts() {
-            if (!_.isObject(this.blogPosts)){
-                return;
-            }
-            const blogPosts = _.cloneDeep(this.blogPosts);
-            return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
-        },
-        latestPersonalPost() {
-            if (this.disableBlog) {
-                return null
-            }
-            const personalPosts = this.personalPosts;
-            return _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
-        },
-        latestTechPost() {
-            if (this.disableTechPost) {
-                return null
-            }
-            const techPosts = this.techPosts;
-            return _.orderBy(techPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
-        }
-    },
-    head: {
+const content = ref('');
+const meta =  {
+    title: 'Home',
+    description: 'Personal Site of Edward Ganuelas',
+    keywords: 'developer, javascript, photography, filipino, blog, nikon, gaming, basketball, raptors, nba, wrestling, wwe',
+};
+const blogPosts = ref({});
+const spin = ref(false);
+const disableBlog = ref(true);
+const disableTechPost = ref(true);
+
+async function getAllPosts() {
+    if (disableBlog.value === true) {
+        return;
+    }
+    spin.value = true;
+    const response = await client.getItems('blog');
+    blogPosts.value = Object.freeze(response.data);
+    spin.value = false;
+}
+
+const personalPosts = computed(() => {
+    if (!_.isObject(blogPosts.value)){
+        return;
+    }
+    const blogPosts = _.cloneDeep(blogPosts.value);
+    return blogPosts.filter(post => post.blog_type === BLOG_TYPES.PERSONAL);
+});
+const techPost = computed(() => {
+    if (!_.isObject(blogPosts.value)){
+        return;
+    }
+    const blogPosts = _.cloneDeep(blogPosts.value);
+    return blogPosts.filter(post => post.blog_type === BLOG_TYPES.TECH);
+});
+const latestPersonalPost = computed(() =>{
+    if (disableBlog.value === true) {
+        return null;
+    }
+    const personalPosts = personalPosts.value;
+    return _.orderBy(personalPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
+});
+const latestTechPost = computed(() => {
+    if (disableTechPost.value === true) {
+        return null;
+    }
+    const techPosts = techPosts.value;
+    return _.orderBy(techPosts, (o) => moment(o.publish_date, 'YYYY-MM-D').unix(), ['desc'])[0];
+})
+
+const head = computed(() => {
+    return {
         title() {
             return {
-                inner: this.meta.title
+                inner: meta.title
             };
         },
         meta() {
             return [
-                { name: 'description', content: this.meta.description, id: 'description' },
-                { name: 'keywords', content: this.meta.keywords, id: 'keywords' }
+                { name: 'description', content: meta.description, id: 'description' },
+                { name: 'keywords', content: meta.keywords, id: 'keywords' }
             ];
         }
-    },
-    async beforeMount() {
-        await this.getAllPosts();
     }
-};
+})
+
+onBeforeMount(async () => {
+    await getAllPosts();
+})
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
