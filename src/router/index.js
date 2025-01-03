@@ -1,11 +1,12 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+// import Vue from 'vue';
+// import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import AboutSite from '@/views/About/AboutSite.vue';
 import Bio from '@/views/About/Bio.vue';
-// import BlogPost from '@/components/blog/BlogPost.vue';
-// import BlogPosts from '@/components/blog/BlogPosts.vue';
+import BlogPost from '@/components/blog/BlogPost.vue';
+import BlogPosts from '@/components/blog/BlogPosts.vue';
 import Facts from '@/views/About/Facts.vue';
 import Gear from '@/views/Photos/Gear.vue';
 import Music from '@/views/Music.vue';
@@ -14,10 +15,8 @@ import Photos from '@/views/Photos/Photos.vue';
 import Projects from '@/views/Photos/Projects.vue';
 import Gaming from '@/views/Gaming.vue';
 
-
-Vue.use(Router)
-
-export default new Router({
+export default createRouter({
+    history: createWebHashHistory(),
     routes: [
         {
             path: '/',
@@ -64,13 +63,19 @@ export default new Router({
                     name: 'Projects',
                     component: Projects
                 }
-            ]
+            ],
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
         },
-        // {
-        //     path: '/blog',
-        //     name: 'Blog',
-        //     component: BlogPosts
-        // },
+        {
+            path: '/blog',
+            name: 'Blog',
+            component: BlogPosts,
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
+        },
         {
             path: '/music',
             name: 'Music',
@@ -81,14 +86,17 @@ export default new Router({
             name: 'Gaming',
             component: Gaming
         }, 
-        // {
-        //     path: '/post/:title',
-        //     name: 'Post',
-        //     component: BlogPost,
-        //     props: (route) => ({
-        //         id: route.query.id,
-        //         title: route.params.title
-        //     })
-        // },
+        {
+            path: '/post/:title',
+            name: 'Post',
+            component: BlogPost,
+            props: (route) => ({
+                id: route.query.id,
+                title: route.params.title
+            }),
+            beforeEnter: () => {
+                return { name: 'Home'}
+            }
+        },
     ]
 })

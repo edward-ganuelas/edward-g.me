@@ -30,12 +30,12 @@
                                     Blog
                             </router-link>
                         </li> -->
-                        <li>
+                        <!-- <li>
                             <router-link to="/photography">
                                 <span class='ico'><i class="fas fa-camera-retro"></i></span>
                                 {{$t('nav.photography')}}
                             </router-link>
-                        </li>
+                        </li> -->
                         <li>
                             <router-link to="/music">
                                 <span class="ico"><i class="fas fa-music"></i></span>
@@ -73,48 +73,44 @@
     </div>
 </template>
 
-<script>
-export default {
+<script setup>
+import { event } from 'vue-gtag';
+import { onMounted, onBeforeUnmount, ref, computed } from 'vue';
 
-    data() {
-        return {
-            isDrawerOpen: true,
-            viewportWidth: 0,
-        }
-    },
-    methods: {
-        tracking(site) {
-            this.$ga.event({
-                eventCategory: `Clicked ${site}`,
-                eventAction: 'click'
-            });
-        },
-        toggleDrawer() {
-            this.isDrawerOpen = !this.isDrawerOpen;
-        },
-        onResize() {
-            this.viewportWidth = window.innerWidth;
-        }
-    },
-    computed: {
-        shouldShowHamburgerMenu() {
-            if (this.viewportWidth < 1024) {
-                return true;
-            }
-            return false;
-        }
-    },
-    mounted() {
-        this.viewportWidth = window.innerWidth;
-        if (this.viewportWidth < 1024) {
-            this.isDrawerOpen = false;
-        }
-        window.addEventListener('resize', this.onResize);
-    },
-    beforeDestroy() {
-        window.removeEventListener('resize', this.onResize);
-    }
+const isDrawerOpen = ref(true);
+const viewportWidth = ref(0);
+function tracking(site) {
+    event('click', {
+        eventCategory: `Clicked ${site}`,
+        eventAction: 'click'
+    });
 }
+function toggleDrawer() {
+    isDrawerOpen.value = !isDrawerOpen.value;
+}
+
+function onResize() {
+    viewportWidth.value = window.innerWidth;
+}
+
+const shouldShowHamburgerMenu = computed(() => {
+    if (viewportWidth.value < 1024) {
+        return true;
+    }
+    return false;
+});
+
+onMounted(() => {
+    viewportWidth.value = window.innerWidth;
+    if (viewportWidth.value < 1024) {
+        isDrawerOpen.value = false;
+    }
+    window.addEventListener('resize', onResize);
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', this.onResize);
+})
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

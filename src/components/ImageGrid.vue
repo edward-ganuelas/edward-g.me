@@ -6,11 +6,9 @@
             <button class="btn btn-primary sort" @click="setSort(sortChoices.old)"><i class="fas fa-sort-numeric-up"></i> {{$t('imageGrid.old')}}</button>
             <button class="btn btn-primary sort" @click="setSort(sortChoices.new)"><i class="fas fa-sort-numeric-up"></i> {{$t('imageGrid.new')}}</button>
             <button class="btn btn-primary sort" @click="setSort(sortChoices.random)"><i class="fas fa-random"></i> {{$t('imageGrid.random')}}</button>
-            <masonry :cols="2" :gutter="0">
-                <div v-for="image of grid" v-bind:key="image['index']">
-                    <img v-img="{'title': image['title']}" :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
-                </div>
-            </masonry>
+            <div v-for="image of grid" v-bind:key="image['index']">
+                <img :src="image['url']" :alt="image['title']" v-bind:class="image['orientation']" />
+            </div>
         </div>
         <div class="col-12">
             <button class="btn btn-primary loadMore" :disabled="this.gridSize == this.numberOfImages" @click="addGridSize">{{$t('imageGrid.seeMore')}} ({{remainingImages}})</button>
@@ -20,6 +18,7 @@
 
 <script>
 import _ from 'lodash';
+import { event } from 'vue-gtag';
 
 const DEFAULT_SORT = 'old';
 
@@ -49,7 +48,7 @@ export default {
             if (this.gridSize > this.numberOfImages) {
                 this.gridSize = this.numberOfImages;
             }
-            this.$ga.event({
+            event('click', {
                 eventCategory: `Load More ${this.toggle}`,
                 eventAction: 'click',
             });
@@ -86,7 +85,7 @@ export default {
     },
     watch: {
         sort(newVal){
-            this.$ga.event({
+            event('switch', {
                 eventCategory: `Switch Sort to ${newVal} from ${this.title}`,
                 eventAction: 'Switch',
             });

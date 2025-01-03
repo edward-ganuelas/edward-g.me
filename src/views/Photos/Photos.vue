@@ -32,6 +32,7 @@
 import ImageGrid from '@/components/ImageGrid.vue';
 import client from '@/directus';
 import _ from 'lodash';
+import { event } from 'vue-gtag';
 
 const DEFAULT_TOGGLE = 'bnw';
 
@@ -56,7 +57,7 @@ export default {
     },
     methods:{
         instagram() {
-            this.$ga.event({
+            event('toggle', {
                 eventCategory: `Instagram`,
                 eventAction: 'click'
             });
@@ -70,7 +71,7 @@ export default {
     },
     watch:{
         toggle(newVal) {
-            this.$ga.event({
+            event('toggle', {
                 eventCategory: `Toggle ${newVal}`,
                 eventAction: 'click'
             });
