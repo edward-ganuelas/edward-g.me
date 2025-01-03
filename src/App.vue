@@ -13,9 +13,12 @@ import HeaderComponent from '@/components/Header.vue';
 import MainNav from '@/components/MainNav.vue';
 import _ from 'lodash';
 // import {sync} from 'vuex-pathify';
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useApplicationStore } from './store/useApplicationStore';
 
-const darkTheme = ref(false);
+const store = useApplicationStore()
+
+const darkTheme = computed(() => store.isDarkTheme )
 </script>
 
 <style lang="scss">
@@ -39,7 +42,7 @@ body {
     }
 }
 body, #app{
-    &.dark-theme, &.dark{
+    .dark-theme, .dark{
         background-color: #010617;
         color: #e6e4e4;
         a{
