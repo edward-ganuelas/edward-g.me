@@ -2,13 +2,17 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
-    colors: {
-      'orange': '#ff9900',
-      'buttonGrey': '#C0C0C0',
-      'cardBackgroundColor': '#D3D3D3',
-      'blue': '#0066FF'
-    }
+    extend: {
+      colors: {
+        'orange': '#ff9900',
+        'buttonGrey': '#C0C0C0',
+        'cardBackgroundColor': '#D3D3D3',
+        'blue': '#0066FF'
+      },
+      fontFamily: {
+        display: '"Questrial", sans-serif'
+      }
+    },
   },
   plugins: [],
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],

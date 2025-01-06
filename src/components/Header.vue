@@ -1,22 +1,18 @@
 <template>
-    <div class="header bg-blue rounded-bl-md rounded-br-md lg:h-48 lg:pb-18px">
+    <div class="header bg-blue pb-4">
         <div class="container mx-auto">
-            <div class="grid">
-                <div class="container">
-                    <div class="row">
-                        <div class="grid">
-                            <h1 class="text-3xl">
-                                <router-link to="/">
-                                    <svg width="200" height="60">
-                                        <text x="0" y="40">edward-g.me</text>
-                                    </svg>
-                                </router-link>
-                                <span>{{content.subHero}}</span>
-                            </h1>
-                            <tag-line :tagLine=selectedTagLine />
-                        </div>
-                    </div>
-                </div>
+            <div class="container">
+                <h1 class="text-3xl">
+                    <router-link to="/">
+                        <svg width="200" height="60">
+                            <text x="0" y="40">edward-g.me</text>
+                        </svg>
+                    </router-link>
+                    <span class="text-base font-normal">{{content.subHero}}</span>
+                </h1>
+            </div>
+            <div class="container">
+                <tag-line :tagLine=selectedTagLine />
             </div>
         </div>
     </div>
@@ -28,6 +24,7 @@ import _ from 'lodash';
 import TagLine from '@/components/TagLine.vue';
 import { ref, onBeforeMount } from 'vue';
 import { useRouter } from 'vue-router'
+import MainNav from '@/components/MainNav.vue';
 
 const router = useRouter()
 
@@ -83,13 +80,13 @@ h1 {
         color: #212529;
     }
     span{
-        font-size: 1rem;
-        font-family: "Questrial", sans-serif;
-        font-weight: normal;
-        display: block;
+        // font-size: 1rem;
+        // font-family: "Questrial", sans-serif;
+        // font-weight: normal;
+        // display: block;
     }
     @media (min-width: 1024px) {
-        margin-top: 24px;
+        // margin-top: 24px;
     }
 }
 .header {

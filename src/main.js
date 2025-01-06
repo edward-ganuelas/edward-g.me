@@ -6,6 +6,7 @@ import router from './router'
 import i18n from '@/copy/site-copy';
 import VueGtagPlugin from 'vue-gtag';
 import { createPinia } from 'pinia';
+import 'iine/style.css';
 import './index.css';
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto nav bg-orange">
+    <div class="container nav mx-auto">
         <div v-if="shouldShowHamburgerMenu" class="row">
             <div class="col-6 offset-6 hamburger">
                 <button @click="toggleDrawer">
@@ -10,10 +10,10 @@
         </div>
         <div v-if="isDrawerOpen" class="row">
             <div class="col-12">
-                <nav>
+                <nav class="rounded-2xl bg-orange mt-8 mb-8 drop-shadow-lg">
                     <ul>
                         <li>
-                            <router-link to="/">
+                            <router-link to="/" class="blue">
                                 <span class='ico'><i class='fas fa-home'></i></span>
                                 {{$t('nav.home')}}
                             </router-link>
@@ -117,9 +117,9 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 nav {
     // background-color: #ff9900;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    border-radius: 15px;
+    // margin-top: 8px;
+    // margin-bottom: 8px;
+    // border-radius: 15px;
     ul {
     display: flex;
     width: 100%;

@@ -29,8 +29,10 @@
             </div>
         </div>
         <div class="row" v-if="disableBlog === true">
-            <div class="col-12 blog-disabled">
-                <p>The blog is currently disabled</p>
+            <div class="container mx-auto">
+                <div class="col-12 blog-disabled">
+                    <Ii-paragraph>The blog is currently disabled</Ii-Paragraph>
+                </div>
             </div>
         </div>
     </div>
@@ -43,6 +45,7 @@ import Spinner from '@/components/Spinner.vue';
 import moment from 'moment';
 import _ from 'lodash';
 import client from '@/directus';
+import { IiParagraph } from 'iiNe';
 
 import { ref, computed, onBeforeMount } from 'vue';
 

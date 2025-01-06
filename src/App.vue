@@ -2,7 +2,7 @@
     <div v-bind:class="[{'dark-theme': darkTheme}]">
         <header-component ref="header" />
         <main-nav />
-        <div id="page-wrap" class="content-wrapper">
+        <div id="page-wrap" class="content-wrapper container mx-auto">
             <router-view />
         </div>
     </div>

@@ -17,6 +17,7 @@
     "axios": "0.21",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
+    "iine": "git+https://github.com/edward-ganuelas/iiNe#9daae32ebc5c41d44e5ed4625fc1f4a4cbb9c203",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
     "pinia": "^2.3.0",
