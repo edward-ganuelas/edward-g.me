@@ -13,14 +13,14 @@
                 <nav>
                     <ul class="flex flex-row flex-wrap size-full p-4">
                         <li class="flex-auto">
-                            <router-link to="/" class="text-blue">
-                                <span class='ico'><i class='fas fa-home'></i></span>
+                            <router-link to="/" class="text-blue text-center block">
+                                <span class='ico block'><i class='fas fa-home'></i></span>
                                 {{$t('nav.home')}}
                             </router-link>
                         </li>
                         <li class="flex-auto">
-                            <router-link to="/about" class="text-blue">
-                                <span class='ico'><i class="fas fa-info-circle"></i></span>
+                            <router-link to="/about" class="text-blue text-center block">
+                                <span class='ico block'><i class="fas fa-info-circle"></i></span>
                                 {{$t('nav.about')}}
                             </router-link>
                         </li>
@@ -37,32 +37,32 @@
                             </router-link>
                         </li> -->
                         <li class="flex-auto">
-                            <router-link to="/music" class="text-blue">
-                                <span class="ico"><i class="fas fa-music"></i></span>
+                            <router-link to="/music" class="text-blue text-center block">
+                                <span class="ico block"><i class="fas fa-music"></i></span>
                                 {{$t('nav.music')}}
                             </router-link>
                         </li>
                         <li class="flex-auto">
-                            <router-link to="/gaming" class="text-blue">
-                                <span class="ico"><i class="fas fa-gamepad"></i></span>
+                            <router-link to="/gaming" class="text-blue text-center block">
+                                <span class="ico block"><i class="fas fa-gamepad"></i></span>
                                 {{$t('nav.gaming')}}
                             </router-link>
                         </li>
                         <li class="flex-auto">
-                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')" class="text-blue">
-                            <span class='ico'><i class='fab fa-linkedin'></i></span>
+                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')" class="text-blue text-center block">
+                            <span class='ico block'><i class='fab fa-linkedin'></i></span>
                                 Linkedin
                             </a>
                         </li>
                         <li class="flex-auto">
-                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')" class="text-blue">
-                                <span class='ico'><i class='fab fa-github'></i></span>
+                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')" class="text-blue text-center block">
+                                <span class='ico block'><i class='fab fa-github'></i></span>
                                 Github
                             </a>
                         </li>
                         <li class="flex-auto">
-                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')" class="text-blue">
-                                <span class='ico'><i class="fas fa-sun"></i></span>
+                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')" class="text-blue text-center block">
+                                <span class='ico block'><i class="fas fa-sun"></i></span>
                                 EightRayedSun
                             </a>
                         </li>
@@ -118,18 +118,11 @@ onBeforeUnmount(() => {
 nav {
     ul {
     li {
-        a {
-            text-align: center;
-            display: block;
-            span {
-                display: block;
-            }
-        }
         @media (min-width: 1024px) {
             display: inline;
             width: auto;
         }
-        }
+    }
     }
 }
 .hamburger{
