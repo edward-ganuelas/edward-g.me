@@ -7,7 +7,7 @@
                         <div class="grid">
                             <h1 class="text-3xl">
                                 <router-link to="/">
-                                    <svg width="200" height="60">
+                                    <svg width="100%" height="60">
                                         <text x="0" y="40">edward-g.me</text>
                                     </svg>
                                 </router-link>
