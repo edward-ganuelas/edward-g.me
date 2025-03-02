@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto nav bg-orange">
+    <div class="container mx-auto nav bg-orange rounded-2xl">
         <div v-if="shouldShowHamburgerMenu" class="row">
             <div class="col-6 offset-6 hamburger">
                 <button @click="toggleDrawer">
@@ -13,55 +13,55 @@
                 <nav>
                     <ul>
                         <li>
-                            <router-link to="/">
+                            <router-link to="/" class="text-blue">
                                 <span class='ico'><i class='fas fa-home'></i></span>
                                 {{$t('nav.home')}}
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/about">
+                            <router-link to="/about" class="text-blue">
                                 <span class='ico'><i class="fas fa-info-circle"></i></span>
                                 {{$t('nav.about')}}
                             </router-link>
                         </li>
                         <!-- <li>
-                            <router-link to="/blog">
+                            <router-link to="/blog" class="text-blue">
                                 <span class='ico'><i class="fas fa-file-alt"></i></span>
                                     Blog
                             </router-link>
                         </li> -->
                         <!-- <li>
-                            <router-link to="/photography">
+                            <router-link to="/photography" class="text-blue">
                                 <span class='ico'><i class="fas fa-camera-retro"></i></span>
                                 {{$t('nav.photography')}}
                             </router-link>
                         </li> -->
                         <li>
-                            <router-link to="/music">
+                            <router-link to="/music" class="text-blue">
                                 <span class="ico"><i class="fas fa-music"></i></span>
                                 {{$t('nav.music')}}
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="/gaming">
+                            <router-link to="/gaming" class="text-blue">
                                 <span class="ico"><i class="fas fa-gamepad"></i></span>
                                 {{$t('nav.gaming')}}
                             </router-link>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
+                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')" class="text-blue">
                             <span class='ico'><i class='fab fa-linkedin'></i></span>
                                 Linkedin
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')">
+                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')" class="text-blue">
                                 <span class='ico'><i class='fab fa-github'></i></span>
                                 Github
                             </a>
                         </li>
                         <li>
-                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">
+                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')" class="text-blue">
                                 <span class='ico'><i class="fas fa-sun"></i></span>
                                 EightRayedSun
                             </a>
