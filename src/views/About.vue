@@ -3,16 +3,16 @@
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
                 <!-- <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" /> -->
-                <h2>{{$t('about.header')}}</h2>
+                <h2 class="mb-4">{{$t('about.header')}}</h2>
                 <p>A little something, something</p>
             </div>
         </div>
-        <div class="row sub-nav">
+        <div class="row sub-nav nav">
             <div class="col-12">
-                <nav class="container">
-                    <ul class="row">
-                        <li class="col">
-                            <router-link to="/about/">
+                <nav class="container mx-auto bg-orange mt-2 mb-2 rounded-2xl">
+                    <ul class="flex flex-row size-full p-4 divide-x divide-blue">
+                        <li class="flex-auto">
+                            <router-link to="/about/" class="text-blue text-center block">
                                 <span class="ico"><i class="fas fa-user"></i></span>
                                 {{$t('about.nav.bio')}}
                             </router-link>
@@ -23,8 +23,8 @@
                                     {{$t('about.nav.facts')}}
                             </router-link>
                         </li> -->
-                        <li class="col">
-                            <router-link to="/about/about-site">
+                        <li class="flex-auto">
+                            <router-link to="/about/about-site" class="text-blue text-center block">
                                 <span class="ico"><i class="fas fa-asterisk"></i></span>
                                 {{$t('about.nav.aboutSite')}}
                             </router-link>
@@ -74,9 +74,7 @@ const head = {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.container {
-    margin-top: 18px;
-}
+
 img {
     &.profile {
         width: 120px;
@@ -86,32 +84,5 @@ img {
         margin-bottom: 16px;
     }
 }
-h2,
-h3 {
-    margin-bottom: 20px;
-}
-ul {
-    padding-left: 16px;
-    li {
-        margin-bottom: 8px;
-    }
-}
-nav ul {
-    li {
-    list-style-type: none;
-    border-right: 1px solid #0066ff;
-    text-align: center;
-    &:last-of-type {
-        border-right: none;
-    }
-    a {
-        &.router-link-exact-active {
-        text-decoration: none;
-        color: #212529;
-        cursor: default;
-        }
-    }
-    
-    }
-}
+
 </style>
