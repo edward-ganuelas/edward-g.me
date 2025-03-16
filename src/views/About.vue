@@ -14,7 +14,7 @@
                         <li v-for="item in subNavItems" :key="item.to" class="flex-auto">
                             <router-link 
                                 :to="item.to" 
-                                class="text-blue text-center block">
+                                class="text-center block">
                                 <span class="ico"><i :class="item.icon"></i></span>
                                 {{$t(item.text)}}
                             </router-link>
