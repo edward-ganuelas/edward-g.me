@@ -11,22 +11,12 @@
             <div class="col-12">
                 <nav class="container mx-auto bg-orange mt-2 mb-2 rounded-2xl">
                     <ul class="flex flex-row size-full p-4 divide-x divide-blue">
-                        <li class="flex-auto">
-                            <router-link to="/about/" class="text-blue text-center block">
-                                <span class="ico"><i class="fas fa-user"></i></span>
-                                {{$t('about.nav.bio')}}
-                            </router-link>
-                        </li>
-                        <li class="flex-auto" v-if="false">
-                            <router-link to="/about/facts" class="text-blue text-center block">
-                                <span class="icon"><i class="fas fa-info-circle"></i></span>
-                                    {{$t('about.nav.facts')}}
-                            </router-link>
-                        </li>
-                        <li class="flex-auto">
-                            <router-link to="/about/about-site" class="text-blue text-center block">
-                                <span class="ico"><i class="fas fa-asterisk"></i></span>
-                                {{$t('about.nav.aboutSite')}}
+                        <li v-for="item in subNavItems" :key="item.to" class="flex-auto">
+                            <router-link 
+                                :to="item.to" 
+                                class="text-blue text-center block">
+                                <span class="ico"><i :class="item.icon"></i></span>
+                                {{$t(item.text)}}
                             </router-link>
                         </li>
                     </ul>
@@ -42,6 +32,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 const meta =  {
     title: 'About',
     description: 'Personal Site of Edward Ganuelas',
@@ -70,6 +61,33 @@ const head = {
         ];
     }
 };
+
+const SUB_NAV_ITEMS = Object.freeze([
+    {
+        to: '/about/',
+        icon: 'fas fa-user',
+        text: 'about.nav.bio',
+        enabled: true
+    },
+    {
+        to: '/about/facts',
+        icon: 'fas fa-info-circle',
+        text: 'about.nav.facts',
+        enabled: false
+    },
+    {
+        to: '/about/about-site',
+        icon: 'fas fa-asterisk',
+        text: 'about.nav.aboutSite',
+        enabled: true
+    },
+    
+])
+
+const subNavItems = computed(() => {
+    return SUB_NAV_ITEMS.filter(item => item.enabled);
+})
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
