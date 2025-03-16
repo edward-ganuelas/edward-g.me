@@ -1,5 +1,5 @@
 <template>
-    <div class="container nav">
+    <div class="container mx-auto nav bg-orange rounded-2xl mt-2 mb-2">
         <div v-if="shouldShowHamburgerMenu" class="row">
             <div class="col-6 offset-6 hamburger">
                 <button @click="toggleDrawer">
@@ -11,58 +11,58 @@
         <div v-if="isDrawerOpen" class="row">
             <div class="col-12">
                 <nav>
-                    <ul>
-                        <li>
-                            <router-link to="/">
-                                <span class='ico'><i class='fas fa-home'></i></span>
+                    <ul class="flex flex-row flex-wrap size-full p-4">
+                        <li class="flex-auto">
+                            <router-link to="/" class="text-blue text-center block">
+                                <span class='ico block'><i class='fas fa-home'></i></span>
                                 {{$t('nav.home')}}
                             </router-link>
                         </li>
-                        <li>
-                            <router-link to="/about">
-                                <span class='ico'><i class="fas fa-info-circle"></i></span>
+                        <li class="flex-auto">
+                            <router-link to="/about" class="text-blue text-center block">
+                                <span class='ico block'><i class="fas fa-info-circle"></i></span>
                                 {{$t('nav.about')}}
                             </router-link>
                         </li>
-                        <!-- <li>
-                            <router-link to="/blog">
+                        <!-- <li class="flex-auto">
+                            <router-link to="/blog" class="text-blue">
                                 <span class='ico'><i class="fas fa-file-alt"></i></span>
                                     Blog
                             </router-link>
                         </li> -->
-                        <!-- <li>
-                            <router-link to="/photography">
+                        <!-- <li class="flex-auto">
+                            <router-link to="/photography" class="text-blue">
                                 <span class='ico'><i class="fas fa-camera-retro"></i></span>
                                 {{$t('nav.photography')}}
                             </router-link>
                         </li> -->
-                        <li>
-                            <router-link to="/music">
-                                <span class="ico"><i class="fas fa-music"></i></span>
+                        <li class="flex-auto">
+                            <router-link to="/music" class="text-blue text-center block">
+                                <span class="ico block"><i class="fas fa-music"></i></span>
                                 {{$t('nav.music')}}
                             </router-link>
                         </li>
-                        <li>
-                            <router-link to="/gaming">
-                                <span class="ico"><i class="fas fa-gamepad"></i></span>
+                        <li class="flex-auto">
+                            <router-link to="/gaming" class="text-blue text-center block">
+                                <span class="ico block"><i class="fas fa-gamepad"></i></span>
                                 {{$t('nav.gaming')}}
                             </router-link>
                         </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')">
-                            <span class='ico'><i class='fab fa-linkedin'></i></span>
+                        <li class="flex-auto">
+                            <a href="https://www.linkedin.com/in/epganuelas/" target="_blank" rel="noopener noreferrer" @click="tracking('linkedin')" class="text-blue text-center block">
+                            <span class='ico block'><i class='fab fa-linkedin'></i></span>
                                 Linkedin
                             </a>
                         </li>
-                        <li>
-                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')">
-                                <span class='ico'><i class='fab fa-github'></i></span>
+                        <li class="flex-auto">
+                            <a href="https://github.com/edward-ganuelas" target="_blank" rel="noopener noreferrer" @click="tracking('github')" class="text-blue text-center block">
+                                <span class='ico block'><i class='fab fa-github'></i></span>
                                 Github
                             </a>
                         </li>
-                        <li>
-                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')">
-                                <span class='ico'><i class="fas fa-sun"></i></span>
+                        <li class="flex-auto">
+                            <a href="https://eightrayedsun.com/" target="_blank" rel="noopener noreferrer" @click="tracking('eightrayedsun')" class="text-blue text-center block">
+                                <span class='ico block'><i class="fas fa-sun"></i></span>
                                 EightRayedSun
                             </a>
                         </li>
@@ -116,33 +116,14 @@ onBeforeUnmount(() => {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 nav {
-    background-color: #ff9900;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    border-radius: 15px;
     ul {
-    display: flex;
-    width: 100%;
-    list-style-type: none;
-    padding: 16px;
-    flex-direction: row;
-    flex-wrap: wrap;
     li {
-        flex: 1 0 auto;
-        width: 100%;
-        a {
-            text-align: center;
-            display: block;
-            span {
-                display: block;
-            }
-        }
         @media (min-width: 1024px) {
             display: inline;
             width: auto;
         }
     }
-}
+    }
 }
 .hamburger{
     padding: 18px;

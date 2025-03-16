@@ -2,7 +2,7 @@
     <div v-bind:class="[{'dark-theme': darkTheme}]">
         <header-component ref="header" />
         <main-nav />
-        <div id="page-wrap" class="content-wrapper">
+        <div id="page-wrap" class="content-wrapper container mx-auto">
             <router-view />
         </div>
     </div>
@@ -22,11 +22,6 @@ const darkTheme = computed(() => store.isDarkTheme )
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Questrial|Raleway");
-@import "./node_modules/bootstrap/scss/bootstrap-reboot.scss";
-@import "./node_modules/bootstrap/scss/bootstrap-grid.scss";
-@import "./node_modules/bootstrap/scss/_buttons.scss";
-@import "./node_modules/bootstrap/scss/_button-group.scss";
-@import "./node_modules/bootstrap/scss/_card.scss";
 @import "@/styles/variables.scss";
 html,
 body {
