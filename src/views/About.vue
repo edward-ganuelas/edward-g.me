@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-8 subIntro">
-                <!-- <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" /> -->
+                <img src="../../assets/profile.jpg" class="profile" alt="Edward Ganuelas" v-if="false" />
                 <h2 class="mb-4">{{$t('about.header')}}</h2>
                 <p>A little something, something</p>
             </div>
@@ -17,12 +17,12 @@
                                 {{$t('about.nav.bio')}}
                             </router-link>
                         </li>
-                        <!-- <li class="col">
-                            <router-link to="/about/facts">
+                        <li class="flex-auto" v-if="false">
+                            <router-link to="/about/facts" class="text-blue text-center block">
                                 <span class="icon"><i class="fas fa-info-circle"></i></span>
                                     {{$t('about.nav.facts')}}
                             </router-link>
-                        </li> -->
+                        </li>
                         <li class="flex-auto">
                             <router-link to="/about/about-site" class="text-blue text-center block">
                                 <span class="ico"><i class="fas fa-asterisk"></i></span>
