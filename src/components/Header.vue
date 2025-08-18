@@ -1,18 +1,22 @@
 <template>
     <div class="header bg-blue pb-4">
         <div class="container mx-auto">
-            <div class="container">
-                <h1 class="text-3xl">
-                    <router-link to="/">
-                        <svg width="200" height="60">
-                            <text x="0" y="40">edward-g.me</text>
-                        </svg>
-                    </router-link>
-                    <span class="text-base font-normal">{{content.subHero}}</span>
-                </h1>
-            </div>
-            <div class="container">
-                <tag-line :tagLine=selectedTagLine />
+            <div class="grid">
+                <div class="container">
+                    <div class="row">
+                        <div class="grid">
+                            <h1 class="text-3xl">
+                                <router-link to="/">
+                                    <svg width="100%" height="60">
+                                        <text x="0" y="40">edward-g.me</text>
+                                    </svg>
+                                </router-link>
+                                <span>{{content.subHero}}</span>
+                            </h1>
+                            <tag-line :tagLine=selectedTagLine />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
