@@ -2064,10 +2064,10 @@ vue-eslint-parser@^9.4.3:
     lodash "^4.17.21"
     semver "^7.3.6"
 
-vue-gtag@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/vue-gtag/-/vue-gtag-2.1.0.tgz#95a99c19d53da8576f6d8ba915090044f6819754"
-  integrity sha512-lnEiHtNkw37lUug36n023uYWRaFz7s2Wk12G+hdzrTKwWwTBuq0Mcd5e0zH65aKPZRWT+51C6LUHZShpTPiMng==
+vue-gtag@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/vue-gtag/-/vue-gtag-3.6.2.tgz#9d60573037d9ddc0ca34b9d2f0989abcf0e57384"
+  integrity sha512-6uBjncUSVc5Jal/Bg11bnGYL9sezor+GlvcJoInK+DAhPDpHMh8D2S6IbHTSAsKSaUFSuCgFNWxxayFvYItcXg==
 
 vue-i18n@11:
   version "11.1.2"
